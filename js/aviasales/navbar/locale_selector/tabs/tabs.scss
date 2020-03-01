@@ -1,0 +1,84 @@
+@import './variables.scss';
+
+.tabs {
+  @include variable(color, --general-text-color, #4a4a4a);
+  @include variable(background-color, --general-menu-background, #fff);
+  width: 100%;
+  display: flex;
+  max-height: 100%;
+  flex-direction: column;
+
+  &__controls {
+    display: flex;
+    max-width: 100%;
+    @include variable(background-color, --general-menu-background, #fff);
+  }
+
+  &__control {
+    margin: 0;
+    padding: 10px;
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 1.5;
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.3s;
+    @include variable(background-color, --tabs-inactive-bg-color, #f6f9fa);
+    @include variable(border-bottom, --tabs-border, 1px solid #dfe5ec);
+    @include variable(border-right, --tabs-border, 1px solid #dfe5ec);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover:not(.--is-selected) {
+      cursor: pointer;
+      @include variable(background-color, --tabs-hover-bg-color, #e1f5fe);
+    }
+
+    &.--is-selected {
+      color: $brand-blue-color;
+      @include variable(background-color, --tabs-active-bg-color, transparent);
+      border-bottom-color: transparent;
+    }
+  }
+
+  &__control-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__control-subtitle {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include variable(color, --tabs-subtitle-color, #a0b0b9);
+  }
+
+  &__items {
+    flex: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    height: 100%;
+    padding: 10px 0;
+    overflow-y: auto;
+    display: none;
+
+    &.--is-visible {
+      display: block;
+    }
+  }
+}

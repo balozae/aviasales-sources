@@ -1,0 +1,60 @@
+@import 'utils/mixins';
+
+.locale-selector {
+  width: 100%;
+
+  &__control {
+    min-width: 50px;
+    height: 100%;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(225, 225, 225, 0.2);
+      outline: none;
+    }
+
+    &.--wide {
+      min-width: 82px;
+    }
+  }
+
+  &__label-text {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    &:not(:first-child) {
+      &::before {
+        content: '/';
+        display: inline-block;
+        padding: 0 5px;
+      }
+    }
+  }
+
+  &__control &__flag {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  @include for-small-and-less {
+    .tabs__controls {
+      position: sticky;
+      top: 50px;
+      z-index: 2;
+    }
+  }
+}

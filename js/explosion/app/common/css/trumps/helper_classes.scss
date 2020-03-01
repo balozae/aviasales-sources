@@ -1,0 +1,74 @@
+/*------------------------------------*\
+   #HELPER CLASSES
+\*------------------------------------*/
+
+.nowrap-text {
+  white-space: nowrap;
+}
+
+.overflow-hidden,
+.--overflow-hidden {
+  overflow: hidden;
+}
+
+/*
+ * Floats
+ */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  float: none;
+  margin: auto;
+}
+
+/*
+ * Alignment
+ */
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/*
+ * Clearfix
+ */
+.cf {
+  &::before,
+  &::after {
+    content: '.';
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.clearlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

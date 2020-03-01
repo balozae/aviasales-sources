@@ -1,0 +1,78 @@
+@import '../../mixins.scss';
+
+.seats-width-info {
+  padding-bottom: 10px;
+
+  &__schema {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .--unknown & {
+      opacity: 0.5;
+    }
+  }
+
+  &__schema-arrow {
+    width: 84px;
+    height: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+
+    svg {
+      width: 26px;
+      height: 5px;
+
+      path {
+        @include variable(fill, --schema-arrow-fill, #a0b0b9);
+      }
+    }
+  }
+
+  &__schema-view {
+    display: flex;
+    justify-content: space-between;
+    width: 84px;
+  }
+
+  &__schema-seat {
+    width: 26px;
+    height: 43px;
+    background: url('./images/seat_frontview.svg') no-repeat;
+
+    &:first-child,
+    &:last-child {
+      opacity: 0.3;
+    }
+  }
+
+  &__splitter {
+    @include variable(background-color, --seats-width-info-splitter-background-color, #a0b0b9);
+    position: relative;
+    margin-top: -8px;
+    height: 19px;
+    width: 1px;
+    align-self: flex-start;
+  }
+
+  &__value {
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .--unknown & {
+      margin-bottom: 0;
+      opacity: 0;
+    }
+
+    &-icon {
+      margin-right: 8px;
+    }
+  }
+}

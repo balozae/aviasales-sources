@@ -1,0 +1,144 @@
+@import 'utils/mixins';
+
+.filter-message {
+  position: relative;
+
+  &__container {
+    border-radius: 4px;
+    line-height: 20px;
+    // background-color: #fff;
+    @include variable(background-color, --general-block-color, #fff);
+    // background-image: linear-gradient(-180deg, #FFFFFF 0%, #F4F7F8 100%);
+    box-shadow: 0 1px 5px 0 rgba(#000, 0.15);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    font-size: 12px;
+    @include variable(color, --general-text-color, #4a4a4a);
+    padding: 24px;
+    padding-left: 122px;
+    text-align: left;
+
+    .filter-message__icon {
+      background-image: url('../../components/product_filter_hint/images/help.svg');
+    }
+
+    .filter-message__description {
+      max-width: 360px;
+    }
+
+    .filter-message__preroll-trigger {
+      margin-top: 25px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    @include variable(color, --general-text-color, #4a4a4a);
+    margin: 0 0 10px;
+  }
+
+  &__description {
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 62px;
+    height: 62px;
+    display: block;
+    background-repeat: no-repeat;
+  }
+
+  &__preroll-trigger {
+    height: 47px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ff6d00;
+    border-radius: 5px;
+    padding: 8px 20px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      background: #ff8a32;
+      box-shadow: 0 1px 0 0 #f2651d, 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      background: #ff6d00;
+      box-shadow: 0 1px 0 0 #d64d08, 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__links-list {
+    margin-top: 10px;
+  }
+
+  &__links-item {
+    white-space: nowrap;
+    padding-right: 20px;
+    display: inline-block;
+
+    .js-trigger-filter {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #2cbae3;
+      border-bottom: 1px dashed #00acde;
+      text-decoration: none;
+
+      &:hover {
+        color: #ff6200;
+        border-bottom-color: #ff6200;
+      }
+    }
+
+    .js-reset-filter {
+      padding-left: 5px;
+
+      div {
+        margin-bottom: -4px;
+      }
+    }
+  }
+
+  a {
+    color: #00ade2;
+    text-decoration: none;
+  }
+
+  @include for-medium-and-less {
+    &__icon {
+      left: 24px;
+      top: 24px;
+    }
+
+    &__container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+
+    &__icon {
+      display: none;
+    }
+  }
+}

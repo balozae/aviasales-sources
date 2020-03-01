@@ -1,0 +1,43 @@
+var map = {
+	"./favorites_en.jp2": 2084,
+	"./favorites_en@2x.jp2": 1389,
+	"./favorites_ru.jp2": 2085,
+	"./favorites_ru@2x.jp2": 1390,
+	"./hotels_en.jp2": 2086,
+	"./hotels_en@2x.jp2": 1391,
+	"./hotels_ru.jp2": 2087,
+	"./hotels_ru@2x.jp2": 1392,
+	"./profile_en.jp2": 2088,
+	"./profile_en@2x.jp2": 1393,
+	"./profile_ru.jp2": 2089,
+	"./profile_ru@2x.jp2": 1394,
+	"./search_en.jp2": 2090,
+	"./search_en@2x.jp2": 1395,
+	"./search_ru.jp2": 2091,
+	"./search_ru@2x.jp2": 1396,
+	"./travel_en.jp2": 2092,
+	"./travel_en@2x.jp2": 1397,
+	"./travel_ru.jp2": 2093,
+	"./travel_ru@2x.jp2": 1398
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 2083;

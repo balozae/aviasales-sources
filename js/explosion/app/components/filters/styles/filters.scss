@@ -1,0 +1,84 @@
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/susy';
+@import '../../../common/css/base/mixins';
+@import '../../../common/css/trumps/helper_classes';
+
+:root {
+  --mobile-reset-button-background: #ffffff80;
+}
+
+.--night {
+  --mobile-reset-button-background: #1e3c5380;
+}
+
+.filters {
+  width: 100%;
+  @include variable(background-color, --general-menu-background, #ffffff);
+  @include variable(border, --general-block-border, none);
+  position: static;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+
+  &__item {
+    border-bottom: 1px solid #eff1f4;
+    @include variable(border-bottom, --filter-header-border, 1px solid #eff1f4);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__reset-all-link {
+    display: block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 17px 0 20px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    color: $brand-blue-color;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0 0 3px 3px;
+
+    &:not(.is-disabled):hover {
+      @include variable(background-color, --filter-header-hover, #f1fcff);
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+      color: #a0b0b5;
+      opacity: 0.7;
+    }
+  }
+
+  &__reset-button {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+  }
+
+  @include for-medium-and-less {
+    box-shadow: none;
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+
+    &__wrapper {
+      width: 100%;
+      min-width: 320px;
+      @include variable(background-color, --general-menu-background, #ffffff);
+    }
+
+    &__item {
+      &.--reset-all {
+        display: none;
+      }
+    }
+  }
+}

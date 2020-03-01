@@ -1,0 +1,118 @@
+@import 'utils/mixins';
+
+.avia-place-field {
+  position: relative;
+  padding-right: 2px;
+
+  &__input {
+    -webkit-appearance: none;
+    border: 0;
+    box-sizing: border-box;
+    height: 60px;
+    line-height: 2.25rem;
+    padding: 9px 18px;
+    position: relative;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: inset 0 0 0 2px transparent;
+    z-index: 9;
+    width: 100%;
+    border-radius: inherit;
+  }
+
+  &__swap-places {
+    position: absolute;
+    z-index: 26;
+    top: 50%;
+    right: -12px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      transition: transform 0.2s ease-in-out;
+      @include variable(background-color, --swap-places-background-color, #fff);
+    }
+  }
+
+  &__swap-places-arrow {
+    width: 13px;
+    height: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+
+    svg {
+      width: 13px;
+      height: 6px;
+      @include variable(fill, --swap-places-arrow-fill, #2196f3);
+    }
+
+    &.--top {
+      transform: rotate(0.5turn) translateX(0);
+    }
+
+    &.--bottom {
+      margin-top: 2px;
+    }
+  }
+
+  @include for-xsmall-only {
+    width: 100%;
+    padding: 0 0 2px;
+
+    &__swap-places {
+      top: 100%;
+      right: 15px;
+      transform: rotate(90deg) translateX(calc(-50% - 2px)); // NOTE: 2px padding bottom
+
+      &::after {
+        box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  @include for-small-and-medium {
+    width: 50%;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  @include for-large-and-more {
+    &__swap-places {
+      &:hover {
+        &::after {
+          transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .avia-place-field__swap-places-arrow {
+          &.--top {
+            transform: rotate(0.5turn) translateX(-2px);
+          }
+
+          &.--bottom {
+            transform: translateX(-2px);
+          }
+        }
+      }
+    }
+  }
+}

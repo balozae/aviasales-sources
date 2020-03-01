@@ -1,0 +1,53 @@
+@import 'utils/utils';
+
+html {
+  height: 100%;
+
+  &.--best-tickets {
+    overflow: hidden;
+  }
+}
+
+.body {
+  height: 100%;
+  position: relative;
+  overflow-y: scroll;
+  margin: 0;
+  background-color: rgb(234, 234, 234);
+  @include variable(color, --general-text-color, $black);
+  font-size: 13px;
+  @include opensans;
+  line-height: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: $screen-small;
+  touch-action: manipulation;
+
+  .--best-tickets & {
+    overflow: hidden;
+    position: relative;
+  }
+
+  &.--multiway.--best-tickets {
+    overflow-y: scroll;
+  }
+
+  &.is-scroll-forbidden {
+    overflow: hidden;
+  }
+
+  & .app-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+
+    & #explosion {
+      flex-grow: 1;
+      display: flex;
+    }
+  }
+}

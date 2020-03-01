@@ -1,0 +1,48 @@
+@import '../../mixins.scss';
+
+.value-range {
+  width: 100px;
+  margin: 0 auto;
+  position: relative;
+
+  &__label {
+    @include variable(color, --flight-amenities-color-text, #4a4a4a);
+    display: flex;
+    margin-bottom: 4px;
+
+    & span {
+      width: 1px;
+      font-weight: 600;
+      font-size: 10px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      margin-left: 33px;
+    }
+  }
+
+  &__range {
+    display: flex;
+    height: 3px;
+    background: linear-gradient(270deg, #8bc34a 0%, #a4ba41 57.24%, #f44336 100%);
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  &__point {
+    width: 9px;
+    height: 7px;
+    position: absolute;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+
+    svg {
+      path {
+        @include variable(fill, --value-range-point-fill, #a0b0b9);
+      }
+    }
+  }
+}

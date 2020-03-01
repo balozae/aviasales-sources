@@ -1,0 +1,88 @@
+@import 'utils/utils';
+
+.app-section {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  color: #4a4a4a;
+  margin: 0 auto;
+  padding: 100px 0 100px;
+  z-index: 1;
+  position: relative;
+
+  .services-promo__wrap + & {
+    margin-top: 15px;
+    border-top: 1px solid #dfe5ec;
+  }
+
+  &__title,
+  &__desc {
+    opacity: 0;
+
+    &.--fade-top {
+      animation: FadeTopIn 0.8s cubic-bezier(0.155, 0.027, 0.246, 0.978) forwards;
+    }
+  }
+
+  &__title {
+    font: 500 20px/30px 'Rubik', sans-serif;
+    margin: 0 auto 10px;
+    max-width: 280px;
+  }
+
+  &__desc {
+    font: 400 14px/21px 'Open sans', sans-serif;
+    margin: 0 auto;
+    max-width: 315px;
+    padding: 0 10px;
+  }
+
+  &__links {
+    margin-top: 20px;
+  }
+
+  @include for-small-and-more {
+    &__title,
+    &__desc {
+      max-width: 528px;
+    }
+  }
+
+  @include for-medium-and-more {
+    margin-top: 60px;
+
+    &.--en {
+      margin-top: 0;
+    }
+
+    &__title {
+      font-size: 30px;
+      line-height: 45px;
+      margin-bottom: 15px;
+      max-width: none;
+    }
+
+    &__desc {
+      font: 400 16px/26px 'Open sans', sans-serif;
+      margin-bottom: 30px;
+      max-width: 480px;
+    }
+
+    &__links {
+      margin-top: 30px;
+    }
+  }
+}
+
+@keyframes FadeTopIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

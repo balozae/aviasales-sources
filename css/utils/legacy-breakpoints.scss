@@ -1,0 +1,29 @@
+$breakpoint-mobile-landscape: 568px - 1px;
+$breakpoint-tablet: 768px - 1px;
+$breakpoint-desktop: 1134px - 1px;
+$breakpoint-big-desktop: 1699px;
+
+@mixin for-tablet {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// NOTE: it's a temporary solution
+@mixin for-mobile-landscape {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: $breakpoint-mobile-landscape) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop {
+  @media (min-width: $breakpoint-big-desktop) {
+    @content;
+  }
+}

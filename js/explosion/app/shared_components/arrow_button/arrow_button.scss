@@ -1,0 +1,54 @@
+@import 'utils/utils';
+
+:root {
+  --arrow-button-icon-color: #2196f3;
+  --arrow-button-bg-color: #fff;
+  --arrow-button-bg-color-hover: #2196f3;
+}
+
+.--night {
+  --arrow-button-icon-color: #fff;
+  --arrow-button-bg-color: #2196f3;
+  --arrow-button-bg-color-hover: #64b5f5;
+}
+
+.arrow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(63, 99, 128, 0.15);
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  transition: background-color 200ms ease, box-shadow 500ms ease-in;
+  color: #2196f3;
+
+  &:hover {
+    color: white;
+    background: #2196f3;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  &__icon {
+    line-height: 0;
+  }
+
+  &.--right {
+    .arrow-button__icon {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &.--with-sys {
+    @include variable(color, --arrow-button-icon-color, #fff);
+    @include variable(background-color, --arrow-button-bg-color, #fff);
+
+    &:hover {
+      color: white;
+      @include variable(background-color, --arrow-button-bg-color-hover, #2196f3);
+    }
+  }
+}

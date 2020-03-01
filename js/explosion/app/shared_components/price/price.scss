@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.price__code {
+  text-transform: uppercase; }
+
+.price::before, .price::after {
+  line-height: 1; }
+
+.price.--usd::before {
+  content: '$'; }
+
+.price.--eur::before {
+  content: '€'; }
+
+.price.--cny::before {
+  content: '¥'; }
+
+.price.--uah::before {
+  content: '₴'; }
+
+.price.--kzt::after {
+  content: '₸'; }
+
+.price.--byn::after {
+  content: 'Br'; }
+
+.price.--thb::after {
+  content: '฿'; }
+
+.price.--rub::after {
+  content: '₽'; }
+
+.price.--azn::after {
+  content: '₼'; }
+
+.price.--uzs:not(.--short)::after {
+  content: ' UZS'; }
+
+.price.--tzs:not(.--short)::after {
+  content: ' TSh'; }
+
+.price.--zar::after {
+  content: ' R'; }
+
+.price.--kes:not(.--short)::after {
+  content: ' KSh'; }
+
+.price.--kgs::after {
+  content: 'с';
+  text-decoration: underline; }
+
+.price.--rub::after, .price.--rub::before, .price.--uah::after, .price.--uah::before, .price.--azn::after, .price.--azn::before, .price.--kzt::after, .price.--kzt::before, .price.--thb::after, .price.--thb::before {
+  font-family: 'Currency Font';
+  font-weight: normal; }

@@ -1,0 +1,500 @@
+.of_main_form {
+  @include variable(color, --general-caption-color, #262626);
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .is-highlighted-ticket & {
+    z-index: 0;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__avia-places {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 40%;
+    flex-wrap: nowrap;
+    max-width: 470px;
+
+    @include for-small-and-medium {
+      flex-basis: 100%;
+      padding-bottom: 2px;
+      max-width: none;
+    }
+
+    @include for-xsmall-only {
+      flex-direction: column;
+      max-width: none;
+      flex-basis: 122px;
+      height: 122px;
+    }
+
+    .page_header-header.--compact & {
+      flex-basis: 33%;
+
+      @include for-large-and-more {
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+      }
+
+      @include for-small-and-medium {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  &__content {
+    height: 60px;
+    font-size: 15px;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+
+    .of_main_form--hotel & {
+      margin-bottom: 59px;
+
+      @include for-small-and-less {
+        margin-bottom: 49px;
+      }
+
+      @include for-xsmall-only {
+        margin-bottom: 20px;
+      }
+
+      .page_header-header.--compact & {
+        margin-bottom: 10px;
+      }
+    }
+
+    .page_header-header.--compact & {
+      @include for-large-and-more {
+        box-shadow: none;
+      }
+    }
+
+    .of_main_form--multiway & {
+      box-shadow: none;
+      flex-direction: column;
+      height: auto;
+    }
+
+    @include for-small-and-more {
+      margin-bottom: 22px;
+    }
+
+    @include for-small-and-medium {
+      flex-wrap: wrap;
+    }
+
+    @include for-medium-and-less {
+      height: 122px;
+    }
+
+    @include for-xsmall-only {
+      display: block;
+      margin-bottom: 12px;
+      height: auto;
+    }
+  }
+
+  &__bottom {
+    @extend %clearfix;
+    clear: both;
+    margin: -10px 0 18px;
+    line-height: 19px;
+    font-size: 15px;
+    transition: opacity 0.25s;
+
+    &.--multiway {
+      margin-top: 5px;
+    }
+
+    @include for-xsmall-only {
+      margin: -10px 0 3px;
+    }
+
+    @include for-xsmall-only {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 15px;
+    }
+
+    .page_header-header.--compact & {
+      margin-bottom: 0;
+
+      @include for-xsmall-only {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  &__additional-fields {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 20%;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+
+    .of_main_form--hotel & {
+      margin-left: 0;
+    }
+
+    @include for-medium-and-less {
+      max-width: 50%;
+    }
+
+    @include for-xsmall-only {
+      flex-basis: 60px;
+      height: 60px;
+      max-width: none;
+      display: block;
+      margin-left: 0;
+    }
+
+    .page_header-header.--compact & {
+      flex-basis: auto;
+      max-width: 416px;
+
+      @include for-small-and-medium {
+        flex-basis: 50%;
+        max-width: 50%;
+
+        .dropdown {
+          max-width: 50%;
+          flex-basis: 50%;
+          flex-shrink: 0;
+        }
+      }
+
+      @include for-large-and-more {
+        .dropdown {
+          width: 174px;
+          flex-grow: 0;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      @include for-xsmall-only {
+        max-width: none;
+      }
+    }
+
+    .dropdown {
+      flex-grow: 1;
+    }
+
+    @include for-small-and-medium {
+      flex-basis: 50%;
+    }
+
+    @include for-xsmall-only {
+      flex-basis: auto;
+    }
+  }
+
+  &__change_form_link {
+    color: #fff;
+    padding-left: 23px;
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @include after {
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      background: no-repeat 50% 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    @include for-small-and-less {
+      font-size: 14px;
+    }
+  }
+
+  &__hint_tooltip {
+    padding: 11px 16px;
+    font-size: 12px;
+    max-width: 150px;
+  }
+
+  &__hint_dismiss {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    background: url('./images/cross.svg') no-repeat center center;
+  }
+
+  &__submit-wrap {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+
+    & > div {
+      @include for-mobile {
+        width: 100%;
+      }
+    }
+
+    &.--common-search {
+      display: none;
+    }
+
+    .page_header-header.--compact &.--common-search {
+      margin-left: 10px;
+      display: block;
+      max-width: 200px;
+      overflow: hidden;
+      min-height: 60px;
+
+      @include for-small-and-medium {
+        margin-left: 2px;
+        flex-basis: 50%;
+        max-width: none;
+      }
+
+      @include for-xsmall-only {
+        display: none;
+      }
+    }
+
+    html.--serp &.--mobile-search,
+    .page_header-header.--compact &.--mobile-search {
+      display: none;
+
+      @include for-xsmall-only {
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .tooltips &__tooltip_container {
+    z-index: 99;
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 274px;
+    min-height: 59px;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    -webkit-appearance: none;
+    background-color: #f57c00;
+    box-shadow: 0 1px 0 0 #d84d00, 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+
+    &-text {
+      padding-bottom: 4px;
+    }
+
+    &:focus {
+      background-color: $of-color-form-orange;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      background-color: $of-color-form-submit-focus;
+      transition: all 0.3s;
+    }
+
+    &:active {
+      background: #ed7a18;
+      box-shadow: inset 0 1px 5px 0 rgba(0, 0, 0, 0.25), inset 0 2px 0 0 #d84d00;
+    }
+
+    @include after {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: 50% 50% / 100% no-repeat url('./images/plane.svg');
+      margin-left: 2px;
+    }
+
+    @include for-xsmall-only {
+      max-width: none;
+    }
+
+    .page_header-header.--compact & {
+      font-size: 18px;
+      font-weight: 400;
+
+      &::after {
+        display: none;
+      }
+
+      @include for-small-and-medium {
+        border-radius: 0 0 5px 0;
+        line-height: 2.4;
+        max-height: 59px;
+        overflow: hidden;
+      }
+    }
+
+    body.page--multiway & {
+      font-weight: 600;
+      font-size: 18px;
+      border-radius: 5px;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.of_main_form--avia {
+  .of_main_form__change_form_link {
+    &::after {
+      background-image: url('./images/icon-multi-way.svg');
+    }
+  }
+}
+
+.of_main_form--hotel {
+  .of_main_form__content {
+    border-radius: 5px;
+  }
+
+  .of_main_form__submit {
+    padding: 0;
+    text-indent: 0;
+    display: block;
+    text-align: center;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .of_form_part--date_range {
+    width: 350px;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    @include for-small-and-medium {
+      width: 50%;
+      border-radius: 0 0 0 5px;
+    }
+
+    @include for-xsmall-only {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+
+  .dropdown {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 206px;
+
+    .additional-fields {
+      width: 100%;
+    }
+
+    @include for-small-and-medium {
+      width: 100%;
+    }
+
+    @include for-xsmall-only {
+      width: 100%;
+    }
+  }
+}
+
+.of_main_form--multiway {
+  .of_main_form__content {
+    margin-bottom: 10px;
+  }
+
+  .of_main_form__submit {
+    // margin-bottom: 54px;
+
+    // NOTE: make room for banner on main page
+    .page--home & {
+      margin-bottom: 126px;
+    }
+  }
+
+  .of_main_form__multiway_bottom {
+    @extend %clearfix;
+    clear: both;
+    margin-bottom: 40px;
+    font-size: 15px;
+    position: relative;
+
+    @include for-small-and-more {
+      margin-bottom: 0;
+    }
+
+    @include for-xsmall-only {
+      margin-bottom: 0;
+    }
+
+    .additional-fields__label-hint {
+      display: none;
+    }
+  }
+
+  .of_main_form__change_form_link {
+    &::after {
+      background-image: url('./images/icon-round-trip.svg');
+    }
+  }
+}
+
+.of_main_form--insurance {
+  .of_main_form__submit {
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.of_main_form--cars {
+  .of_main_form__content {
+    border-radius: 3px;
+  }
+
+  .of_main_form__submit {
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}

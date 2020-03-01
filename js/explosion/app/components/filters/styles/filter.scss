@@ -1,0 +1,270 @@
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/susy';
+@import '../../../common/css/base/mixins';
+@import '../../../common/css/trumps/helper_classes';
+
+.filter {
+  position: relative;
+
+  &:first-child {
+    border-radius: 5px 5px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 5px 5px;
+  }
+
+  &__header {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    @include variable(color, --general-text-color, #4a4a4a);
+    margin: 0;
+    padding: 0 15px 0 36px;
+    line-height: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+
+    &::after {
+      display: inline-block;
+      height: 0;
+      width: 0;
+      border: 5px solid transparent;
+      // @include variable(border-top-color, --filter-header-border-color, #A0B0B9);
+      border-top-color: #a0b0b9;
+      transition: transform 0.2s ease;
+      transform-origin: 25% 45%;
+      transform: rotate(-90deg);
+      transform-origin: 25% 25%;
+      content: '';
+      position: absolute;
+      z-index: 1;
+      left: 21px;
+      top: 24px;
+
+      .is-opened & {
+        transform: rotate(0deg);
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      width: 50px;
+      @include variable(background-color, --general-menu-background, #fff);
+      @include variable(
+        background-image,
+        --filter-left-fader,
+        linear-gradient(to right, rgba(#fff, 0), rgba(#fff, 1) 15px)
+      );
+      // background: linear-gradient(to right, rgba(#fff, 0), rgba(#fff, 1) 15px);
+
+      .filter:first-child & {
+        border-radius: 0 5px 0 0;
+      }
+    }
+
+    &:hover {
+      @include variable(background-color, --filter-header-hover, #f1fcff);
+
+      &::before {
+        @include variable(background-color, --filter-header-before-background, #f1fcff);
+        @include variable(
+          background-image,
+          --filter-header-fader,
+          linear-gradient(to right, rgba(#f1fcff, 0), rgba(#f1fcff, 1) 15px)
+        );
+      }
+    }
+
+    .filter:first-child & {
+      border-radius: 5px 5px 0 0;
+    }
+
+    .--blue {
+      color: #00acde;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    .is-opened & {
+      display: block;
+    }
+  }
+
+  &__count {
+    color: #a4acaf;
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  &__reset {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    padding: 0 15px;
+    pointer-events: none;
+
+    .is-changed & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__reset-button {
+    transform: scale(0.2);
+    z-index: 1;
+
+    .is-changed & {
+      transform: none;
+    }
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    padding: 11px 16px;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__controls {
+    padding-bottom: 20px;
+  }
+
+  &__sub-title {
+    padding: 0 20px;
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &__description {
+    padding: 0 20px;
+    font-size: 12px;
+    margin: 3px 0 15px;
+  }
+
+  &__sub-sub-title {
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+
+    .is-hovered & {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  &__slider {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .is-hovered & {
+      position: relative;
+      z-index: 3;
+    }
+
+    &.--price {
+      padding-top: 5px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__route-origin {
+    margin-right: 5px;
+  }
+
+  &__route-destination {
+    white-space: normal;
+  }
+
+  &__route-plane-wrap {
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      @include variable(
+        background,
+        --direct-flight-plane,
+        url('../images/route-plane.svg') no-repeat
+      );
+      position: relative;
+      top: 3px;
+      margin-right: 5px;
+    }
+  }
+
+  &__segment {
+    padding-bottom: 1px;
+    position: relative;
+    @include variable(background-color, --white-none, #fff);
+    border-radius: 0 0 5px 5px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    transition: color 0.3s ease-out;
+    width: 100%;
+
+    &.is-hovered {
+      color: #fff;
+    }
+  }
+
+  &.is-highlighted {
+    animation: highlight-filter 1.5s ease-in-out;
+    animation-iteration-count: 3;
+    z-index: 3;
+  }
+
+  &.--stops-duration & {
+    &__content {
+      padding-top: 5px;
+    }
+  }
+
+  @include for-medium-and-less {
+    &:first-child,
+    &:last-child {
+      border-radius: 0;
+
+      .filter__header {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+@keyframes highlight-filter {
+  0% {
+    box-shadow: 0 0 0 3px transparent;
+  }
+
+  50% {
+    box-shadow: 0 0 0 3px $orange;
+  }
+
+  100% {
+    box-shadow: 0 0 0 3px transparent;
+  }
+}

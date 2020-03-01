@@ -1,0 +1,116 @@
+@import 'utils/utils';
+
+.main-offers {
+  max-width: 100%;
+  padding: 20px 10px 100px;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-bottom: 1px solid #dce2e4;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+
+    @include for-small-and-more {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include for-large-and-more {
+      max-width: 980px;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    text-align: center;
+    @include rubik;
+    font-size: 22px;
+    color: #4a4a4a;
+    line-height: 31px;
+    margin-bottom: 15px;
+    max-width: 250px;
+    margin: 0 auto 15px;
+
+    @include for-small-and-more {
+      max-width: none;
+    }
+
+    @include for-medium-and-more {
+      font-size: 24px;
+    }
+  }
+
+  &__sub-title {
+    font-size: 14px;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 22px;
+    max-width: 650px;
+    margin: 0 auto 60px;
+
+    @include for-medium-and-more {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  &__title-icon {
+    width: 28px;
+    height: 36px;
+    margin: auto;
+    background: url('../assets/images/main-offer/title-icon.svg') no-repeat;
+    background-size: cover;
+    margin-bottom: 17px;
+  }
+
+  &__footer {
+    margin-top: 40px;
+  }
+
+  &__all-offers {
+    width: 280px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: $brand-blue-color;
+    letter-spacing: 0.03125rem;
+    display: block;
+    text-align: center;
+    margin: auto;
+    border: 1px solid $brand-blue-color;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+    padding: 8px 0;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $brand-blue-color;
+      text-decoration: none;
+      color: #fff;
+
+      .main-offers__all-offers-icon {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  &__all-offers-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+
+    path {
+      transition: fill 0.3s;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@import '../../mixins.scss';
+@import 'utils/utils';
+
+.seats-layout {
+  // TODO: remove if unused
+  &__card {
+    position: relative;
+    width: 130px;
+    height: 195px;
+    border-radius: 5px;
+    border: 1px solid #22547e;
+    box-sizing: border-box;
+  }
+
+  // TODO: remove if unused
+  &__title {
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
+    @include rubik;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 90px;
+    height: 132px;
+    padding: 90px 10px 0;
+  }
+
+  &__airplane {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    svg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      path {
+        @include variable(fill, --seats-layout-airplane, #dfe5ec);
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  &__group {
+    display: flex;
+  }
+
+  &__seat {
+    border-radius: 1px;
+    background: #2196f3;
+
+    &.--large {
+      width: 10px;
+      height: 10px;
+      margin: 0 2px;
+    }
+
+    &.--medium {
+      width: 6px;
+      height: 6px;
+      margin: 0 2px;
+    }
+
+    &.--small {
+      width: 4px;
+      height: 4px;
+      margin: 0 1px;
+    }
+  }
+}

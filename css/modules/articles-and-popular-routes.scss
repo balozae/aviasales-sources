@@ -1,0 +1,12 @@
+.articles-and-popular-routes {
+  position: relative;
+  padding: 0 20px 20px;
+
+  @include for-large-and-more {
+    display: flex;
+    max-width: 980px;
+    margin: auto;
+    justify-content: space-between;
+    padding: 101px 0px 20px;
+  }
+}

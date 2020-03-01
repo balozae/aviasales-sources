@@ -1,0 +1,64 @@
+@import 'utils/utils';
+
+.calendar-navbar-b {
+  position: absolute;
+  top: 23px;
+  z-index: 1;
+  width: 100%;
+
+  &__button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: transparent;
+    color: #2196f3;
+    transition: color 0.3s;
+    cursor: default;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: -5px;
+      bottom: -5px;
+      right: -10px;
+    }
+
+    &.--prev {
+      position: absolute;
+      top: 50%;
+      left: 27px;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &.--disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &__tooltip-wrapper {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    right: 27px;
+    transform: translateY(-50%);
+  }
+
+  &__return-btn-tooltip {
+    max-width: 180px;
+    padding: 10px;
+  }
+
+  @include for-large-and-more {
+    &__button {
+      &:hover:not(.--disabled) {
+        color: #ff9d1b;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.calendar-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 47px;
+
+  &__wrap {
+    position: relative;
+    overflow: hidden;
+    color: #2196f3;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #ff9d1b;
+    }
+  }
+
+  &__text {
+    padding: 10px 15px;
+    line-height: 1.42;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__select {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

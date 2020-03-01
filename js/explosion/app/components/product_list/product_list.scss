@@ -1,0 +1,34 @@
+.product-list {
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  &__ad {
+    overflow: hidden;
+  }
+
+  .fade-enter,
+  .fade-appear {
+    opacity: 0.01;
+  }
+
+  .fade-enter-active,
+  .fade-appear-active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &.--mobile {
+    .product-list {
+      &__item {
+        margin-bottom: 10px;
+      }
+
+      &__ad {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

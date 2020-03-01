@@ -1,0 +1,70 @@
+@import 'mixins';
+
+@mixin size($size, $pin-size) {
+  width: $size;
+  height: $size;
+
+  svg {
+    width: $pin-size;
+    height: $pin-size;
+  }
+}
+
+.pin {
+  display: inline-block;
+  border: solid 1px;
+  cursor: pointer;
+  border-radius: 50%;
+  border-color: #a4b0b9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+
+  svg {
+    fill: #a4b0b9;
+  }
+
+  &:hover,
+  &.--partial {
+    @include variable(background-color, --ticket-pin-hover-background, #f1fcff);
+    border-color: #2196f3;
+
+    svg {
+      fill: #2196f3;
+    }
+  }
+
+  &.--active {
+    background-color: #2196f3;
+    border-color: #2196f3;
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &.--big {
+    @include size(20px, 10px);
+  }
+
+  &.--normal {
+    @include size(18px, 10px);
+  }
+
+  &.--small {
+    @include size(17px, 9px);
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 11px 16px;
+    width: 200px;
+    text-align: center;
+  }
+
+  svg {
+    margin: auto;
+  }
+}

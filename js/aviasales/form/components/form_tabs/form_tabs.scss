@@ -1,0 +1,204 @@
+@import 'utils/utils';
+
+.form-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 16;
+
+  .--serp .page_header-tabs &,
+  .page_header-header.--compact & {
+    display: none;
+  }
+
+  @include for-small-and-less {
+    .--serp .page_header-tabs &,
+    .page_header-header.--compact & {
+      display: flex;
+      margin: 10px 0 20px;
+    }
+
+    .--serp.--collapsed-form .page_header-tabs &,
+    .--collapsed-form .page_header-header.--compact & {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  .has-opened-popup & {
+    @include for-xsmall-only {
+      z-index: 0;
+    }
+  }
+
+  &.--show-on-sticky {
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.25s ease-out, opacity 0.1s;
+
+    @include for-medium-and-less {
+      display: none;
+    }
+  }
+
+  @include for-large-and-more {
+    body.is-sticky & {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    padding: 0;
+    display: inline-block;
+
+    &.--hotel {
+      position: relative;
+      margin-left: 1px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+        top: 0;
+        left: -1px;
+        bottom: 0;
+      }
+    }
+
+    &.--cars {
+      margin-left: 10px;
+      display: none;
+
+      .form-tabs__link {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: transparent;
+      }
+    }
+
+    &.--insurance {
+      margin-left: 10px;
+      display: none;
+
+      .form-tabs__link {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: transparent;
+      }
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+
+    &.--discount-label {
+      &::after {
+        content: '60%';
+        position: absolute;
+        right: -6px;
+        top: -6px;
+        border-radius: 12px;
+        display: inline-block;
+        @include rubik;
+        font-size: 10px;
+        color: #fff;
+        padding: 0 7px;
+        background: #f57c00;
+        z-index: 1;
+        line-height: 2em;
+        pointer-events: none;
+      }
+    }
+
+    @include for-small-and-more {
+      &.--cars {
+        display: inline-block;
+      }
+
+      &.--insurance {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__link {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    transition: 0.3s ease-in-out;
+    transition-property: border-color, background-color, color;
+    font-size: 12px;
+    text-align: center;
+    text-indent: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    width: auto;
+    border-radius: 50px;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.is-active {
+      @include variable(color, --tab-color, #2196f3);
+      background-color: #fff;
+      text-decoration: none;
+
+      .--cars &,
+      .--insurance & {
+        background-color: #fff;
+
+        &::after {
+          background: url('../../../../../assets/images/main_page/tabs-arrow-blue.svg');
+        }
+      }
+    }
+
+    .--avia &,
+    .--hotel & {
+      min-width: 129px;
+    }
+
+    .--avia & {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+
+    .--hotel & {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+      z-index: 1;
+    }
+
+    @include for-small-and-more {
+      .--cars &,
+      .--insurance & {
+        padding: 0 26px 0 15px;
+        transition-property: border-color, background-color;
+      }
+
+      .--cars &::after,
+      .--insurance &::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 50%;
+        margin-top: -4px;
+        right: 14px;
+        background: url('../../../../../assets/images/main_page/tabs-arrow.svg');
+      }
+    }
+  }
+}

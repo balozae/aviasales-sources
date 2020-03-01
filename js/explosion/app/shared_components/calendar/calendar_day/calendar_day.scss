@@ -1,0 +1,99 @@
+@import 'utils/utils';
+
+:root {
+  --calendar-day-color: #4a4a4a;
+  --calendar-day-hover-bg: #ccedff;
+  --calendar-day-hover-border: #2196f3;
+  --calendar-day-selected-bg: #e1f5fe;
+  --calendar-day-estimated-bg: #ccedff;
+  --calendar-day-bounded-color: #fff;
+  --calendar-day-bounded-bg: #2196f3;
+}
+
+.--night {
+  --calendar-day-color: #fff;
+  --calendar-day-hover-bg: #355064;
+  --calendar-day-hover-border: #2196f3;
+  --calendar-day-selected-bg: #2a465b;
+  --calendar-day-estimated-bg: #355064;
+  --calendar-day-bounded-color: #fff;
+  --calendar-day-bounded-bg: #2196f3;
+}
+
+.calendar-day {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  @include variable(color, --calendar-day-color, #4a4a4a);
+  min-height: 40px;
+  border: 1px solid transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    @include variable(background-color, --calendar-day-hover-bg, #ccedff);
+    @include variable(border-color, --calendar-day-hover-border, #2196f3);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  &__date {
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: 2px;
+    }
+  }
+
+  &__content {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  &__empty-child {
+    &::before {
+      content: '\a0';
+    }
+  }
+
+  &.--selected {
+    @include variable(background-color, --calendar-day-selected-bg, #e1f5fe);
+
+    &.--estimated {
+      @include variable(background-color, --calendar-day-estimated-bg, #ccedff);
+    }
+
+    &:hover {
+      @include variable(background-color, --calendar-day-estimated-bg, #ccedff);
+    }
+
+    &.--bounded {
+      border-radius: 3px;
+      @include variable(color, --calendar-day-bounded-color, #fff);
+      @include variable(background-color, --calendar-day-bounded-bg, #2196f3);
+    }
+  }
+
+  &.--estimated {
+    @include variable(background-color, --calendar-day-estimated-bg, #ccedff);
+  }
+
+  &.--disabled {
+    background-color: transparent;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @include for-small-and-less {
+    &__content {
+      font-size: 9px;
+    }
+  }
+}

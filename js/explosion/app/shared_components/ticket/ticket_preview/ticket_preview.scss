@@ -1,0 +1,128 @@
+@import 'mixins';
+
+.ticket-preview {
+  $ticket-preview-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+
+  position: relative;
+  width: 100%;
+  box-shadow: $ticket-preview-box-shadow;
+  border-radius: 5px;
+  padding: 15px;
+  @include variable(background-color, --ticket-background, #fff);
+
+  &.--brand-ticket {
+    padding-bottom: 40px;
+  }
+
+  .--serp &.--is-favorite {
+    box-shadow: $ticket-preview-box-shadow, 0px 0px 0px 1px #f57c00;
+  }
+
+  .--serp &.--has-subscription {
+    box-shadow: $ticket-preview-box-shadow, 0px 0px 0px 1px #2196f3;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+
+  &__carriers {
+    margin-left: auto;
+  }
+
+  &__body {
+    padding-top: 10px;
+  }
+
+  &__segment {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  &__flight {
+    &:not(:last-child) {
+      min-width: 92px;
+      padding-right: 10px;
+    }
+
+    &:last-child {
+      min-width: 88px;
+
+      .ticket-preview__flight-value {
+        max-width: 84px;
+      }
+    }
+
+    &-label {
+      font-size: 12px;
+      line-height: 1.5em;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #a0b0b9;
+      margin: 0;
+    }
+
+    &-value {
+      width: 100%;
+      font-size: 14px;
+      line-height: 1.5em;
+      font-weight: 600;
+      margin: 0;
+      @include variable(color, --general-text-color, #4a4a4a);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__brand-bar {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bad332;
+
+    &-text {
+      font-size: 10px;
+      line-height: 1.5em;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+    }
+  }
+
+  &__outer-badge {
+    position: absolute;
+    max-width: 250px;
+    top: -10px;
+    left: 10px;
+  }
+
+  @media (max-width: 360px) {
+    &__flight {
+      &-label {
+        font-size: 11px;
+      }
+
+      &-value {
+        font-size: 13px;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+var React = require('react')
+var createReactClass = require('create-react-class')
+
+module.exports = createReactClass({
+  displayName: 'svg-icon',
+  render: function() {
+    var baseProps = {
+      className: '{% className %}',
+      dangerouslySetInnerHTML: {
+        __html: '<svg width="24" height="24" viewBox="0 0 24 24" fill="#A0B0B9" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M21 15V17H15.4825H3V15H21ZM19.8 10.2L16 7H3V14H18.4C19.8 14 21 13.8 21 12.4C21 11.5 20.6 10.7 19.8 10.2ZM9 12H5V9H9V12ZM15 12H11V9H15V12Z"/> </svg>',
+      },
+    }
+    var props = Object.assign({}, baseProps, this.props)
+    return React.createElement('span', props)
+  },
+})

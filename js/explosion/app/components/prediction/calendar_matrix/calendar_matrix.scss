@@ -1,0 +1,256 @@
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/susy';
+@import '../../../common/css/base/mixins';
+@import '../../../common/css/trumps/helper_classes';
+
+.calendar-matrix {
+  $column-width: 78px;
+  $column-height: 48px;
+  $columns-quantity: 8;
+
+  margin: 40px auto 10px;
+  width: $columns-quantity * $column-width - $columns-quantity;
+
+  .loader {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .--oneway & {
+    .loader {
+      width: $columns-quantity * $column-width - $columns-quantity - $column-width;
+    }
+  }
+
+  &.is-exit {
+    opacity: 1;
+    transform: translateY(0);
+
+    &.is-exit-active {
+      opacity: 0;
+      transform: translateY(-40px);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  &.is-enter {
+    opacity: 0;
+    transform: translateY(-40px);
+
+    &.is-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  &__prices-wrap {
+    @include variable(background-color, --general-block-color, #fff);
+  }
+
+  &__control-wrap {
+    position: relative;
+
+    &.--oneway {
+      margin-left: 77px;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+
+    &.--oneway {
+      margin-left: 77px;
+    }
+  }
+
+  &__depart-dates,
+  &__return-dates {
+    overflow: hidden;
+  }
+
+  // Top
+  &__depart-dates {
+    display: flex;
+    align-items: stretch;
+    overflow: visible;
+
+    .calendar-matrix__date {
+      margin-left: -1px;
+    }
+  }
+
+  // Left
+  &__return-dates {
+    padding-top: 1px;
+    margin-top: -1px;
+
+    .calendar-matrix__date {
+      margin-left: -1px;
+      margin-top: -1px;
+    }
+  }
+
+  &__date {
+    width: $column-width;
+    height: $column-height;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 14px;
+
+    @include variable(border, --general-border, 1px solid #e4e7e8);
+    @include variable(background-color, --calendar-matrix-background, #f8fafb);
+    @include variable(color, --general-text-color, #4a4a4a);
+    font-size: 13px;
+    // margin: -1px;
+
+    &.--weekend {
+      span {
+        color: #ff7687;
+      }
+    }
+
+    span {
+      display: block;
+      text-transform: uppercase;
+      color: #99a2a4;
+      font-weight: 600;
+    }
+
+    &.--empty {
+      color: #a4b0b9;
+      font-size: 12px;
+      // border-left: 0;
+      // border-top: 0;
+      background: none;
+    }
+
+    &.is-crosshover {
+      @include variable(background-color, --prediction-prices-background, #e5f9ff);
+    }
+  }
+
+  &__x-wrap {
+    display: flex;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    margin: -1px 0 0 -1px;
+    text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 0;
+    width: $column-width;
+    height: $column-height;
+    line-height: $column-height;
+    @include variable(border, --general-border, 1px solid #e4e7e8);
+
+    &.--empty {
+      background-image: url('./search-mini-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.--loading {
+      color: transparent;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+      position: relative;
+
+      .calendar-matrix__item-inner {
+        &::after {
+          content: '';
+          display: block;
+          margin: auto;
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+          background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.12) 20%,
+            rgba(0, 0, 0, 0.08) 50%,
+            rgba(0, 0, 0, 0.12) 80%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          position: absolute;
+          left: 10px;
+          right: 10px;
+          top: 20px;
+          bottom: 20px;
+        }
+      }
+    }
+
+    &.--cheap {
+      color: #78b92e;
+      background-color: #f7fdf0;
+      @include variable(background-color, --calendar-matrix-cheap-background, #f7fdf0);
+    }
+
+    &.--unavailable {
+      color: #a4b0b9;
+      font-size: 12px;
+      pointer-events: none;
+
+      &::after {
+        content: '';
+        height: 1px;
+        width: 14px;
+        background: #4a4a4a;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -7px;
+      }
+    }
+
+    &.is-crosshover,
+    &.is-current {
+      @include variable(background-color, --prediction-prices-background, #e5f9ff);
+    }
+
+    &.is-current {
+      border-color: $brand-blue-color;
+      z-index: 2;
+      width: $column-width + 2;
+      height: $column-height + 2;
+      line-height: $column-height + 2;
+      margin: -2px -1px -1px -2px;
+      border-radius: 1px;
+      box-shadow: 0 0 5px 0 rgba(#000, 0.15);
+    }
+
+    &:not(.--unavailable):hover {
+      @include variable(background-color, --prediction-prices-background, #e5f9ff);
+      border-color: #2196f3;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  &__item-inner {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__direct {
+    font-size: 14px;
+    width: 230px;
+    position: absolute;
+    left: 0;
+    line-height: 30px;
+  }
+
+  & &__tumbler-title {
+    top: 40px;
+    line-height: 20px;
+    left: -75px;
+  }
+}

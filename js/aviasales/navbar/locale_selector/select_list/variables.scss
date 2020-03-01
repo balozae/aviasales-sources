@@ -1,0 +1,15 @@
+@import 'utils/utils';
+
+:root {
+  --select-list-bg-color: #fff;
+  --select-list-extra-shadow: -5px 0 10px #fff;
+  --select-list-extra-shadow-hover: -5px 0 10px #f0fafe;
+  --select-list-hover-bg-color: #f0fafe;
+}
+
+.--night {
+  --select-list-bg-color: #1e3b52;
+  --select-list-extra-shadow: -5px 0 10px #1e3b52;
+  --select-list-extra-shadow-hover: -5px 0 10px #355064;
+  --select-list-hover-bg-color: #355064;
+}

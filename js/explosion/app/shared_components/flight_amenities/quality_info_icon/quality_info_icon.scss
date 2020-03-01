@@ -1,0 +1,16 @@
+.quality-info-bullet {
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+
+  &.--good {
+    background-image: url('./images/check-bullet.svg');
+  }
+
+  &.--bad {
+    background-image: url('./images/none-bullet.svg');
+  }
+}

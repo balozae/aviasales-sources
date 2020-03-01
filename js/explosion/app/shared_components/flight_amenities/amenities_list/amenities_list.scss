@@ -1,0 +1,108 @@
+@import '../../mixins';
+
+@mixin mobile-block-styles {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@mixin mobile-item {
+  margin-bottom: 15px;
+  padding: 0 0 0 34px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin mobile-label {
+  display: block;
+}
+
+@mixin mobile-title {
+  display: block;
+  padding-right: 0;
+}
+
+.amenities-list {
+  $amenities_rating_types: wifi, power, food, entertainment;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .aircraft-info.--mobile & {
+    @include mobile-block-styles;
+
+    .amenities-list__item {
+      @include mobile-item;
+    }
+
+    .amenities-list__label {
+      @include mobile-label;
+    }
+
+    .amenities-list__title {
+      @include mobile-title;
+    }
+  }
+
+  @include for-xsmall-only {
+    @include mobile-block-styles;
+  }
+
+  &__item {
+    position: relative;
+    flex-basis: 50%;
+    padding: 3px 0 3px 34px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    background: transparent no-repeat left center;
+
+    @include for-xsmall-only {
+      @include mobile-item;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%);
+    color: #a0b0b9;
+
+    &.--free {
+      color: #8bc34a;
+    }
+
+    &.--paid {
+      color: #ffa300;
+    }
+
+    &.--no {
+      color: #f44336;
+    }
+  }
+
+  &__label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @include for-xsmall-only {
+      @include mobile-label;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    padding-right: 5px;
+
+    @include for-xsmall-only {
+      display: block;
+      padding-right: 0;
+    }
+  }
+}

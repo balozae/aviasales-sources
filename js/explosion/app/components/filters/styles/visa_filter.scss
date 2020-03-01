@@ -1,0 +1,96 @@
+@import 'utils/utils';
+
+.visa-filter {
+  &__description {
+    display: flex;
+    padding: 0 20px;
+    margin: 3px 0 15px;
+
+    &-text {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    &-tooltip {
+      display: inline-block;
+      padding-left: 10px;
+      margin-left: auto;
+      margin-right: -5px;
+      margin-top: 3px;
+      align-self: flex-start;
+
+      &-content {
+        padding: 15px 18px;
+        font-size: 13px;
+        line-height: 1.4em;
+        max-width: 260px;
+      }
+
+      &-icon {
+        cursor: pointer;
+        display: block;
+        line-height: 0;
+        outline: none;
+
+        &:focus {
+          path {
+            fill: #2196f3;
+          }
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    &-text {
+      padding: 0;
+    }
+  }
+
+  @include for-small-and-less {
+    &__description {
+      &-tooltip {
+        margin-top: 0;
+        align-self: center;
+
+        &-icon {
+          svg {
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (hover: none) {
+    &__description {
+      &-tooltip {
+        &-icon {
+          &:active {
+            path {
+              fill: #2196f3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &__description {
+      &-tooltip {
+        &-icon {
+          &:hover {
+            path {
+              fill: #2196f3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@import 'mixins';
+
+.ticket-stop {
+  font-family: $open-sans;
+  @include variable(color, --ticket-stop-color, #4a4a4a);
+
+  &__item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.4;
+
+    &.--stopover-visa,
+    &.--change-airport,
+    &.--recheck-baggage {
+      color: #f44336;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__badge-wrap {
+    height: 24px;
+    flex-shrink: 0;
+    padding-right: 10px;
+    align-self: flex-start;
+  }
+
+  &__place {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+  }
+
+  &__additional-inner {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  &__time {
+    font-weight: normal;
+  }
+
+  &__hotel-link {
+    padding-right: 16px;
+  }
+
+  &.--compact-view {
+    .ticket-stop {
+      &__item {
+        padding-left: 34px;
+        flex-wrap: wrap;
+      }
+
+      &__badge-wrap {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+
+      &__place {
+        width: 100%;
+        padding-right: 0;
+      }
+
+      &__hotel-link {
+        order: 3;
+        padding-right: 0;
+        padding-left: 15px;
+        font-weight: 400;
+      }
+    }
+  }
+}

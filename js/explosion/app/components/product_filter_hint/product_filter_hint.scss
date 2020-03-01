@@ -1,0 +1,84 @@
+@import '../../common/css/base/mixins';
+@import '~susy/sass/susy';
+@import '../../common/css/base/variables';
+
+.product-filter-hint {
+  display: none;
+
+  @include for-large-and-more {
+    display: block;
+  }
+
+  &__info {
+    position: relative;
+    @include variable(background-color, --general-block-color, #fff);
+    box-shadow: 0 0 3px 0 rgba(158, 158, 158, 0.5);
+    border-radius: 5px;
+    margin: 0 0 20px;
+    font-size: 12px;
+    @include variable(color, --general-text-color, #4a4a4a);
+    padding: 24px;
+    padding-left: 122px;
+  }
+
+  &__help {
+    background: url('./images/help.svg') no-repeat;
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    bottom: 0;
+    width: 62px;
+    height: 62px;
+    display: block;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.7em;
+
+    a {
+      cursor: pointer;
+      color: #2196f3;
+      border-bottom: 1px dashed #2196f3;
+      text-decoration: none;
+
+      &:hover {
+        color: #ff9d1b;
+        border-bottom-color: #ff9d1b;
+      }
+    }
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    width: 185px;
+    padding: 11px 16px;
+  }
+
+  &__dismiss-tooltip-wrapper {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 10px;
+    height: 10px;
+  }
+
+  &__dismiss {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: url('./images/dismiss.svg') no-repeat;
+    cursor: pointer;
+    font-style: normal;
+
+    &:hover {
+      background: url('./images/dismiss-active.svg') no-repeat;
+    }
+  }
+}

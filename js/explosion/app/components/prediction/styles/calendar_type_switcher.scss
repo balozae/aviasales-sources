@@ -1,0 +1,45 @@
+@import '../../../common/css/base/variables';
+@import 'utils/mixins';
+
+.explosion .calendar-type-switcher {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+
+  &__item {
+    display: inline-block;
+    width: 160px;
+    text-align: center;
+    line-height: 35px;
+    @include variable(border, --general-border, 1px solid #e5e8e9);
+    margin-left: -1px;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    @include variable(color, --general-text-color, #4a4a4a);
+    transition: all 0.3s ease;
+
+    &:hover {
+      @include variable(background-color, --general-control-hover, #e5f9ff);
+      @include variable(border-color, --general-control-border-color, #2196f3);
+      @include variable(color, --general-control-hover-color, #2196f3);
+    }
+
+    &.is-active {
+      color: #fff;
+      z-index: 2;
+      border-color: #0092bd;
+      background: $brand-blue-color;
+    }
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}

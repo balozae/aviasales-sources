@@ -1,0 +1,134 @@
+@import 'utils/utils';
+
+:root {
+  --menu-link-hover-bg: #f0fafe;
+  --menu-link-mobile-border: 1px solid #dfe5ec;
+}
+
+.--night {
+  --menu-link-hover-bg: rgba(255, 255, 255, 0.1);
+  --menu-link-border: 1px solid #000;
+}
+
+.menu {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    background-color: transparent;
+    -webkit-appearance: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    @include variable(color, --general-text-color, #4a4a4a);
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      text-decoration: none;
+      color: $brand-blue-color;
+      @include variable(background-color, --menu-link-hover-bg, #f0fafe);
+    }
+
+    &.--active {
+      color: $brand-blue-color;
+    }
+  }
+
+  &__notify {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+    background-color: #f57c00;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+
+    &.--warning {
+      background-color: #ff6663;
+    }
+  }
+
+  &.--horizontal {
+    .menu {
+      &__list {
+        display: flex;
+      }
+
+      &__link {
+        padding: 0 15px;
+        height: 59px;
+
+        &.--active {
+          &::after {
+            content: '';
+            width: 100%;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            border-bottom: 3px solid #2196f3;
+          }
+        }
+      }
+
+      &__icon {
+        display: none;
+      }
+
+      &__text {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &.--vertical {
+    .menu {
+      &__link {
+        width: 100%;
+        height: 48px;
+        padding-left: 54px;
+        padding-right: 20px;
+      }
+
+      &__icon {
+        left: 32px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        position: absolute;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &__text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .modal &.--vertical {
+    .menu {
+      &__link {
+        height: 56px;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.accordion {
+  &__tab {
+  }
+
+  &__label {
+    padding-top: 20px;
+    box-sizing: content-box;
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+
+  &__tab-inner {
+    will-change: max-height;
+    overflow: hidden;
+    position: relative;
+  }
+}

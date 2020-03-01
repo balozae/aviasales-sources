@@ -1,0 +1,33 @@
+.navbar-services {
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(225, 225, 225, 0.2);
+    outline: none;
+  }
+
+  &__icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: center / 14px url('./images/menu.svg') no-repeat;
+  }
+
+  &__menu {
+    padding: 15px 0;
+  }
+
+  &__apps {
+    padding: 0 20px 20px;
+  }
+}

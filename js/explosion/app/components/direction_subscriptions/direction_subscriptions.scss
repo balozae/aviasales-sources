@@ -1,0 +1,54 @@
+@import 'utils/utils';
+
+:root {
+  --direction-subscriptions-btn-disabled-bg-c: #dfe5ec;
+}
+
+.--night {
+  --direction-subscriptions-btn-disabled-bg-c: #1e3c53;
+}
+
+.direction-subscriptions {
+  width: 100%;
+  margin-bottom: 20px;
+  @include variable(background-color, --general-block-color, #fff);
+  border: var(--general-block-border, none);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+
+  & &__btn-subs.--size-l {
+    width: 100%;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &.--disabled {
+      @include variable(background-color, --direction-subscriptions-btn-disabled-bg-c, #dfe5ec);
+      @include variable(color, --general-text-color, #4a4a4a);
+    }
+  }
+
+  &__btn-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    font-size: 0;
+    margin-right: 5px;
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    line-height: 1.5em;
+    padding: 10px;
+    max-width: 250px;
+  }
+
+  &.--disabled {
+    box-shadow: none;
+  }
+}

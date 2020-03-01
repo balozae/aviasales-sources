@@ -1,0 +1,141 @@
+@import 'utils/utils';
+
+.mobile-apps {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid #2196f3;
+    color: #2196f3;
+    font: 600 12px/18px 'Open Sans', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #2196f3;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+    transition-property: background-color, box-shadow, color;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:focus,
+    &:active,
+    &:visited {
+      color: #2196f3;
+    }
+
+    &:hover {
+      background-color: #2196f3;
+      color: #fff;
+
+      & .mobile-apps__icon.--app-store {
+        background-image: url('./img/apple-w.svg');
+      }
+
+      & .mobile-apps__icon.--google-play {
+        background-image: url('./img/google-w.svg');
+      }
+    }
+
+    &:active {
+      background-color: #52b3ff;
+      box-shadow: inset 0px 2px 0px #2179dd, inset 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    &:visited {
+      background: transparent;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.--responsive {
+      width: 114px;
+      height: 40px;
+
+      .mobile-apps__text {
+        display: none;
+      }
+
+      @include for-medium-and-more {
+        width: 180px;
+        height: 50px;
+
+        .mobile-apps__icon {
+          margin-right: 6px;
+        }
+
+        .mobile-apps__text {
+          display: block;
+        }
+      }
+    }
+
+    &.--full {
+      width: 180px;
+      height: 50px;
+
+      .mobile-apps__icon {
+        margin-right: 6px;
+      }
+    }
+
+    &.--mini {
+      height: 40px;
+      min-width: 60px;
+      flex: 1;
+
+      .mobile-apps__icon {
+        margin: 0;
+      }
+
+      .mobile-apps__text {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 50px;
+    transition: background 0.25s linear;
+
+    &.--app-store {
+      background: url('./img/apple.svg') center no-repeat;
+    }
+
+    &.--google-play {
+      background: url('./img/google.svg') center no-repeat;
+    }
+  }
+}

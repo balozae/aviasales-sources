@@ -1,0 +1,63 @@
+$brand-blue-color: #2196f3;
+
+:root {
+  --ticket-background: #fff;
+  --ticket-general-dark-border: none;
+  --ticket-segment-border: 1px solid #dfe5ec;
+  --ticket-expand-btn-background: #f0fafe;
+  --ticket-expand-btn-hover-background: #e1f5fe;
+
+  // ticket-flight
+  --ticket-flight-background: #fff;
+  --ticket-flight-header-background: #f0fafe;
+  --ticket-flight-amenities-border: 1px solid #dfe5ec;
+
+  // ticket-stop
+  --ticket-stop-color: #4a4a4a;
+
+  // ticket-pin
+  --ticket-pin-hover-background: #f1fcff;
+
+  // ticket-segment
+  --ticket-segment-connector-background: #dfe5ec;
+
+  // ticket-sharing
+  --ticket-sharing-bar-background: #f0fafe;
+  --ticket-sharing-input-background: #fff;
+
+  // mobile-ticket
+  --ticket-proposal-select-background: #fff;
+  --ticket-buy-button-background: #ffffff80;
+  --ticket-buy-button-disabled-background: #fff;
+}
+
+.--night {
+  --ticket-background: #1e3c53;
+  --ticket-general-dark-border: 1px solid #031828;
+  --ticket-segment-border: 1px solid #a0b0b9;
+  --ticket-expand-btn-background: #314c60;
+  --ticket-expand-btn-hover-background: #0d334a;
+
+  // ticket-flight
+  --ticket-flight-background: #314c60;
+  --ticket-flight-header-background: #314c60;
+  --ticket-flight-amenities-border: 1px solid #a0b0b9;
+
+  // ticket-stop
+  --ticket-stop-color: #a0b0b9;
+
+  // ticket-pin
+  --ticket-pin-hover-background: transparent;
+
+  // ticket-segment
+  --ticket-segment-connector-background: #a0b0b9;
+
+  // ticket-sharing
+  --ticket-sharing-bar-background: #314c60;
+  --ticket-sharing-input-background: #1d3c54;
+
+  // mobile-ticket
+  --ticket-proposal-select-background: #355064;
+  --ticket-buy-button-background: #1e3c5380;
+  --ticket-buy-button-disabled-background: #1e3c53;
+}

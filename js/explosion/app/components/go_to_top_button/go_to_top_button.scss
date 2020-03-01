@@ -1,0 +1,45 @@
+@import '../../common/css/base/variables';
+@import '../../common/css/base/mixins';
+@import '~susy/sass/susy';
+
+.go-to-top-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  @include variable(background-color, --go-to-top-background, #fff);
+  @include variable(background-image, --go-to-top-image, url('./images/button.svg'));
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: scale(1);
+  will-change: transform;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  display: none;
+
+  @include for-large-and-more {
+    display: block;
+  }
+
+  &:hover {
+    background-color: $brand-blue-color;
+    background-image: url('./images/button-white.svg');
+  }
+
+  &::before {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    color: $blue;
+    font-size: 10px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

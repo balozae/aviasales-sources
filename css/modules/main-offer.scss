@@ -1,0 +1,102 @@
+.main-offer {
+  width: 230px;
+  background: #fff;
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.15);
+  padding: 25px 25px 20px;
+  margin: 0 auto 20px;
+  color: #000;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.25);
+  }
+
+  @include for-small-and-more {
+    margin: 0 0 20px;
+  }
+
+  &__logo {
+    width: 120px;
+    height: 30px;
+    text-indent: -9000px;
+    margin: 0 auto 19px;
+
+    img {
+      display: block;
+      width: 120px;
+      height: 30px;
+    }
+  }
+
+  &__route {
+    font-size: 16px;
+    color: #4a4a4a;
+    text-align: center;
+    font-weight: 600;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 180px;
+    max-height: 24px;
+    white-space: nowrap;
+
+    &.--destination {
+      margin-bottom: 15px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background: url('../assets/images/main-offer/plane_icon.svg') no-repeat;
+        background-size: cover;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  &__time-left {
+    font-size: 12px;
+    color: #4a4a4a;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  &__offer-lifetime {
+    font-size: 12px;
+    color: #90a4ae;
+    text-align: center;
+    line-height: 18px;
+    max-width: 145px;
+    margin: 0 auto 15px;
+  }
+
+  &__read-more {
+    display: block;
+    transition: background 0.3s;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid $brand-blue-color;
+    border-radius: 3px;
+    background: #fff;
+    color: $brand-blue-color;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    line-height: 38px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $brand-blue-color;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}

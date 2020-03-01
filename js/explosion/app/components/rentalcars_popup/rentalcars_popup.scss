@@ -1,0 +1,153 @@
+@import 'utils/utils';
+
+:root {
+  --rentalcars-popup-background-color: #fff;
+  --rentalcars-popup-text-color: #4a4a4a;
+}
+
+.--night {
+  --rentalcars-popup-background-color: #1e3c53;
+  --rentalcars-popup-text-color: #fff;
+}
+
+.rentalcars-popup {
+  position: relative;
+  width: 440px;
+  padding: 87px 0 50px;
+  box-shadow: 0px 5px 15px rgba(13, 50, 74, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  @include variable(background-color, --rentalcars-popup-background-color, #fff);
+
+  &__oval {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 600px;
+    height: 300px;
+    border-radius: 320px / 100px;
+    background: linear-gradient(138.35deg, #35b6ff -2.03%, #0080dc 114.84%);
+    transform: translateX(-50%);
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 50px 0 50px;
+  }
+
+  &__title {
+    @include variable(color, --rentalcars-popup-text-color, #4a4a4a);
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  &__caption {
+    @include variable(color, --rentalcars-popup-text-color, #4a4a4a);
+  }
+
+  &__button {
+    min-width: 340px;
+    margin-top: 30px;
+  }
+
+  &__slides-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 105px;
+  }
+
+  &__sequence {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 600%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+    animation: slidesSequence 7s linear infinite;
+  }
+
+  &__slide {
+    width: 880px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__slide-img {
+    height: 105px;
+    width: auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 19px;
+      background-color: #fff;
+      border-radius: 5px;
+      transition: opacity ease-out 0.25s;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  @keyframes slidesSequence {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    7.5%,
+    32.5% {
+      transform: translateX(-75%);
+    }
+
+    42.5%,
+    62.5% {
+      transform: translateX(-41.8%);
+    }
+
+    72.5%,
+    95% {
+      transform: translateX(-8.2%);
+    }
+
+    100% {
+      transform: translateX(10%);
+    }
+  }
+}

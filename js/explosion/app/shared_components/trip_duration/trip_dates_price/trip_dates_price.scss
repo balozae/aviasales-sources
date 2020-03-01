@@ -1,0 +1,13 @@
+@import 'utils/utils';
+
+.trip_dates_price {
+  color: #969fa2;
+
+  &.--low {
+    color: #78b92e;
+  }
+
+  .--bounded & {
+    color: inherit;
+  }
+}

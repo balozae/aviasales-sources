@@ -1,0 +1,84 @@
+@import '../../mixins.scss';
+
+.seats-step-info {
+  padding-bottom: 10px;
+
+  &__schema {
+    margin: 0 auto 15px auto;
+
+    .--unknown & {
+      opacity: 0.5;
+    }
+
+    &.--narrow {
+      width: 57px;
+    }
+
+    &.--average {
+      width: 65px;
+    }
+
+    &.--wide {
+      width: 75px;
+    }
+  }
+
+  &__schema-arrow {
+    margin-left: 3px;
+    margin-bottom: 3px;
+  }
+
+  &__schema-arrow-icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg {
+      path {
+        @include variable(fill, --schema-arrow-fill, #a0b0b9);
+      }
+    }
+  }
+
+  &__schema-view {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &.--narrow {
+      width: 57px;
+    }
+
+    &.--average {
+      width: 65px;
+    }
+
+    &.--wide {
+      width: 75px;
+    }
+  }
+
+  &__schema-seat {
+    width: 26px;
+    height: 43px;
+    background: url('./images/seat_sideview.svg') no-repeat;
+  }
+
+  &__value {
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .--unknown & {
+      margin-bottom: 0;
+      opacity: 0;
+    }
+
+    &-icon {
+      margin-right: 8px;
+    }
+  }
+}

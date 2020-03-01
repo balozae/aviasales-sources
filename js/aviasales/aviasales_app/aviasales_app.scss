@@ -1,0 +1,130 @@
+@import 'utils/legacy-breakpoints';
+@import 'utils/mixins';
+
+.aviasales-app {
+  &__navbar-wrap {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    width: 100%;
+    transition: transform 0.3s ease-out;
+
+    @include for-medium-and-less {
+      position: relative;
+    }
+
+    .--serp & {
+      position: relative;
+      position: sticky;
+    }
+
+    .--user & {
+      position: static;
+    }
+
+    .--user .--hide-header & {
+      transform: none;
+    }
+
+    .--serp.--collapsed-form &,
+    .--serp.--collapsed-form .--page-multiway & {
+      position: relative;
+      position: sticky;
+    }
+
+    .--hide-header & {
+      transform: translateY(-50px);
+    }
+
+    body.is-sticky & {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__page-header-wrap {
+    transition: transform 0.3s ease-out;
+
+    .--serp & {
+      position: sticky;
+      top: 50px;
+      width: 100%;
+      z-index: 3;
+
+      @include for-medium-and-less {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .--serp .--hide-header & {
+      @include for-large-and-more {
+        transform: translateY(-50px);
+      }
+    }
+
+    .--serp.--collapsed-form .--hide-header & {
+      transform: translateY(-50px);
+    }
+
+    .--serp .--page-multiway & {
+      position: relative;
+    }
+
+    .--serp.--collapsed-form &,
+    .--serp.--collapsed-form .--page-multiway & {
+      position: static;
+      position: sticky;
+      top: 50px;
+      width: 100%;
+      z-index: 3;
+    }
+
+    .page_header-header {
+      .--serp & {
+        padding-top: 0;
+      }
+
+      .--serp.--collapsed-form & {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .--serp & {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 640px);
+    @include variable(background-color, --general-background-color, #eff1f4);
+
+    &__explosion-wrap {
+      flex-grow: 1;
+      position: relative;
+      min-height: 200px;
+    }
+
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+html.--serp body.--hide-multiway:not(.--page-multiway):not(.--sticky-off) {
+  @include for-large-and-more {
+    & .of_main_form {
+      height: inherit;
+
+      &__content {
+        margin-bottom: 0;
+      }
+    }
+
+    & .of_main_form__bottom {
+      opacity: 0;
+      height: 0;
+      margin: 0;
+    }
+  }
+}

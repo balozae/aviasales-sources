@@ -1,0 +1,198 @@
+@import 'utils/utils';
+
+.b-tooltip {
+  $tooltip-color: #052640;
+  $tooltip-opacity: 1;
+  $tooltip-animation-path: 50px;
+  position: absolute;
+  padding: 0;
+  background-color: #052640;
+  border-radius: 3px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.08);
+  color: #fff;
+  transition: transform 500ms ease-out, opacity 150ms linear;
+  transform: translateY(20px);
+  opacity: 0;
+  text-align: left;
+  z-index: 1000;
+  will-change: transform;
+  pointer-events: none;
+  font-size: 13px;
+
+  &.--is-interaction {
+    pointer-events: auto;
+  }
+
+  &__arrow-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+
+    .--top & {
+      left: 0;
+      bottom: -6px;
+      height: 6px;
+      right: 0;
+    }
+
+    .--bottom &,
+    .--bottom-right &,
+    .--bottom-left & {
+      left: 0;
+      top: -6px;
+      height: 6px;
+      right: 0;
+    }
+
+    .--bottom-right & {
+      left: auto;
+      right: 10px;
+    }
+
+    .--bottom-left & {
+      right: auto;
+      left: 10px;
+    }
+
+    .--left & {
+      right: -25px;
+      width: 25px;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+    }
+
+    .--right & {
+      left: -25px;
+      width: 25px;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    width: 25px;
+    height: 6px;
+    background: url('./images/tooltip-corner.svg') no-repeat 50% 50%;
+
+    .--bottom &,
+    .--bottom-right &,
+    .--bottom-left & {
+      transform: rotate(180deg);
+    }
+
+    .--left & {
+      left: -10px;
+      transform: rotate(-90deg);
+    }
+
+    .--right & {
+      right: -10px;
+      transform: rotate(90deg);
+    }
+  }
+
+  &.--right {
+    transform: translateX(-$tooltip-animation-path);
+  }
+
+  &.--left {
+    transform: translateX($tooltip-animation-path);
+  }
+
+  &.--top {
+    transform: translateY($tooltip-animation-path);
+  }
+
+  &.--bottom,
+  &.--bottom-right,
+  &.--bottom-left {
+    transform: translateY(-$tooltip-animation-path);
+  }
+
+  // Showed on parent hover or with class
+  *:hover > &.--on-hover,
+  &.is-visible {
+    opacity: 1;
+    transition: transform 500ms cubic-bezier(0, 0.83, 0, 1.17), opacity 250ms linear;
+    transform: translate(0, 0);
+  }
+
+  // NOTE: react animation
+  &.--visible {
+    opacity: $tooltip-opacity;
+    transition: none;
+    transform: translate(0, 0);
+
+    &.tooltip-enter,
+    &.tooltip-appear {
+      opacity: 0.01;
+      pointer-events: none;
+
+      &.--right {
+        transform: translateX(-$tooltip-animation-path);
+      }
+
+      &.--left {
+        transform: translateX($tooltip-animation-path);
+      }
+
+      &.--top {
+        transform: translateY($tooltip-animation-path);
+      }
+
+      &.--bottom,
+      &.--bottom-right,
+      &.--bottom-left {
+        transform: translateY(-$tooltip-animation-path);
+      }
+    }
+
+    &.tooltip-enter.tooltip-enter-active,
+    &.tooltip-appear.tooltip-appear-active {
+      opacity: $tooltip-opacity;
+      transform: translate(0, 0);
+      transition: transform 500ms cubic-bezier(0, 0.83, 0, 1.17), opacity 250ms linear;
+    }
+
+    &.tooltip-exit {
+      opacity: $tooltip-opacity;
+      transform: translate(0, 0);
+      pointer-events: none;
+    }
+
+    &.tooltip-exit.tooltip-exit-active {
+      opacity: 0;
+      transition: transform 300ms ease-out, opacity 150ms linear;
+
+      &.--right {
+        transform: translateX(-$tooltip-animation-path);
+      }
+
+      &.--left {
+        transform: translateX($tooltip-animation-path);
+      }
+
+      &.--top {
+        transform: translateY($tooltip-animation-path);
+      }
+
+      &.--bottom,
+      &.--bottom-right,
+      &.--bottom-left {
+        transform: translateY(-$tooltip-animation-path);
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__inner:empty + &__arrow-wrapper {
+    display: none;
+  }
+}

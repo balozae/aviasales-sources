@@ -1,0 +1,42 @@
+.ticket-subscriptions {
+  &__button {
+    background: none;
+    border: none;
+    padding: 0;
+    display: inline-block;
+    -webkit-appearance: none;
+    display: block;
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 11px 16px;
+    min-width: 160px;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  &__icon {
+    display: block;
+    line-height: 0;
+  }
+
+  &:hover,
+  &:focus {
+    .ticket-subscriptions__icon {
+      svg path {
+        stroke: #2196f3;
+      }
+    }
+  }
+
+  &.--is-active {
+    .ticket-subscriptions__icon {
+      svg path {
+        fill: #2196f3;
+        stroke: #2196f3;
+      }
+    }
+  }
+}

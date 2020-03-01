@@ -1,0 +1,26 @@
+.bags-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.--small {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &.--unknown {
+    display: none;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    padding: 11px 16px;
+  }
+}

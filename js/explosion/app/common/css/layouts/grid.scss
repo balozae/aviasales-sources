@@ -1,0 +1,41 @@
+.grid {
+  min-width: $screen-min;
+
+  &__wrapper {
+    @include grid-container;
+  }
+
+  &__content {
+    @include grid-span-full;
+
+    @include for-small-and-more {
+      @include grid-span(6);
+      @include grid-squish(1);
+    }
+
+    @include for-medium-and-more {
+      @include grid-span(8);
+      @include grid-squish(2);
+    }
+  }
+
+  &__row {
+    @include clearfix;
+  }
+
+  &__cell {
+    @for $span from 1 to $grid-columns {
+      &.--cell-#{$span} {
+        @include grid-span($span);
+      }
+
+      &.--push-#{$span} {
+        @include push($span);
+      }
+
+      &.--post-#{$span} {
+        @include post($span);
+      }
+    }
+  }
+}

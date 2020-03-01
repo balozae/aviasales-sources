@@ -1,0 +1,168 @@
+@import '../../common/css/base/variables';
+@import 'utils/mixins';
+
+$highlight-gray: #a4b0b9;
+$highlight-red: #ea827e;
+$highlight-blue: $brand-blue-color;
+$highlight-green: #0acd75;
+
+.highlighted-ticket {
+  position: relative;
+
+  &__container {
+    transition: background-color 0.3s ease;
+    background: $highlight-gray;
+    border-radius: 6px;
+    margin: 0 -3px 20px;
+    padding: 0 3px 3px;
+    position: relative;
+    z-index: 101;
+
+    &.--no-overlay {
+      z-index: 98;
+    }
+
+    &.--price-unknown,
+    &.--price-equal {
+      background: $highlight-blue;
+    }
+
+    &.--price-cheaper {
+      background: $highlight-green;
+    }
+
+    &.--price-expensive {
+      background: $highlight-red;
+    }
+  }
+
+  &__plate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #fff;
+    text-align: center;
+    min-height: 50px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    padding: 5px 10px;
+
+    .--price-unknown,
+    .--price-equal & {
+      background: $highlight-blue;
+    }
+
+    .--price-cheaper & {
+      background: $highlight-green;
+    }
+
+    .--price-expensive & {
+      background: $highlight-red;
+    }
+  }
+
+  &__ticket {
+    position: relative;
+    @include variable(background-color, --general-menu-background, #ffffff);
+    border-radius: 6px;
+    overflow: hidden;
+
+    .ticket {
+      margin-bottom: 0;
+    }
+
+    .--not-found & {
+      border-radius: 3px;
+      overflow: hidden;
+      pointer-events: none;
+      user-select: none;
+
+      .ticket-desktop,
+      .ticket-mobile {
+        transition: all 0.3s ease;
+        overflow: hidden;
+        filter: blur(7px);
+      }
+    }
+  }
+
+  &__close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 15px;
+    cursor: pointer;
+    background: url('./close.svg') 50% 50% no-repeat;
+    display: none;
+
+    .--not-found & {
+      display: block;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.7;
+  }
+
+  &__highlighted-link {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: inline-block;
+    width: 300px;
+    font-size: 16px;
+    margin-top: 40px;
+    z-index: 16;
+    cursor: pointer;
+    color: #fff;
+    transition: color 150ms ease;
+
+    &:hover {
+      color: $orange;
+
+      svg g {
+        stroke: $orange;
+        transition: stroke 150ms ease;
+      }
+    }
+  }
+
+  &__link-icon {
+    margin-right: 10px;
+    position: relative;
+    z-index: 0;
+    bottom: -4px;
+  }
+
+  @include for-small-and-less {
+    &__container {
+      max-width: 400px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &__plate {
+      font-size: 12px;
+      min-height: 30px;
+    }
+
+    &__highlighted-link {
+      width: 270px;
+      font-size: 14px;
+    }
+  }
+}

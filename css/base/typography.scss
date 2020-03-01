@@ -1,0 +1,172 @@
+body {
+  @include opensans;
+  @include variable(color, --general-text-color, $color-font);
+  font-size: 100%;
+  line-height: 1.75;
+
+  // Disable custom scrollbars temporary
+  // @include scrollbar();
+  &.--night {
+    // @include dark-scrollbar();
+  }
+
+  @include for-small-and-less {
+    font-size: 14px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 50px 0 15px;
+
+  @include for-small-and-less {
+    font-size: 22px;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 1.4;
+  margin: 40px 0 15px;
+
+  @include for-small-and-less {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  margin: 30px 0 15px;
+
+  @include for-small-and-less {
+    font-size: 18px;
+    margin: 25px 0 10px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 1.44;
+  margin: 25px 0 5px;
+
+  @include for-small-and-less {
+    font-size: 16px;
+  }
+}
+
+h5 {
+  margin: 20px 0 10px;
+  font-size: 14px;
+  line-height: 1.57;
+}
+
+a,
+.link {
+  color: $color-link;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $color-link-active;
+  }
+}
+
+button.link {
+  appearance: none;
+  display: inline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+p,
+.paragraph {
+  margin: 0 0 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+figcaption {
+  color: $color-secondary-text;
+  font-size: 12px;
+  text-align: center;
+}
+
+q,
+blockquote {
+  position: relative;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 0 0 0 88px;
+  margin: 50px 0;
+
+  @include after {
+    background: url('~assets/images/base/quote.svg');
+    width: 24px;
+    height: 19px;
+    position: absolute;
+    left: 43px;
+    top: 8px;
+
+    @include for-xsmall-only {
+      left: 0;
+    }
+  }
+
+  @include for-xsmall-only {
+    padding-left: 42px;
+    font-size: 16px;
+  }
+
+  cite {
+    display: block;
+    color: $color-blockquote;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+
+    &::before {
+      content: '— ';
+    }
+  }
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.price {
+  white-space: nowrap;
+}

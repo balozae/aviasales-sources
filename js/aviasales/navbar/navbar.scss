@@ -1,0 +1,105 @@
+@import 'utils/utils';
+
+.navbar {
+  @include variable(background-color, --page-header-color, #2196f3);
+  z-index: 30;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: top 0.25s;
+  position: relative;
+
+  @include for-medium-and-more {
+    .--country-informer & {
+      margin-top: 50px;
+    }
+  }
+
+  &__wrap {
+    height: 50px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    align-items: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
+  &__logo {
+    background: url('./logo.svg') no-repeat center;
+    width: 30px;
+    height: 30px;
+    display: block;
+  }
+
+  &__logo-text {
+    display: block;
+    margin-left: 10px;
+
+    &.--aviasales {
+      background: url('./aviasales.svg') no-repeat center;
+      width: 91px;
+      height: 17px;
+      margin-top: -4px;
+    }
+
+    &.--jetradar {
+      background: url('./jetradar.svg') no-repeat center;
+      width: 80px;
+      height: 21px;
+    }
+
+    @include for-small-and-less {
+      display: none;
+    }
+  }
+
+  &__tabs-wrap {
+    margin-top: -3px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-small-and-less {
+      display: none;
+    }
+  }
+
+  &__controls-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__control {
+    position: relative;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+
+  @include for-medium-and-less {
+    &__control {
+      &.--services {
+        display: none;
+      }
+    }
+  }
+}

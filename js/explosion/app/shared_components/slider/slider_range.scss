@@ -1,0 +1,27 @@
+@import 'utils/utils';
+
+.slider-range {
+  @include opensans;
+
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 10px;
+  }
+
+  &__label {
+    font-size: 13px;
+    line-height: 1.3;
+
+    &.--min {
+      text-align: left;
+      padding-right: 10px;
+    }
+
+    &.--max {
+      text-align: right;
+      padding-left: 10px;
+    }
+  }
+}

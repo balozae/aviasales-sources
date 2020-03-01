@@ -1,0 +1,65 @@
+@import 'mixins';
+
+.ticket-tariffs {
+  width: 100%;
+  display: flex;
+
+  &__title {
+    text-align: center;
+    padding-top: 2px;
+    font-size: 10px;
+    line-height: 1.3em;
+    @include variable(color, --general-text-color, #4a4a4a);
+
+    .ticket-tariffs__item.--cheaper & {
+      color: #58cc83;
+    }
+  }
+
+  &__item {
+    min-height: 50px;
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 5px;
+    @include variable(border-right, --ticket-tariff-border, 1px solid #e4e7e8);
+    @include variable(border-bottom, --ticket-tariff-border, 1px solid #e4e7e8);
+    cursor: pointer;
+    user-select: none;
+    color: #8fa2ac;
+    position: relative;
+    @include variable(background-color, --ticket-tariff-background, #f8fbfb);
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:first-child {
+      border-radius: 5px 0 0 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.is-selected {
+      background-color: transparent;
+      border-bottom-color: transparent;
+      cursor: default;
+      @include variable(background-color, --ticket-tariff-selected-background, #fff);
+      border-bottom: 1px solid transparent;
+
+      &.--empty {
+        color: #ff4c3e;
+      }
+    }
+
+    &:hover:not(.is-selected) {
+      @include variable(background-color, --general-control-hover, #e5f9ff);
+    }
+
+    &.--cheaper {
+      color: #8bc34a;
+    }
+  }
+}

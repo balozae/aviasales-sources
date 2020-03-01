@@ -1,0 +1,43 @@
+var map = {
+	"./favorites_m_en.jxr": 2120,
+	"./favorites_m_en@2x.jxr": 1419,
+	"./favorites_m_ru.jxr": 2121,
+	"./favorites_m_ru@2x.jxr": 1420,
+	"./hotels_m_en.jxr": 2122,
+	"./hotels_m_en@2x.jxr": 1421,
+	"./hotels_m_ru.jxr": 2123,
+	"./hotels_m_ru@2x.jxr": 1422,
+	"./profile_m_en.jxr": 2124,
+	"./profile_m_en@2x.jxr": 1423,
+	"./profile_m_ru.jxr": 2125,
+	"./profile_m_ru@2x.jxr": 1424,
+	"./search_m_en.jxr": 2126,
+	"./search_m_en@2x.jxr": 1425,
+	"./search_m_ru.jxr": 2127,
+	"./search_m_ru@2x.jxr": 1426,
+	"./travel_m_en.jxr": 2128,
+	"./travel_m_en@2x.jxr": 1427,
+	"./travel_m_ru.jxr": 2129,
+	"./travel_m_ru@2x.jxr": 1428
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 2119;

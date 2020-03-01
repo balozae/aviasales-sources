@@ -1,0 +1,84 @@
+@import 'utils/utils';
+
+:root {
+  --switcher-text-color: #4a4a4a;
+  --switcher-control-bg: #bccdd6;
+}
+
+.--night {
+  --switcher-text-color: #fff;
+  --switcher-control-bg: #355064;
+}
+
+.switcher {
+  $switcher-height: 20px;
+  $switcher-width: 36px;
+  $switcher-padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding-left: $switcher-width;
+  height: $switcher-height;
+  cursor: pointer;
+  user-select: none;
+  @include variable(color, --switcher-text-color, #4a4a4a);
+  transition: color 0.3s;
+
+  &:hover {
+    color: $brand-blue-color;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $switcher-width;
+    border-radius: 50px;
+    @include variable(background-color, --switcher-control-bg, #bccdd6);
+    transition: background-color 0.3s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    height: $switcher-height - $switcher-padding * 2;
+    width: $switcher-height - $switcher-padding * 2;
+    left: $switcher-padding;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    transition: left 0.3s;
+  }
+
+  &__input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+  }
+
+  &__label {
+    @include opensans-semi-bold;
+    font-size: 10px;
+    line-height: $switcher-height;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-left: 10px;
+  }
+
+  &.--checked {
+    &::before {
+      background-color: #9ccc66;
+    }
+
+    &::after {
+      left: $switcher-width + $switcher-padding - $switcher-height;
+    }
+  }
+}

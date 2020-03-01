@@ -1,0 +1,69 @@
+@import 'mixins';
+
+.ticket-schedule {
+  &__title {
+    @include variable(color, --general-text-color, #4a4a4a);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1.5em;
+    padding-bottom: 9px;
+    text-transform: uppercase;
+  }
+
+  &__items-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+    position: relative;
+    left: 5px;
+  }
+
+  &__item {
+    cursor: pointer;
+    flex-basis: 112px;
+    height: 45px;
+    @include variable(background-color, --general-block-color, #fff);
+    @include variable(border, --general-border, 1px solid #e4e7e8);
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    color: #2196f3;
+    padding: 3px;
+
+    &:hover {
+      border-color: #2196f3;
+    }
+
+    &.--is-selected {
+      color: #fff;
+      border-color: #2196f3;
+      background-color: #2196f3;
+
+      .ticket-schedule {
+        &__price {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__price {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 12px;
+    @include variable(color, --general-text-color, #4a4a4a);
+
+    &.--min-price {
+      color: #78b92e;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import 'utils/mixins';
+
+.custom-radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: $open-sans;
+  cursor: pointer;
+
+  &:hover {
+    .custom-radio__caption {
+      color: $brand-blue-color;
+    }
+
+    .custom-radio__element {
+      @include variable(background-color, --radio-element-hover-background, #f2fcff);
+      @include variable(border-color, --radio-element-hover-border, #a0b0b9);
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      ~ .custom-radio__caption {
+        color: $brand-blue-color;
+      }
+
+      ~ .custom-radio__element {
+        @include variable(background-color, --radio-element-checked-background, #fff);
+        border-color: $brand-blue-color;
+
+        &::after {
+          @include variable(background-color, --radio-element-mark-checked-background, #2196f3);
+        }
+      }
+    }
+  }
+
+  &__caption {
+    @include variable(color, --general-text-color, #4a4a4a);
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: color ease 0.26s;
+    user-select: none;
+  }
+
+  &__element {
+    @include variable(background-color, --radio-element-background, #fff);
+    width: 18px;
+    height: 18px;
+    position: relative;
+    border: 1px solid #a0b0b9;
+    border-radius: 50%;
+    transition: background-color ease 0.26s, border-color ease 0.26s;
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: transparent;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: background-color ease 0.26s;
+    }
+  }
+
+  &.--additional-fields {
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  &.--error {
+    .custom-radio {
+      &__element,
+      &__caption {
+        border-color: #ff6663;
+        color: #ff6663;
+      }
+    }
+  }
+}

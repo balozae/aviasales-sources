@@ -1,0 +1,133 @@
+@import '../../mixins.scss';
+@import '../variables.scss';
+
+@mixin mobile-block-styles {
+  padding: 20px 0 0 0;
+}
+
+@mixin mobile-delay-texts {
+  flex-direction: column;
+}
+
+@mixin mobile-delay {
+  margin-bottom: 15px;
+}
+
+@mixin mobile-amenity-card {
+  max-width: 100%;
+  min-width: 130px;
+  flex-basis: calc(50% - 10px); // 20(padding between elements), 20/2 = 10
+  padding-bottom: 20px;
+}
+
+@mixin mobile-amenity-card-list {
+  flex-basis: 50%;
+  margin-bottom: 0;
+}
+
+.aircraft-info {
+  @include variable(color, --flight-amenities-color-text, #4a4a4a);
+  margin: 0 auto;
+  padding: 15px 0;
+
+  &.--compact-view {
+    @include mobile-block-styles;
+
+    .aircraft-info__delay-texts {
+      @include mobile-delay-texts;
+    }
+
+    .aircraft-info__delay {
+      @include mobile-delay;
+    }
+
+    .aircraft-info__amenity-card {
+      @include mobile-amenity-card;
+
+      &.--list {
+        @include mobile-amenity-card-list;
+      }
+    }
+  }
+
+  @include for-xsmall-only {
+    @include mobile-block-styles;
+  }
+
+  &__top-block,
+  &__delay-texts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-basis: 50%;
+    margin-bottom: 15px;
+  }
+
+  &__delay-texts {
+    @include for-xsmall-only {
+      @include mobile-delay-texts;
+    }
+  }
+
+  &__delay,
+  &__rating,
+  &__delay-percent,
+  &__aircraft-name {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &__delay,
+  &__delay-percent {
+    flex-basis: 50%;
+  }
+
+  &__delay-label,
+  &__delay-percent-label {
+    display: inline;
+    padding-right: 5px;
+    font-weight: 600;
+  }
+
+  &__delay {
+    @include for-xsmall-only {
+      @include mobile-delay;
+    }
+  }
+
+  &__rating {
+    flex-shrink: 0;
+    padding-left: 15px;
+    margin-left: auto;
+  }
+
+  &__aircraft-name {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__amenity-card {
+    max-width: 134px;
+    flex-basis: 33.3%;
+
+    @include for-xsmall-only {
+      @include mobile-amenity-card;
+    }
+
+    &.--list {
+      max-width: 100%;
+      flex-basis: 100%;
+      margin-bottom: 12px;
+
+      @include for-xsmall-only {
+        @include mobile-amenity-card-list;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@import 'utils/utils';
+
+:root {
+  --calendar-text-color: #4a4a4a;
+}
+
+.--night {
+  --calendar-text-color: #fff;
+}
+
+.calendar {
+  width: 100%;
+  user-select: none;
+  display: inline-block;
+  @include opensans;
+
+  &:focus {
+    outline: none;
+  }
+
+  &__container {
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__months {
+    padding: 0 8px;
+    display: flex;
+  }
+
+  &__month {
+    position: relative;
+    padding: 0 17px 20px;
+    flex: 1 1 0;
+    border-spacing: 0;
+  }
+
+  &__navbar {
+    display: none;
+  }
+
+  &__caption {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.42;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    @include variable(color, --calendar-text-color, #fff);
+  }
+
+  &__weekdays-row {
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__weekday {
+    flex: 1 1 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #a0b0b9;
+    padding-bottom: 10px;
+
+    abbr[title] {
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
+
+  &__week {
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__day-cell {
+    flex: 1 1 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include for-small-and-less {
+    &__months {
+      flex-direction: column;
+    }
+  }
+
+  @include for-medium-and-more {
+    &__container {
+      // NOTE: prevent the change in container height
+      // with different numbers of weeks (5 or 6) in the calendar
+      min-height: 329px;
+    }
+  }
+}

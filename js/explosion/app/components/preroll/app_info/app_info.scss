@@ -1,0 +1,52 @@
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/mixins';
+
+.app-info {
+  &__application {
+    height: 52px;
+  }
+
+  &__aviasales-logo {
+    width: 52px;
+    height: 52px;
+    background: url('../../../common/images/aviasales_blue_logo.svg');
+    background-size: 100%;
+    float: left;
+    margin-right: 21px;
+  }
+
+  &__rating-wrap {
+    float: left;
+    padding-top: 5px;
+    text-align: left;
+  }
+
+  &__rating {
+    margin-bottom: 4px;
+  }
+
+  &__rating-number {
+    font-size: 24px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+
+  &__star {
+    width: 19px;
+    height: 18px;
+    display: inline-block;
+    background: url('./images/star.svg');
+    background-size: 100%;
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__reviews {
+    font-size: 14px;
+    color: #8c8f95;
+  }
+}

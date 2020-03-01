@@ -1,0 +1,143 @@
+@import 'utils/utils';
+
+:root {
+  --calendar-nav-btn-color: #2196f3;
+  --calendar-nav-btn-bg: #f0fafe;
+  --calendar-nav-btn-disabled-color: #bbdefb;
+  --calendar-nav-btn-box-shadow: 0 2px 6px rgba(63, 99, 128, 0.15);
+  --calendar-nav-btn-border: 1px solid #2196f3;
+  --calendar-nav-btn-disabled-border: 1px solid #bbdefb;
+}
+
+.--night {
+  --calendar-nav-btn-color: #fff;
+  --calendar-nav-btn-bg: #355064;
+  --calendar-nav-btn-disabled-color: #c4c4c4;
+  --calendar-nav-btn-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  --calendar-nav-btn-border: none;
+  --calendar-nav-btn-disabled-border: none;
+}
+
+.calendar-navbar {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+
+  &__button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    @include variable(box-shadow, --calendar-nav-btn-box-shadow, 0 2px 6px rgba(63, 99, 128, 0.15));
+    @include variable(background-color, --calendar-nav-btn-bg, #f0fafe);
+    @include variable(color, --calendar-nav-btn-color, #2196f3);
+    @include variable(border, --calendar-nav-btn-border, 1px solid #2196f3);
+    cursor: default;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      bottom: -5px;
+      right: -5px;
+    }
+
+    &.--prev {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    &.--next {
+      position: relative;
+    }
+
+    &.--disabled {
+      @include variable(color, --calendar-nav-btn-disabled-color, #bbdefb);
+      @include variable(border, --calendar-nav-btn-disabled-border, 1px solid #bbdefb);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 9px;
+    height: 14px;
+    line-height: 14px;
+
+    &.--prev {
+      transform: translateY(-50%) translateX(-50%) translateX(-1px) rotate(180deg);
+    }
+
+    &.--next {
+      transform: translateY(-50%) translateX(-50%) translateX(1px);
+    }
+  }
+
+  &__tooltip-wrapper {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  &__return-btn-tooltip {
+    max-width: 180px;
+    padding: 10px;
+  }
+
+  @include for-large-and-more {
+    &__button {
+      &:hover:not(.--disabled) {
+        cursor: pointer;
+
+        .calendar-navbar__icon {
+          &.--prev {
+            animation: translate-prev-arrow 0.4s linear;
+          }
+
+          &.--next {
+            animation: translate-next-arrow 0.4s linear;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes translate-next-arrow {
+  0% {
+    transform: translateY(-50%) translateX(-50%) translateX(1px);
+  }
+
+  50% {
+    transform: translateY(-50%) translateX(-50%) translateX(4px);
+  }
+
+  100% {
+    transform: translateY(-50%) translateX(-50%) translateX(1px);
+  }
+}
+
+@keyframes translate-prev-arrow {
+  0% {
+    transform: translateY(-50%) translateX(-50%) translateX(-1px) rotate(180deg);
+  }
+
+  50% {
+    transform: translateY(-50%) translateX(-50%) translateX(-4px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateY(-50%) translateX(-50%) translateX(-1px) rotate(180deg);
+  }
+}

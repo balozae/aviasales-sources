@@ -1,0 +1,258 @@
+@import 'mixins';
+
+$box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+
+.ticket-flight {
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  width: 100%;
+  @include variable(background-color, --ticket-flight-background, #fff);
+  @include variable(color, --general-text-color, #4a4a4a);
+  @include variable(border, --ticket-general-dark-border, none);
+
+  &.--pinned {
+    box-shadow: $box-shadow, 0 0 0 2px #2196f3;
+  }
+
+  &__header {
+    padding: 8px 15px;
+    border-radius: 5px 5px 0 0;
+    @include variable(background-color, --ticket-flight-header-background, #f0fafe);
+    display: flex;
+    align-items: center;
+    @include variable(border-bottom, --ticket-general-dark-border, none);
+  }
+
+  &__pin {
+    flex-shrink: 0;
+    margin-right: 7px;
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    flex-grow: 1;
+  }
+
+  &__duration {
+    font-size: 13px;
+  }
+
+  &__route-info {
+    display: flex;
+    width: 100%;
+    line-height: 1.5;
+
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+
+    &.--tech-stop {
+      color: #a0b0b9;
+
+      .ticket-flight__name {
+        white-space: normal;
+      }
+    }
+  }
+
+  &__leg {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  &__route {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__departure-time {
+    margin: 0 15px;
+    width: 34px;
+    flex-shrink: 0;
+    text-align: center;
+
+    &:empty {
+      &::before {
+        content: '\2014';
+        width: 33px;
+        text-align: center;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__iata {
+    margin-right: 5px;
+    font-weight: 600;
+  }
+
+  &__name {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__flight-info-rating {
+    min-width: 36px;
+    display: inline-block;
+    margin-right: 15px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 100px;
+
+    &.--green {
+      background: #8bc34a;
+    }
+
+    &.--yellow {
+      background: #ffa300;
+    }
+
+    &.--red {
+      background: #ff4c3e;
+    }
+  }
+
+  &__carrier {
+    flex-shrink: 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 15px 15px;
+  }
+
+  &__amenities-wrapper {
+    margin: 0 15px;
+    @include variable(border-top, --ticket-flight-amenities-border, 1px solid #dfe5ec);
+  }
+
+  &__flight-info-label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1.5;
+
+    &.--clickable {
+      position: relative;
+      padding-right: 10px;
+      color: #2196f3;
+      transition: color 0.3s;
+      user-select: none;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        border-style: solid;
+        transform: translateY(-50%);
+        transition: border-color 0.3s;
+      }
+
+      &::before {
+        border-width: 3px 3px 0 3px;
+        border-color: #2196f3 transparent transparent transparent;
+        opacity: 1;
+      }
+
+      &::after {
+        border-width: 0 3px 3px 3px;
+        border-color: transparent transparent #2196f3 transparent;
+        opacity: 0;
+      }
+
+      &:hover {
+        color: #ff9d1b;
+
+        &::before {
+          border-color: #ff9d1b transparent transparent transparent;
+        }
+
+        &::after {
+          border-color: transparent transparent #ff9d1b transparent;
+        }
+      }
+    }
+
+    &.--openedInfo {
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.--compact-view {
+    .ticket-flight {
+      &__leg {
+        display: block;
+      }
+
+      &__carrier {
+        margin-bottom: 10px;
+      }
+
+      &__route-info {
+        flex-wrap: wrap;
+
+        &:not(:first-child) {
+          margin-top: 15px;
+        }
+      }
+
+      &__departure-time,
+      &__departure-date {
+        width: 35%;
+        margin: 0;
+        padding-right: 10px;
+      }
+
+      &__iata,
+      &__name {
+        width: 65%;
+        margin: 0;
+      }
+
+      &__departure-time {
+        order: 1;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      &__iata {
+        order: 2;
+      }
+
+      &__name {
+        order: 4;
+      }
+
+      &__departure-date {
+        order: 3;
+      }
+    }
+  }
+}

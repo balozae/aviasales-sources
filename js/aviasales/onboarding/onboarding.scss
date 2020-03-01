@@ -1,0 +1,317 @@
+@import 'utils/utils';
+
+.onboarding {
+  overflow: hidden;
+  padding: 15px 22px;
+  margin-top: -66px;
+  min-height: 66px;
+
+  &__inner {
+    cursor: pointer;
+    max-width: 800px;
+    margin: auto;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    display: none;
+    @include opensans;
+    font-weight: normal;
+    display: none;
+    position: relative;
+
+    &:hover {
+      .onboarding__opener {
+        &::after {
+          border-color: $color-link-hover transparent transparent transparent;
+        }
+
+        &::before {
+          color: $color-link-hover;
+        }
+      }
+    }
+
+    .--minimized & {
+      display: flex;
+    }
+  }
+
+  &.--minimized {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    background: #eefaff;
+  }
+
+  &.--full-info-opened {
+    box-shadow: none;
+    background: none;
+  }
+
+  &.--full-info-opened &__inner {
+    display: none;
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: url('./title-icon.svg') no-repeat;
+    background-size: 27px 33px;
+
+    &.--full {
+      margin: 0 auto 12px;
+      background-position: center;
+      width: 36px;
+      height: 44px;
+      background-size: 36px 44px;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    color: #4a4a4a;
+    letter-spacing: -0.23px;
+    flex-grow: 2;
+
+    @include for-medium-and-more {
+      font-size: 16px;
+      letter-spacing: -0.27px;
+    }
+  }
+
+  &__opener {
+    height: 24px;
+    padding-right: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+
+    @include for-medium-and-more {
+      font-size: 16px;
+    }
+
+    &:hover {
+      &::after {
+        border-color: $color-link-hover transparent transparent transparent;
+      }
+
+      &::before {
+        color: $color-link-hover;
+      }
+    }
+
+    @include for-large-and-more {
+      &::before {
+        content: attr(data-text-open);
+        color: $brand-blue-color;
+
+        &:hover {
+          color: $color-link-hover;
+        }
+
+        .--full-info-opened & {
+          content: attr(data-text-close);
+          color: $color-link-hover;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 4px;
+      top: 17px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: $brand-blue-color transparent transparent transparent;
+
+      .--full-info-opened & {
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent $color-link-hover transparent;
+      }
+    }
+  }
+
+  &__content {
+    border-bottom: 1px solid #c6e4f3;
+    overflow: hidden;
+    transition: max-height $accordion-duration $accordion-easing;
+    will-change: max-height;
+    position: relative;
+    z-index: 2;
+
+    .--minimized & {
+      max-height: 0;
+      border: none;
+    }
+
+    .--minimized.--full-info-opened & {
+      max-height: 1000px;
+      transition: max-height $accordion-duration $accordion-easing;
+      border-bottom: 1px solid #c6e4f3;
+    }
+
+    @include for-max {
+      max-width: 1030px;
+      margin: auto;
+    }
+  }
+
+  &__content-inner {
+    padding: 85px 0 80px;
+  }
+
+  &__full-title {
+    @include rubik;
+    text-align: center;
+    margin: 0 auto 40px;
+    font-size: 22px;
+    max-width: 457px;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 31px;
+
+    @include for-medium-and-more {
+      font-size: 32px;
+      line-height: 42px;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    @include for-max {
+      margin: 0 auto 80px;
+    }
+  }
+
+  &__flex-container {
+    @include for-max {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__desctiption-container {
+    @include for-max {
+      max-width: 540px;
+    }
+  }
+
+  &__full-description {
+    font-size: 14px;
+    color: #4a4a4a;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    margin: 0 auto 34px;
+    max-width: 541px;
+
+    @include for-medium-and-more {
+      font-size: 18px;
+      line-height: 32px;
+    }
+
+    @include for-max {
+      text-align: left;
+    }
+  }
+
+  &__full-description-footer {
+    @extend .onboarding__full-description;
+    margin: 0 auto 40px;
+  }
+
+  &__questions-box {
+    padding: 30px 5px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
+    border-radius: 10px;
+    max-width: 541px;
+    margin: auto;
+
+    @include for-medium-and-more {
+      padding: 30px 34px;
+    }
+
+    @include for-max {
+      margin: 0;
+      margin-left: auto;
+      padding: 30px 78px 30px 37px;
+      max-height: 224px;
+    }
+  }
+
+  &__questions-box-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 10px;
+    background: url('./questions-icon.svg') no-repeat;
+    background-size: cover;
+
+    @include for-medium-and-more {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 12px 0 0;
+    }
+  }
+
+  &__questions-box-title {
+    font-weight: 500;
+    font-size: 12px;
+    color: #4a4a4a;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0 auto 15px;
+
+    @include for-medium-and-more {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+
+  &__questions-list {
+    max-width: 270px;
+    padding-left: 40px;
+
+    @include for-medium-and-more {
+      padding-left: 21px;
+    }
+  }
+
+  &__questions-list-item {
+    line-height: 28px;
+    color: $brand-blue-color;
+    transition: color 0.3s;
+
+    a {
+      font-size: 14px;
+      color: $brand-blue-color;
+      text-decoration: none;
+      transition: color 0.3s;
+      padding-left: 12px;
+
+      &:hover {
+        color: $color-link-hover;
+      }
+    }
+  }
+
+  &__tickets {
+    display: none;
+    width: 220px;
+    height: 190px;
+    margin-left: 70px;
+    margin-bottom: 40px;
+    align-self: center;
+    background-image: url(./tickets-icon.svg);
+    background-position: center;
+    background-size: contain;
+
+    @include for-max {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.ticket-proposals-desktop {
+  $brand-blue-color: #2196f3;
+  $orange: #f57c00;
+  $red: #ff6663;
+  list-style: none;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    padding-bottom: 4px;
+    position: relative;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    &.--airline {
+      color: $orange;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    &.--all {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 2px;
+
+      span {
+        color: $brand-blue-color;
+        transition: 0.3s color;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      .--oneway & {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+  }
+
+  &__name {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__assisted-tooltip-wrapper {
+    display: inline;
+  }
+
+  &__assisted-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+
+    svg {
+      fill: $orange;
+    }
+  }
+
+  &__price {
+    white-space: nowrap;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+
+  &__gate-price-tooltip {
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+}

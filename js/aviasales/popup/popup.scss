@@ -1,0 +1,154 @@
+@import 'utils/utils';
+
+.popup {
+  // display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  width: 100%;
+  height: 0%;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  display: none;
+
+  &.is-opened {
+    height: 100%;
+    bottom: 0;
+    z-index: 212;
+    overflow: auto;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.2s ease-out;
+    pointer-events: initial;
+    opacity: 1;
+    display: block;
+  }
+
+  &__container {
+    @include grid-container;
+    transform: translateY(-100%);
+    position: relative;
+    cursor: default;
+
+    .popup.is-opened & {
+      transform: translateY(0);
+      transition: transform 0.2s ease-out;
+    }
+  }
+
+  &__close {
+    display: block;
+    position: absolute;
+
+    &::after {
+      content: '';
+      display: block;
+    }
+  }
+
+  &.--white {
+    .popup__container {
+      background: #f4f4f4;
+      width: 964px;
+    }
+
+    .popup__title {
+      font-weight: 300;
+      display: block;
+      padding: 20px 35px;
+      line-height: 31px;
+      font-size: 27px;
+      color: #434343;
+      border-bottom: 1px solid #e3e3e3;
+      background: #fff;
+    }
+
+    .popup__content {
+      padding: 7px 36px 15px;
+      background: #f4f4f4;
+
+      p {
+        padding: 23px 0 0;
+        color: #262626;
+        line-height: 20px;
+      }
+    }
+
+    .popup__close {
+      right: -15px;
+      top: -12px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border: 2px solid #fff;
+      border-radius: 16px;
+      background: rgba(51, 51, 51, 0.89);
+
+      &::after {
+        width: 11px;
+        height: 12px;
+        margin: 7px 0 0 8px;
+        background: transparent url('./images/close.png') no-repeat;
+      }
+    }
+  }
+
+  // It's new popup view
+  &.--transparent {
+    color: #fff;
+    text-align: center;
+
+    .popup__title {
+      font-size: 30px;
+      font-weight: 600;
+
+      @include for-small-and-less {
+        font-size: 20px;
+      }
+    }
+
+    .popup__container {
+      width: 610px;
+
+      @include for-small-and-less {
+        min-width: $screen-min;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 36px !important;
+      }
+    }
+
+    .popup__close {
+      width: 50px;
+      height: 50px;
+      background: #2d3d52;
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      border-radius: 50%;
+
+      &::after {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -8px;
+        margin-left: -8px;
+        width: 16px;
+        height: 16px;
+        background: transparent url('./images/close_cross_popup.svg') no-repeat;
+      }
+
+      @include for-small-and-less {
+        background: transparent;
+        top: 10px;
+        right: 10px;
+      }
+    }
+  }
+}

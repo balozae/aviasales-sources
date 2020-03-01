@@ -1,0 +1,73 @@
+@import '../../common/css/base/variables';
+@import 'utils/utils';
+
+$padding-bottom-default: 51px;
+
+.explosion {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  @include variable(background-color, --general-background-color, #eff1f4);
+  @include variable(color, --general-caption-color, $black);
+  font-size: 13px;
+  @include opensans;
+  line-height: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  touch-action: manipulation;
+  padding-bottom: $padding-bottom-default;
+  z-index: 1;
+
+  .--hide-header & {
+    padding-top: 0;
+  }
+
+  .is-prediction-expanded.is-calendar-graph & {
+    padding-bottom: $prediction-graph-expanded-height + $prediction-height + $padding-bottom-default;
+
+    @include for-large-and-more {
+      padding-bottom: $prediction-graph-expanded-height + $padding-bottom-default;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-graph.--oneway & {
+    padding-bottom: $prediction-graph-expanded-height-oneway + $prediction-height +
+      $padding-bottom-default;
+
+    @include for-large-and-more {
+      padding-bottom: $prediction-graph-expanded-height-oneway + $padding-bottom-default;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix & {
+    padding-bottom: $prediction-matrix-expanded-height + $prediction-height + 20px +
+      $padding-bottom-default;
+
+    @include for-large-and-more {
+      padding-bottom: $prediction-matrix-expanded-height + $padding-bottom-default;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix.--oneway & {
+    padding-bottom: $prediction-matrix-expanded-height-oneway + $prediction-height +
+      $padding-bottom-default;
+
+    @include for-large-and-more {
+      padding-bottom: $prediction-matrix-expanded-height-oneway + $padding-bottom-default;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  button {
+    border: 0;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,170 @@
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/susy';
+@import '../../../common/css/base/mixins';
+@import '../../../common/css/trumps/helper_classes';
+
+.minimized-calendar-matrix {
+  $column-width: 150px;
+  $column-height: 73px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 135px;
+
+  .--oneway & {
+    top: 83px;
+  }
+
+  &.is-exit {
+    opacity: 1;
+    transform: translateY(0);
+
+    &.is-exit-active {
+      opacity: 0;
+      transform: translateY(-40px);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  &.is-enter {
+    opacity: 0;
+    transform: translateY(-40px);
+
+    &.is-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+  }
+
+  &__item {
+    width: $column-width;
+    height: $column-height;
+    line-height: normal;
+    text-align: left;
+    font-size: 14px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 0;
+    padding: $column-height / 4 15px;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: $column-height / 4;
+      height: $column-height / 2;
+      width: 1px;
+      transition: opacity 0.2s linear;
+    }
+
+    &:nth-child(2n + 1) {
+      &::before,
+      &::after {
+        // background-color: #E4E7E8;
+        @include variable(background-color, --minimized-calendar-splitter-color, #f4fdff);
+        opacity: 1;
+      }
+
+      &:hover,
+      &.is-current {
+        &::before,
+        &::after {
+          opacity: 0;
+        }
+      }
+
+      &::before {
+        left: -1px;
+      }
+
+      &::after {
+        right: -1px;
+      }
+    }
+
+    &:nth-child(2n) {
+      &::before,
+      &::after {
+        @include variable(background-color, --minimized-calendar-splitter-color, #f4fdff);
+        opacity: 0;
+      }
+
+      &:hover,
+      &.is-current {
+        z-index: 1;
+
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    &:first-child::before,
+    &:last-child::after {
+      display: none;
+    }
+
+    &:hover,
+    &.is-current {
+      // background-color: #F4FDFF;
+      @include variable(background-color, --minimized-calendar-item-hover-background, #f4fdff);
+    }
+
+    &.is-current {
+      border-color: #2196f3;
+      border-width: 0;
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+    }
+
+    // FEXME: use block class name
+    &.--cheap .price {
+      color: #78b92e;
+    }
+
+    .calendar-matrix-dates {
+      color: #a4b0b9;
+    }
+
+    &.--expired {
+      pointer-events: none;
+      opacity: 0.4;
+
+      &.--empty {
+        background-image: none;
+      }
+    }
+
+    &.--empty {
+      background-image: url('./search-mini-icon.svg');
+      background-repeat: no-repeat;
+      background-position: 15px $column-height / 4;
+
+      .calendar-matrix-dates {
+        margin-top: $column-height / 4;
+      }
+    }
+  }
+}

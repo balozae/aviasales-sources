@@ -1,0 +1,228 @@
+@import '../../../common/css/base/mixins';
+@import '~susy/sass/susy';
+@import '../../../common/css/base/variables';
+
+// FIXME: too common name, can conflict in future
+.loader {
+  height: 4px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  transform: translate(0); // IE 11 Hack
+  z-index: 3;
+  opacity: 1;
+  animation: loader-blink-2 0.8s;
+
+  @include for-medium-and-less {
+    .--collapsed-form .--hide-multiway.--hide-header:not(.--sticky-off) & {
+      top: 80px;
+    }
+
+    .--collapsed-form .--hide-multiway:not(.--hide-header):not(.--sticky-off) & {
+      top: 130px;
+    }
+
+    .--hide-multiway:not(.--hide-header):not(.--sticky-off) & {
+      top: 50px;
+    }
+  }
+
+  @include for-large-and-more {
+    top: 130px;
+
+    .--hide-multiway.--hide-header:not(.--sticky-off) & {
+      top: 80px;
+    }
+
+    .--hide-multiway.--hide-header.--page-multiway:not(.--sticky-off) &,
+    .--hide-multiway.--page-multiway:not(.--sticky-off) & {
+      top: 0;
+    }
+
+    .--collapsed-form .--hide-multiway.--hide-header.--page-multiway:not(.--sticky-off) &,
+    .--collapsed-form .--hide-multiway.--page-multiway:not(.--sticky-off) & {
+      top: 96px;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-graph & {
+    margin-top: $prediction-graph-expanded-height + 60;
+    margin-bottom: -($prediction-graph-expanded-height + 60);
+    animation: loader-blink 0.8s;
+
+    @include for-large-and-more {
+      margin-top: $prediction-graph-expanded-height;
+      margin-bottom: -($prediction-graph-expanded-height);
+      animation: loader-blink 0.8s;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-graph.--oneway & {
+    margin-top: $prediction-graph-expanded-height-oneway + 60;
+    margin-bottom: -($prediction-graph-expanded-height-oneway + 60);
+    animation: loader-blink 0.8s;
+
+    @include for-large-and-more {
+      margin-top: $prediction-graph-expanded-height-oneway;
+      margin-bottom: -($prediction-graph-expanded-height-oneway);
+      animation: loader-blink 0.8s;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix & {
+    margin-top: $prediction-matrix-expanded-height + 80;
+    margin-bottom: -($prediction-matrix-expanded-height + 80);
+    animation: loader-blink 0.8s;
+
+    @include for-large-and-more {
+      margin-top: $prediction-matrix-expanded-height;
+      margin-bottom: -($prediction-matrix-expanded-height);
+      animation: loader-blink 0.8s;
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix.--oneway & {
+    margin-top: $prediction-matrix-expanded-height-oneway + 70;
+    margin-bottom: -($prediction-matrix-expanded-height-oneway + 70);
+    animation: loader-blink 0.8s;
+
+    @include for-large-and-more {
+      margin-top: $prediction-matrix-expanded-height-oneway;
+      margin-bottom: -($prediction-matrix-expanded-height-oneway);
+      animation: loader-blink 0.8s;
+    }
+  }
+
+  @include for-large-and-more {
+    &.--sticky {
+      position: fixed;
+      top: 108px;
+      z-index: 15;
+    }
+  }
+
+  &__bar {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    overflow: hidden;
+    @include variable(background-color, --loader-bar-background, EFF1F4);
+
+    &.--white {
+      background-color: #ffffff;
+    }
+
+    &.--animation-started {
+      transform: translateX(0) translateZ(0);
+      animation: show-search-main-progress $prediction-loader-time
+        cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    &.--fast {
+      animation-duration: 5s;
+    }
+
+    &.--animation-finished {
+      transform: translateX(100%) translateZ(0);
+      animation: hide-search-progress 0.5s ease-in-out;
+    }
+  }
+
+  &__stripes {
+    width: 120%;
+    height: 4px;
+    background-color: #2196f3;
+    background-image: repeating-linear-gradient(
+      135deg,
+      #90caf9,
+      #90caf9 20px,
+      #2196f3 20px,
+      #2196f3 40px
+    );
+    background-size: 228px 32px;
+    will-change: transform;
+    position: absolute;
+    top: 0;
+    animation: loader-stripes 0.5s infinite linear;
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &.--blue {
+      background-color: #2196f3;
+      background-image: repeating-linear-gradient(
+        135deg,
+        #90caf9,
+        #90caf9 20px,
+        #2196f3 20px,
+        #2196f3 40px
+      );
+    }
+
+    &.--animation-finished {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes loader-blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loader-blink-2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loader-stripes {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    transform: translateX(-56px) translateZ(0);
+  }
+}
+
+@keyframes show-search-main-progress {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  20% {
+    transform: translateX(20%) translateZ(0);
+  }
+  40% {
+    transform: translateX(40%) translateZ(0);
+  }
+  60% {
+    transform: translateX(60%) translateZ(0);
+  }
+  80% {
+    transform: translateX(80%) translateZ(0);
+  }
+  100% {
+    transform: translateX(100%) translateZ(0);
+  }
+}
+
+@keyframes hide-search-progress {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

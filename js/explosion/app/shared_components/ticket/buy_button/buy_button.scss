@@ -1,0 +1,105 @@
+@import 'variables';
+
+.buy-button {
+  position: relative;
+
+  // double & for more weight
+  & &__button.--size-l {
+    font-size: 16px;
+    width: 100%;
+    line-height: 1.25;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &.--with-brand-color {
+      box-shadow: none;
+    }
+  }
+
+  .b-button__text {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__text {
+    display: block;
+  }
+
+  &__proposal,
+  &__proposal-text {
+    width: 100%;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #a0b0b9;
+    font-size: 12px;
+    margin-top: 5px;
+    white-space: pre-wrap;
+  }
+
+  &__proposal-text {
+    text-transform: lowercase;
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    padding: 11px 16px;
+    width: 105px;
+    text-align: center;
+  }
+
+  &__assisted-icon-wrap {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: -10px;
+    top: -9px;
+  }
+
+  &__assisted-tooltip {
+    padding: 15px 20px 15px 15px;
+  }
+
+  &__assisted-tooltip-title {
+    display: block;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    position: relative;
+  }
+
+  &__assisted-tooltip-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+  }
+
+  &__assisted-tooltip-text {
+    display: block;
+    width: 217px;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 0;
+  }
+
+  &__assisted-icon {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-size: 100%;
+    background: url('./images/lightning-icon.svg') no-repeat center;
+  }
+
+  &__small-price {
+    display: block;
+    font-size: 12px;
+    line-height: 1.66em;
+  }
+}

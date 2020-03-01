@@ -1,0 +1,184 @@
+@import 'utils/utils';
+
+$alert-warning-color: #ff6663;
+
+.alert {
+  width: 100%;
+  border-radius: 10px;
+  background-color: $brand-blue-color;
+  color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  &__content {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 5px 10px;
+  }
+
+  &__wrap {
+    flex-shrink: 0;
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+    padding: 10px 0;
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  &__actions {
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__btn-action.--ghost {
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    & + & {
+      margin-left: 10px;
+    }
+  }
+
+  &__btn-close.--ghost {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-shrink: 0;
+    margin-left: 5px;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__close-icon {
+    svg {
+      display: block;
+      fill: #fff;
+    }
+  }
+
+  &.--warning,
+  &.--error {
+    background-color: $alert-warning-color;
+    .alert {
+      &__btn-action.--ghost {
+        color: $alert-warning-color;
+      }
+
+      &__icon {
+        background-image: url('./images/warning.svg');
+      }
+    }
+  }
+
+  &.--success,
+  &.--info {
+    .alert {
+      &__btn-action.--ghost {
+        color: $brand-blue-color;
+      }
+
+      &__icon {
+        background-image: url('./images/info.svg');
+      }
+    }
+  }
+
+  &.--success {
+    .alert {
+      &__icon {
+        background-image: url('./images/thumb-up.svg');
+      }
+    }
+  }
+
+  &.--with-animation {
+    transition: 0.3s linear;
+    transition-property: height, opacity;
+    will-change: height, opacity;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    &.--enter-active,
+    &.--enter-done {
+      opacity: 1;
+      height: auto;
+    }
+
+    &.--exit {
+      height: auto;
+    }
+
+    &.--exit-active {
+      height: 0 !important;
+    }
+  }
+
+  @include for-small-and-less {
+    &__content {
+      padding: 20px;
+      display: block;
+    }
+
+    &__icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    &__text {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__actions {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    &__btn-action.--ghost {
+      width: 100%;
+
+      & + & {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+    &__btn-close.--ghost {
+      position: absolute;
+      width: 40px;
+      top: 0;
+      right: 0;
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../common/css/base/variables';
+
+.adsense-banner {
+  width: $ticket-width;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 3px 0 rgba(158, 158, 158, 0.5);
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 10px 20px 0px 20px;
+  background: #fff;
+
+  &__inner:empty {
+    display: none;
+  }
+}

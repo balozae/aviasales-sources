@@ -1,0 +1,32 @@
+@import 'utils/mixins';
+
+.product-list-informer {
+  &.--mobile {
+    .informer {
+      flex-wrap: nowrap;
+
+      &__title {
+        padding-right: 10px;
+      }
+
+      &__action {
+        margin-top: 0;
+        max-width: 100px;
+      }
+    }
+
+    @include for-xsmall-only {
+      margin-left: -20px;
+      margin-right: -20px;
+
+      .informer {
+        border-radius: 0;
+      }
+    }
+
+    @media (max-width: 340px) {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+}

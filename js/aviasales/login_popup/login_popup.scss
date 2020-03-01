@@ -1,0 +1,13 @@
+@import 'utils/utils';
+
+.login-popup {
+  max-width: 355px;
+  padding: 0 30px 30px;
+  margin-top: -16px;
+
+  @include for-xsmall-only {
+    max-width: 100%;
+    padding: 0;
+    margin-top: 0;
+  }
+}

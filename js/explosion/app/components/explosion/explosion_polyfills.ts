@@ -1,0 +1,8 @@
+import '@babel/polyfill'
+import 'stop_sovetnik'
+import 'requestanimationframe'
+import 'perfnow'
+import 'common/js/colorizer'
+import 'common/js/mutation_observer'
+import 'abortcontroller-polyfill'
+import 'element-closest'

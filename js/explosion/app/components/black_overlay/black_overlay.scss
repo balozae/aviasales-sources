@@ -1,0 +1,62 @@
+@import '../../common/css/base/variables';
+@import '~susy/sass/susy';
+@import '../../common/css/base/mixins';
+
+.black-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #000;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: animation-fade-in both 0.2s ease-in-out;
+  display: none;
+
+  @include for-medium-and-less {
+    &.is-shown {
+      display: block;
+      z-index: 7;
+      opacity: 0.3;
+      pointer-events: auto;
+      animation: animation-fade-out both 0.2s ease-in-out;
+    }
+
+    &.is-loaded {
+      display: block;
+    }
+  }
+}
+
+@keyframes animation-fade-out {
+  from {
+    opacity: 0;
+  }
+
+  1% {
+    z-index: 7;
+  }
+
+  to {
+    z-index: 7;
+    opacity: 0.3;
+  }
+}
+
+@keyframes animation-fade-in {
+  from {
+    opacity: 0.3;
+    z-index: 7;
+  }
+
+  99% {
+    z-index: 7;
+  }
+
+  to {
+    z-index: -1;
+    opacity: 0;
+  }
+}

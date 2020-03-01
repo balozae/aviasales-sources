@@ -1,0 +1,11 @@
+body {
+  overscroll-behavior-y: contain;
+  // @include variable( background-color, --general-background-color, #fff);
+  background-color: #fff;
+
+  &.--no-scroll {
+    position: fixed;
+    width: 100%;
+    overflow: auto;
+  }
+}

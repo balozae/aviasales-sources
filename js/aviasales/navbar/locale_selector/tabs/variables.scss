@@ -1,0 +1,16 @@
+@import 'utils/mixins';
+@import 'utils/variables';
+
+:root {
+  --tabs-subtitle-color: #a0b0b9;
+  --tabs-border: 1px solid #dfe5ec;
+  --tabs-active-bg-color: transparent;
+  --tabs-inactive-bg-color: #f6f9fa;
+  --tabs-hover-bg-color: #e1f5fe;
+}
+
+.--night {
+  --tabs-border: 1px solid #031828;
+  --tabs-inactive-bg-color: #355065;
+  --tabs-hover-bg-color: rgba(0, 0, 0, 0.3);
+}

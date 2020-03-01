@@ -1,0 +1,26 @@
+@import 'utils/mixins';
+
+.airports-filter {
+  &__info {
+    padding: 0 20px;
+    display: block;
+    font-size: 12px;
+    margin: 5px 0;
+    @include variable(color, --general-text-color, #4a4a4a);
+  }
+
+  &__badge-list {
+    padding: 0 20px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .airports-filter &__badge {
+    margin-right: 10px;
+    cursor: default;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

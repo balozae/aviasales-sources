@@ -1,0 +1,46 @@
+@import 'utils/utils';
+
+.trip-duration-range-slider {
+  padding: 25px;
+
+  &__title {
+    text-align: center;
+    @include opensans-semi-bold;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  &__buttons {
+    margin-top: 27px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-cancel {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  &__btn-confirm {
+    width: 130px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  @include for-medium-and-more {
+    &__btn-cancel {
+      min-width: 210px;
+    }
+
+    &__btn-confirm {
+      min-width: 130px;
+    }
+  }
+}

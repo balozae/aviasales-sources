@@ -1,0 +1,174 @@
+@import '~susy/sass/susy';
+@import '../../common/css/base/variables';
+@import '../../common/css/base/susy';
+@import '../../common/css/base/mixins';
+@import '../../common/css/trumps/helper_classes';
+
+.explosion .app {
+  flex-grow: 1;
+  flex-shrink: 0;
+  $filters-top-gutter: 108px;
+  $filters-width: 295px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+
+  .--search-expired & {
+    transform: translateY(40px);
+  }
+
+  .is-prediction-expanded.is-calendar-graph & {
+    transform: translateY($prediction-graph-expanded-height + $prediction-height);
+
+    @include for-large-and-more {
+      transform: translateY($prediction-graph-expanded-height);
+    }
+
+    &.--search-expired {
+      transform: translateY($prediction-graph-expanded-height + $prediction-height + 40px);
+
+      @include for-large-and-more {
+        transform: translateY($prediction-graph-expanded-height + 40px);
+      }
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-graph.--oneway & {
+    transform: translateY($prediction-graph-expanded-height-oneway + $prediction-height);
+
+    @include for-large-and-more {
+      transform: translateY($prediction-graph-expanded-height-oneway);
+    }
+
+    &.--search-expired {
+      transform: translateY($prediction-graph-expanded-height-oneway + $prediction-height + 40px);
+
+      @include for-large-and-more {
+        transform: translateY($prediction-graph-expanded-height-oneway + 40px);
+      }
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix & {
+    transform: translateY($prediction-matrix-expanded-height + $prediction-height + 20px);
+
+    @include for-large-and-more {
+      transform: translateY($prediction-matrix-expanded-height);
+    }
+
+    &.--search-expired {
+      transform: translateY($prediction-matrix-expanded-height + $prediction-height + 40px);
+
+      @include for-large-and-more {
+        transform: translateY($prediction-matrix-expanded-height + 40px);
+      }
+    }
+  }
+
+  .is-prediction-expanded.is-calendar-matrix.--oneway & {
+    transform: translateY($prediction-matrix-expanded-height-oneway + $prediction-height);
+
+    @include for-large-and-more {
+      transform: translateY($prediction-matrix-expanded-height-oneway);
+    }
+
+    &.--search-expired {
+      transform: translateY($prediction-matrix-expanded-height-oneway + $prediction-height + 40px);
+
+      @include for-large-and-more {
+        transform: translateY($prediction-matrix-expanded-height-oneway + 40px);
+      }
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 729px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    @extend .cf;
+
+    @include for-large-and-more {
+      max-width: 1280px;
+      flex-grow: 1;
+      flex-shrink: 0;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 340px) {
+      padding: 0 10px;
+    }
+  }
+
+  &__informer {
+    position: relative;
+    width: 232px;
+    float: left;
+    margin-right: $grid-gutter;
+    padding-top: $grid-gutter;
+
+    &.hidden {
+      display: block;
+      visibility: hidden;
+    }
+
+    @include for-medium-and-less {
+      width: $filters-width;
+      position: absolute;
+      left: -$filters-width;
+      top: 0;
+      padding-top: 0;
+      bottom: 0;
+      z-index: 9;
+      @include variable(background-color, --general-menu-background, #fff);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    @include for-max {
+      width: 295px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 729px;
+    float: left;
+    padding-top: $grid-gutter;
+    position: relative;
+
+    @include for-medium-and-less {
+      padding-top: 15px;
+    }
+  }
+
+  &__preroll {
+    padding-top: 25px;
+    display: flex;
+
+    @include for-medium-and-less {
+      padding-bottom: 25px;
+    }
+  }
+
+  &__preroll-hint {
+    width: 100%;
+    margin-right: $grid-gutter;
+
+    @include for-large-and-less {
+      margin-right: 0;
+    }
+  }
+
+  &__preroll-extra {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    vertical-align: top;
+    overflow: hidden;
+    height: 600px;
+
+    @include for-large-and-less {
+      display: none;
+    }
+  }
+}

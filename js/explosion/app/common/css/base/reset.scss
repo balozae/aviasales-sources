@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ * Add pointer for non-href links
+ */
+a {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+button,
+input {
+  border: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+  line-height: normal;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+strong {
+  font-weight: 600;
+}

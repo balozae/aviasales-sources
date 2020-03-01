@@ -1,0 +1,116 @@
+@import '../../common/css/base/variables';
+@import 'utils/mixins';
+
+.saved-filters {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  transition: 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  transition-property: max-height, opacity, margin-bottom;
+  max-height: 160px;
+
+  &.--is-highlighted {
+    animation: highlight-saved-filters 1.5s ease-in-out;
+    animation-iteration-count: 3;
+  }
+
+  &.--is-hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+  }
+
+  &__route {
+    color: #9aa2a6;
+  }
+
+  &__tooltip {
+    padding: 15px 18px;
+    line-height: 18px;
+    max-width: 260px;
+  }
+
+  &__applied {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    @include variable(background-color, --general-menu-background, #fff);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition-property: transform, opacity;
+    pointer-events: none;
+    will-change: transform, opacity;
+
+    &.--show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-title {
+      font-weight: 600;
+      margin-bottom: 0;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--general-text-color, #4a4a4a);
+    }
+  }
+
+  @include for-large-and-more {
+    .informer__text-wrapper strong {
+      display: block;
+    }
+  }
+
+  @include for-medium-and-less {
+    max-height: 250px;
+  }
+
+  @include for-xsmall-only {
+    border-radius: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+
+    .informer {
+      border-radius: 0;
+    }
+  }
+
+  @media (max-width: 340px) {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+@keyframes highlight-saved-filters {
+  0% {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15), 0 0 0 3px transparent;
+  }
+
+  50% {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15), 0 0 0 3px $orange;
+  }
+
+  100% {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15), 0 0 0 3px transparent;
+  }
+}

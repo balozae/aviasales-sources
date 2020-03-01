@@ -1,0 +1,556 @@
+.of_form_part {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  float: left;
+  padding-right: 2px;
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 100%;
+    background: url('./images/date-clear.svg') 50% 50% no-repeat;
+    z-index: 13;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &--checkin,
+  &--checkout {
+    width: 50%;
+  }
+
+  &--checkout {
+    padding-right: 0;
+
+    @include for-small-and-medium {
+      padding-right: 1px;
+    }
+  }
+
+  &--origin,
+  &--destination {
+    flex-basis: 50%;
+    flex-grow: 1;
+
+    input {
+      @include text-overflow;
+      padding-right: 48px;
+      border-radius: inherit;
+    }
+
+    &.is_opened {
+      input {
+        padding-right: 18px;
+      }
+    }
+  }
+
+  &--return_date {
+    &.is_filled {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &--origin {
+    input {
+      padding-right: 67px;
+    }
+  }
+
+  &--origin,
+  &--pl {
+    border-radius: 5px 0 0 5px;
+
+    input {
+      border-radius: inherit;
+    }
+
+    @include for-small-and-medium {
+      border-bottom-left-radius: 0;
+      padding-right: 1px;
+    }
+
+    @include for-xsmall-only {
+      border-radius: 5px 5px 0 0;
+      padding: 0 0 2px 0;
+    }
+  }
+
+  &--destination,
+  &--dl {
+    input {
+      padding-right: 44px;
+    }
+    margin-bottom: 0;
+
+    @include for-small-and-medium {
+      padding-left: 1px;
+
+      body.page--multiway & {
+        padding-left: 1px;
+      }
+    }
+
+    @include for-xsmall-only {
+      padding-right: 0;
+    }
+  }
+
+  &--date {
+    position: relative;
+    // width: 50%;
+    transition: color 0.1s;
+
+    @include after {
+      pointer-events: none;
+      width: 18px;
+      height: 24px;
+      position: absolute;
+      top: 19px;
+      right: 16px;
+      opacity: 1;
+      z-index: 13;
+      transition: transform 0.2s, opacity 0.1s;
+
+      .offers-search-form & {
+        top: 2px;
+        right: 13px;
+      }
+    }
+
+    input {
+      padding-left: 18px;
+      padding-right: 5px;
+      cursor: pointer;
+      border-radius: inherit;
+      user-select: none;
+    }
+
+    @include for-tablet {
+      width: 50%;
+    }
+
+    &.is_filled {
+      input {
+        padding-left: 18px;
+      }
+    }
+  }
+
+  &--date_clear {
+    @include before {
+      display: none;
+    }
+  }
+
+  &--date_range {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    flex-basis: 40%;
+    background: transparent;
+    @include no-user-select;
+
+    @include for-mobile {
+      width: 100%;
+      border-radius: 0;
+      padding: 2px 0;
+    }
+
+    @include for-small-and-less {
+      float: none;
+    }
+
+    @include for-xsmall-only {
+      flex-basis: 64px;
+      height: 64px;
+    }
+
+    .page_header-header.--compact & {
+      flex-basis: 33%;
+
+      @include for-large-and-more {
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+        max-width: 412px;
+      }
+
+      @include for-small-and-medium {
+        flex-basis: 50%;
+        max-width: calc(50% + 1px);
+      }
+    }
+  }
+
+  &--depart_date {
+    @extend .of_form_part--date;
+    flex-basis: 50%;
+
+    &.is_invalid {
+      &::after {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    &::after {
+      background: url('./images/input-calender-depart.svg') no-repeat;
+    }
+
+    input {
+      border-radius: inherit;
+    }
+
+    @include for-small-and-medium {
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  &--return_date {
+    @extend .of_form_part--date;
+    padding-right: 0;
+    float: right;
+    display: block;
+    flex-basis: 50%;
+
+    &.is_invalid {
+      &::after {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    &::after {
+      background: url('./images/input-calender-return.svg') no-repeat;
+    }
+
+    .is_one_way & {
+      width: 0;
+      color: rgba($font-color, 0);
+
+      &::after {
+        transform: translateX(35px);
+        opacity: 0;
+      }
+    }
+  }
+
+  &--from {
+    width: 50%;
+
+    @include for-tablet {
+      border-radius: 0;
+    }
+
+    @include for-mobile-landscape {
+      border-radius: 0 0 0 3px;
+    }
+
+    @include for-mobile {
+      border-radius: 0;
+    }
+  }
+
+  &--till {
+    width: 50%;
+    border-radius: 0 3px 3px 0;
+
+    @include for-mobile-landscape {
+      border-radius: 0 0 3px 0;
+    }
+
+    @include for-mobile {
+      border-radius: 0;
+    }
+  }
+
+  &--destination {
+    @include for-small-and-medium {
+      padding-right: 0;
+      border-top-right-radius: 5px;
+    }
+
+    // NOTE: Its dirty hack, cuz inheritance relative to parents - its evil
+    .of_main_form--hotel & {
+      max-width: 472px;
+      border-radius: 5px 0 0 5px;
+      margin-right: 2px;
+      padding-right: 0;
+      max-width: 411px;
+
+      @include for-small-and-medium {
+        border-radius: 5px 5px 0 0;
+        min-width: 100%;
+        margin: 0 0 2px -1px;
+        max-width: none;
+      }
+      @include for-xsmall-only {
+        border-radius: 5px 5px 0 0;
+        min-width: 100%;
+        margin: 0;
+        max-width: none;
+      }
+    }
+  }
+
+  &--multiway_origin,
+  &--multiway_destination {
+    width: 50%;
+
+    &.--additional-fields {
+      padding-right: 0;
+    }
+
+    @include for-mobile {
+      width: 100% !important;
+      padding-right: 0;
+      margin-bottom: 2px;
+    }
+  }
+
+  &--multiway_origin {
+    border-radius: 5px 0 0 5px;
+
+    @include for-mobile {
+      border-radius: 3px 3px 0 0;
+    }
+  }
+
+  &--multiway_destination {
+    padding-right: 0;
+  }
+
+  &--multiway_depart_date,
+  &--multiway_passengers {
+    float: right;
+    margin-top: -60px;
+    width: 216px;
+    padding-right: 0;
+
+    @include for-mobile {
+      width: 100% !important;
+      margin-top: 0;
+    }
+
+    @include for-large-and-more {
+      width: 200px;
+    }
+  }
+
+  &--multiway_passengers {
+    border-radius: 3px;
+  }
+
+  &--country {
+    width: 50%;
+    border-radius: 5px 0 0 5px;
+
+    @include for-mobile-landscape {
+      border-radius: 5px 5px 0 0;
+      width: 100%;
+      padding-bottom: 2px;
+      padding-right: 0;
+    }
+
+    @include for-mobile {
+      border-radius: 0;
+    }
+  }
+
+  &--dl {
+    @include for-tablet {
+      border-radius: 0 5px 0 0;
+    }
+  }
+
+  &--pl,
+  &--dl {
+    width: 30%;
+
+    @include for-tablet {
+      width: 50%;
+    }
+
+    @include for-mobile {
+      width: 100%;
+    }
+  }
+
+  &--dt {
+    border-radius: 0 3px 3px 0;
+
+    @include for-tablet {
+      border-radius: 0 0 3px 0;
+      padding-right: 0;
+
+      .of_datepicker.of_datepicker--right {
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+
+  &--pt {
+    @include for-tablet {
+      border-radius: 0 0 0 3px;
+    }
+  }
+
+  &--pt,
+  &--dt {
+    width: 50%;
+
+    input {
+      cursor: pointer;
+    }
+  }
+
+  &--pl,
+  &--dl,
+  &--pt,
+  &--dt {
+    @include for-mobile {
+      border-radius: 0;
+    }
+  }
+
+  &--date_range_cars {
+    @extend .of_form_part--date_range;
+    padding-right: 0;
+    width: 40%;
+
+    @include for-tablet {
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+
+  &--date_range_insurance {
+    @extend .of_form_part--date_range;
+    padding-right: 0;
+    width: 50%;
+
+    @include for-mobile-landscape {
+      width: 100%;
+    }
+  }
+
+  &.is_invalid {
+    @include after {
+      position: absolute;
+      left: -2px;
+      right: 0px;
+      top: -26px;
+      padding: 2px 20px;
+      background: $of-color-form-error;
+      color: #fff;
+      font-size: 13px;
+      z-index: 12;
+      content: attr(data-error-message);
+
+      @include for-tablet {
+        top: 0px;
+        left: 0;
+        right: 0;
+        line-height: 13px;
+      }
+    }
+  }
+
+  &.is_highlighted {
+    .of_input_text {
+      box-shadow: 0 0 0 2px #ff6d00;
+      animation: highlight-field 1s linear;
+      animation-iteration-count: 3;
+    }
+  }
+
+  // NOTE: from editable_origin module
+  &--top-destinations-origin {
+    padding-right: 0;
+    font-weight: normal;
+    display: inline-block;
+    float: none;
+    width: 228px;
+
+    .of_input_text {
+      height: 28px;
+      color: #4a4a4a;
+      font-size: inherit;
+      border-bottom: 1px solid #00ace2;
+      margin: 10px 2px;
+      padding: 0px;
+      background: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .of_autocomplete {
+      &__iata {
+        display: none;
+      }
+
+      &__dropdown {
+        top: 43px;
+        font-size: 13px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+        padding: 3px 0;
+      }
+
+      &__suggestion {
+        background-color: #fff;
+        border-bottom: 1px solid #dfe5ec;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        &.is_under_cursor {
+          background-color: #f1fcff;
+          color: inherit;
+        }
+      }
+
+      &__name {
+        color: #4a4a4a !important;
+        font-weight: 600;
+      }
+
+      &__subname {
+        color: #a9a9a9 !important;
+      }
+
+      &__note {
+        color: #a2b0b9 !important;
+        font-weight: 600;
+      }
+
+      &__hint {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@keyframes highlight-field {
+  0% {
+    @include variable(background-color, --general-block-color, #fff);
+  }
+
+  50% {
+    @include variable(background-color, --highlighted-input-background, #ffebd2);
+  }
+
+  100% {
+    @include variable(background-color, --general-block-color, #fff);
+  }
+}

@@ -1,0 +1,84 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+@import '../styles/styles.scss';
+
+.booking-banner-cards-container {
+  width: 100%;
+  overflow: hidden;
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      cursor: pointer;
+      display: block;
+      margin-top: 4px;
+
+      @include backgroundLogo();
+    }
+
+    &__showMore {
+      cursor: pointer;
+      color: $blue;
+      font-family: $open-sans;
+      font-size: 15px;
+      line-height: 21px;
+      text-decoration: none !important;
+    }
+  }
+
+  &.--horizontal {
+    .booking-banner-cards-container__cards {
+      margin-top: 14px;
+      overflow: auto;
+      display: flex;
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+
+      & > *:not(:first-child) {
+        margin-left: $cards-step;
+      }
+    }
+  }
+
+  &.--vertical {
+    .booking-banner-cards-container__cards > * {
+      margin-top: $cards-step;
+    }
+  }
+
+  .--night & {
+    &-head {
+      &__showMore {
+        @include variable(color, --footer-link-color, $blue);
+      }
+    }
+  }
+
+  @include for-xsmall-only {
+    &.--horizontal {
+      .booking-banner-cards-container__cards {
+        & > * {
+          min-width: calc(100% - #{$cards-step * 3});
+        }
+
+        &:before,
+        &:after {
+          content: '';
+          min-width: $cards-step;
+        }
+      }
+
+      .booking-banner-cards-container-head {
+        &__logo {
+          margin-left: $cards-step;
+        }
+
+        &__showMore {
+          display: none;
+        }
+      }
+    }
+  }
+}

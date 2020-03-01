@@ -1,0 +1,43 @@
+var map = {
+	"./favorites_en.jpg": 2131,
+	"./favorites_en@2x.jpg": 1430,
+	"./favorites_ru.jpg": 2132,
+	"./favorites_ru@2x.jpg": 1431,
+	"./hotels_en.jpg": 2133,
+	"./hotels_en@2x.jpg": 1432,
+	"./hotels_ru.jpg": 2134,
+	"./hotels_ru@2x.jpg": 1433,
+	"./profile_en.jpg": 2135,
+	"./profile_en@2x.jpg": 1434,
+	"./profile_ru.jpg": 2136,
+	"./profile_ru@2x.jpg": 1435,
+	"./search_en.jpg": 2137,
+	"./search_en@2x.jpg": 1436,
+	"./search_ru.jpg": 2138,
+	"./search_ru@2x.jpg": 1437,
+	"./travel_en.jpg": 2139,
+	"./travel_en@2x.jpg": 1438,
+	"./travel_ru.jpg": 2140,
+	"./travel_ru@2x.jpg": 1439
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 1429;

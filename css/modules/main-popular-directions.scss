@@ -1,0 +1,252 @@
+@import 'utils/utils';
+
+.main-popular-directions {
+  padding: 45px 0 60px;
+
+  @include for-large-and-more {
+    padding: 0;
+  }
+
+  &.--full-width {
+    margin-bottom: 100px;
+
+    @include for-medium-and-more {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto 100px;
+    }
+  }
+
+  &__wrapper {
+    @include for-small-and-more {
+      width: 75%;
+      max-width: 1116px;
+      margin: auto;
+    }
+
+    @include for-large-and-more {
+      width: 600px;
+    }
+  }
+
+  #{&}.--full-width &__wrapper {
+    width: auto;
+    max-width: none;
+  }
+
+  &__icon {
+    margin: 0 auto 20px;
+    width: 36px;
+    height: 36px;
+    background: url('../assets/images/home_popular_directions/title_icon.svg') no-repeat;
+    background-size: cover;
+  }
+
+  #{&}:not(.--full-width) &__icon {
+    @include for-large-and-more {
+      margin: 0px 16px 0 0;
+      float: left;
+    }
+  }
+
+  &__header {
+    @include rubik;
+    margin-top: 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: 38px;
+    margin-bottom: 35px;
+
+    @include for-medium-and-more {
+      font-size: 24px;
+    }
+
+    @include for-large-and-more {
+      text-align: left;
+    }
+  }
+
+  #{&}.--full-width &__header {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  &__destinations {
+    @include for-medium-and-more {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__destination {
+    margin: 0 auto 15px;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include for-medium-and-more {
+      margin: 0 0 15px 0;
+      flex-basis: calc(50% - 20px);
+    }
+  }
+
+  #{&}.--full-width &__destination {
+    @include for-large-and-more {
+      flex-basis: calc(33.33333% - 20px);
+    }
+  }
+
+  &__destination-flag {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  &__destination-header {
+    background: #eff1f4;
+    padding: 6px 14px 8px 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    &:hover {
+      background: #f2fcff;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked ~ &__destination-routes {
+    max-height: 220px;
+    transition: max-height $accordion-duration $accordion-easing;
+  }
+
+  input:checked ~ &__destination-header-opener {
+    &::after {
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent #90a4ae transparent;
+    }
+
+    &:hover {
+      &::after {
+        border-color: transparent transparent $brand-blue-color transparent;
+      }
+    }
+  }
+
+  &__destination-header-opener {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 13px;
+    top: 14px;
+    padding-top: 10px;
+    cursor: pointer;
+
+    &:hover {
+      &::after {
+        border-color: $brand-blue-color transparent transparent transparent;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #90a4ae transparent transparent transparent;
+      margin: auto;
+    }
+  }
+
+  &__destination-sub-title {
+    margin: 0;
+    line-height: 14px;
+    font-size: 12px;
+    color: #90a4ae;
+  }
+
+  &__destination-city-name {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  a#{&}__destination-city-name {
+    color: $brand-blue-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  &__destination-routes {
+    width: 100%;
+    max-height: 0;
+    transition: max-height $accordion-duration $accordion-easing;
+    position: relative;
+    top: 11px;
+  }
+
+  &__destination-route {
+    @include clearlink;
+    font-size: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow: hidden;
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__destination-route-link {
+    color: $brand-blue-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 20px;
+    text-decoration: none;
+    flex: 1;
+    display: flex;
+    white-space: nowrap;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &__destination-route-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__destination-route-price {
+    margin-left: auto;
+    padding-left: 10px;
+    text-transform: lowercase;
+
+    .currency-font {
+      padding-left: 3px;
+      text-transform: none;
+    }
+  }
+}

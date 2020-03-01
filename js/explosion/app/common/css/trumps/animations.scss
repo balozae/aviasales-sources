@@ -1,0 +1,27 @@
+@keyframes animation-delayed-overflow-in {
+  0% {
+    overflow: hidden;
+  }
+
+  1% {
+    overflow: visible;
+  }
+
+  100% {
+    overflow: visible;
+  }
+}
+
+@keyframes animation-delayed-overflow-out {
+  0% {
+    overflow: visible;
+  }
+
+  99% {
+    overflow: visible;
+  }
+
+  100% {
+    overflow: hidden;
+  }
+}

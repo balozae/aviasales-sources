@@ -1,0 +1,109 @@
+@import 'utils/utils';
+
+.old-browser-notification {
+  color: #4a4a4a;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow: hidden;
+  width: 100%;
+  animation: animation-slide-up 0.6s both ease-in-out;
+  @include opensans;
+  font-size: 14px;
+  background: #fdf4f2;
+  background-image: linear-gradient(90deg, #ffffff 0%, #fdf4f2 100%);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+
+  @include for-medium-and-more {
+    display: block;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 1280px;
+    position: relative;
+    padding: 28px 5px 28px 95px;
+    background: url('../js/aviasales/old_browser_notification/old-browser.png') 10px 30px no-repeat;
+  }
+
+  &__download {
+    float: right;
+    display: block;
+    background: #fff;
+    border: 1px solid #ffe1d9;
+    border-radius: 5px;
+    padding-left: 60px;
+    width: 274px;
+    min-height: 56px;
+    position: relative;
+    font-size: 12px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+    margin-left: 10px;
+
+    &:hover {
+      background: #ffffff;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+      border-color: #fff;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      background: url('../js/aviasales/old_browser_notification/chrome-logo.png') no-repeat;
+      width: 45px;
+      height: 45px;
+      position: absolute;
+      left: 8px;
+      top: 6px;
+    }
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: #4a4a4a;
+
+      span {
+        color: #adb4bc;
+      }
+    }
+  }
+
+  &__download-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2em;
+    margin: 8px 0 2px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2em;
+    margin: 0 0 10px;
+  }
+
+  &__text {
+    margin: 0;
+  }
+}
+
+@keyframes animation-slide-up {
+  0% {
+    transform: translateY(200px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

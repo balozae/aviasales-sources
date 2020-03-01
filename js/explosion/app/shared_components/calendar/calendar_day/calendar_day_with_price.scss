@@ -1,0 +1,14 @@
+.calendar-day-with-price {
+  &__day-tooltip {
+    text-align: center;
+    padding: 4px 8px;
+  }
+
+  &__day-tooltip-price {
+    font-size: 12px;
+  }
+
+  &__day-tooltip-date {
+    font-size: 10px;
+  }
+}

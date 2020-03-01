@@ -1,0 +1,35 @@
+.success-popup {
+  &__content-wrap {
+    padding: 0 50px 30px;
+  }
+
+  &__content {
+    width: 300px;
+    text-align: center;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 62px;
+      height: 62px;
+      background: url('./images/success.svg') no-repeat;
+      margin: auto;
+      margin-bottom: 25px;
+    }
+  }
+
+  & &__title {
+    margin-bottom: 5px;
+  }
+
+  & &__caption {
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}

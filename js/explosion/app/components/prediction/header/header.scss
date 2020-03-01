@@ -1,0 +1,124 @@
+@import '../../../common/css/base/variables';
+@import '../../../common/css/base/susy';
+@import '../../../common/css/base/mixins';
+@import 'utils/utils';
+
+.prediction-header {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 3;
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 0;
+  }
+
+  &__left-col,
+  &__right-col {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    height: 80px;
+    @include variable(background-color, --prediction-col-background-fill, #fff);
+  }
+
+  &__left-col {
+    left: 0;
+    padding-right: 15px;
+
+    &::after {
+      content: '';
+      width: 50px;
+      top: 0;
+      height: 100%;
+      position: absolute;
+      right: -50px;
+      z-index: 1;
+      @include variable(
+        background-image,
+        --prediction-left-fader,
+        linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)
+      );
+    }
+  }
+
+  &__right-col {
+    right: 0;
+    padding-left: 15px;
+
+    &::after {
+      content: '';
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -50px;
+      z-index: 1;
+      @include variable(
+        background-image,
+        --prediction-right-fader,
+        linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)
+      );
+    }
+  }
+
+  &__refresh-button,
+  &__expand-button {
+    @include variable(background-color, --prediction-expand-button-background, #fff);
+    user-select: none;
+    border: 1px solid #00acde;
+    color: #00acde;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 119px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      @include variable(background-color, --general-control-hover, #e5f9ff);
+      @include variable(border-color, --general-control-border-color, #2196f3);
+      @include variable(color, --general-control-hover-color, #2196f3);
+    }
+  }
+
+  &__expand-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & span {
+      margin-left: 5px;
+    }
+
+    @include for-medium-and-less {
+      width: 63px;
+
+      & span {
+        display: none;
+      }
+    }
+  }
+
+  &__expand-button-icon {
+    position: relative;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    border: 5px solid transparent;
+    border-top-color: $brand-blue-color;
+    transition: transform 0.3s ease;
+    transform-origin: 50% 25%;
+    overflow: hidden;
+
+    .is-prediction-expanded & {
+      transform: rotate(-180deg);
+    }
+  }
+}

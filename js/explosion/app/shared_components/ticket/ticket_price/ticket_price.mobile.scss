@@ -1,0 +1,60 @@
+.ticket-price-mobile {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #2196f3;
+
+  &__small {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &__proposal {
+    width: 100%;
+    text-align: center;
+    color: #a0b0b9;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &.--assisted {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: block;
+      margin-right: 5px;
+      background: url('./images/lightning-icon.svg');
+      width: 24px;
+      height: 24px;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &.--double-price {
+    font-size: 16px;
+  }
+
+  &.--large {
+    font-size: 24px;
+
+    .ticket-price-mobile__small {
+      font-size: 14px;
+    }
+  }
+
+  &.--large.--assisted {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &.--double-price.--large {
+    font-size: 20px;
+  }
+}

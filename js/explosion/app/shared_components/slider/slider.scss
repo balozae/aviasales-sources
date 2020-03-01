@@ -1,0 +1,71 @@
+@import 'utils/utils';
+@import '~nouislider/distribute/nouislider.css';
+
+$slider-main-color: #d6d9da;
+$slider-handle-size: 16px;
+
+.slider {
+  margin: $slider-handle-size / 2;
+
+  &.noUi-target {
+    border: 0;
+    height: auto;
+    background: $slider-main-color;
+    box-shadow: none;
+    border-radius: 1px;
+  }
+
+  .noUi-base {
+    height: 2px;
+    cursor: pointer;
+  }
+
+  .noUi-connect {
+    background: $brand-blue-color;
+    box-shadow: none;
+  }
+
+  html:not([dir='rtl']) &.noUi-horizontal .noUi-handle {
+    border: 1px solid $slider-main-color;
+    background: #fff;
+    width: $slider-handle-size;
+    height: $slider-handle-size;
+    border-radius: 50%;
+    transition: border 0.15s ease, transform 0.15s ease-in-out;
+    box-shadow: none;
+    will-change: transform;
+    top: -7px;
+    right: -7px;
+    cursor: pointer;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      opacity: 0;
+      display: block;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      bottom: -8px;
+      left: -8px;
+      width: auto;
+      height: auto;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $brand-blue-color;
+      transform: scale(1.2);
+      box-shadow: none;
+      outline: none;
+    }
+
+    &.noUi-active {
+      border-color: $brand-blue-color;
+      transform: scale(1.4);
+      box-shadow: none;
+    }
+  }
+}

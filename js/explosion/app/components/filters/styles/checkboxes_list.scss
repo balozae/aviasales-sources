@@ -1,0 +1,117 @@
+@import 'utils/mixins';
+
+.checkboxes-list {
+  list-style: none;
+
+  &__list {
+    max-height: 50vh;
+    overflow-y: auto;
+    @include scrollbar();
+
+    .--night & {
+      @include dark-scrollbar();
+    }
+
+    &.--overflow-hidden {
+      overflow: hidden;
+    }
+  }
+
+  &__item {
+    position: relative;
+    line-height: 36px;
+
+    &:hover {
+      // background: #F1FCFF;
+      @include variable(background-color, --filter-header-hover, #f1fcff);
+    }
+  }
+
+  &__label {
+    display: block;
+    height: 36px;
+    padding: 0 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__tooltip.--top {
+    top: -51px;
+    left: 19px;
+    text-align: center;
+    width: 200px;
+    padding: 4px 16px;
+
+    &::before {
+      left: auto;
+      margin-left: 22px;
+    }
+  }
+
+  &__extra {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+
+    @include variable(background-color, --general-menu-background, #fff);
+    @include variable(box-shadow, --filter-right-shadow, -5px 0 10px #fff);
+
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0 20px;
+    min-width: 80px;
+
+    .checkboxes-list__item:hover & {
+      background-color: #f1fcff;
+      @include variable(background-color, --filter-extra-color, #f1fcff);
+      @include variable(box-shadow, --filter-extra-shadow, -5px 0 10px #f1fcff);
+    }
+  }
+
+  &__extra-content {
+    color: #a6aeb1;
+    transition: opacity 0.15s, transform 0.15s ease-out;
+    text-align: right;
+
+    .checkboxes-list__item:hover & {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+  }
+
+  &__extra-uncheck-other {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s ease-out;
+    transform: translateY(30px);
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    user-select: none;
+
+    .checkboxes-list__item:hover & {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  @include for-medium-and-less {
+    &__extra-content {
+      .checkboxes-list__item:hover & {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    &__extra-uncheck-other {
+      display: none;
+    }
+  }
+}

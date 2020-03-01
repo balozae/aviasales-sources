@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.bag-icon {
+  margin: 0 2px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: 9px;
+  line-height: 17px;
+  font-weight: 700;
+  font-style: normal;
+  color: #2196f3;
+  background: no-repeat top center; }
+  .bag-icon::before {
+    content: attr(data-weight);
+    position: absolute;
+    top: 4px;
+    left: 0;
+    right: 0; }
+  .bag-icon path {
+    fill: #2196f3; }
+  .bag-icon.--baggage {
+    width: 17px;
+    height: 23px;
+    vertical-align: bottom; }
+  .bag-icon.--without-baggage {
+    color: #f44336; }
+    .bag-icon.--without-baggage::before {
+      content: '×';
+      font-size: 15px; }
+    .bag-icon.--without-baggage path {
+      fill: #f44336; }
+  .bag-icon.--handbags {
+    width: 19px;
+    height: 20px; }
+    .bag-icon.--handbags::after {
+      top: 3px; }
+    .bag-icon.--handbags.--with-dimensions {
+      background: url("./images/dimensions_icon.svg") no-repeat center 1px; }
+  .bag-icon.--unknown {
+    color: #a0b0b9; }
+    .bag-icon.--unknown::before {
+      content: '?'; }
+    .bag-icon.--unknown path {
+      fill: #a0b0b9; }

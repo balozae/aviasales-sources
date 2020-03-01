@@ -1,0 +1,145 @@
+.b-button {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5em;
+  justify-content: center;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in;
+  transition-property: background-color, box-shadow, color;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  -webkit-appearance: none;
+
+  &__text {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.--primary {
+    color: #fff;
+    background-color: #f57c00;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), inset 0px -1px 0px #e65100;
+
+    &:hover,
+    &:focus {
+      background-color: #ffa353;
+    }
+
+    &:active {
+      background-color: #ed7a18;
+      box-shadow: inset 0px 2px 0px #d84d00, inset 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &.--primary-outline {
+    border: 1px solid #f57c00;
+    color: #f57c00;
+
+    &:hover,
+    &:focus {
+      background-color: #f57c00;
+      color: #fff;
+    }
+
+    &:active {
+      background-color: #ed7a18;
+      box-shadow: inset 0px 2px 0px #d84d00, inset 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &.--secondary {
+    color: #fff;
+    background-color: #2196f3;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), inset 0px -1px 0px #2179dd;
+
+    &:hover,
+    &:focus {
+      background-color: #64b5f5;
+    }
+
+    &:active {
+      background-color: #52b3ff;
+      box-shadow: inset 0px 2px 0px #2179dd, inset 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &.--secondary-outline {
+    border: 1px solid #2196f3;
+    color: #2196f3;
+
+    &:hover,
+    &:focus {
+      background-color: #2196f3;
+      color: #fff;
+    }
+
+    &:active {
+      background-color: #52b3ff;
+      box-shadow: inset 0px 2px 0px #2179dd, inset 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &.--link {
+    padding: 0;
+    background-color: transparent;
+    color: #2196f3;
+
+    &:hover,
+    &:focus {
+      color: #ff9d1b;
+    }
+  }
+
+  &.--disabled {
+    color: #a0b0b9;
+    border: 1px solid currentColor;
+    cursor: not-allowed;
+
+    &:disabled {
+      opacity: 1;
+    }
+  }
+
+  &.--size {
+    &-s {
+      min-height: 24px;
+      font-size: 10px;
+    }
+
+    &-m {
+      min-height: 40px;
+    }
+
+    &-l {
+      font-size: 18px;
+      min-height: 50px;
+    }
+
+    &-xl {
+      font-size: 22px;
+      min-height: 62px;
+    }
+  }
+}

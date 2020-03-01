@@ -1,0 +1,35 @@
+$open-sans-fonts: 'Open Sans', Helvetica, Arial, sans-serif;
+$rubik-fonts: 'Rubik', 'Helvetica Neue', 'Roboto', Helvetica, Arial, sans-serif;
+
+@mixin opensans {
+  font-family: $open-sans-fonts;
+}
+
+@mixin opensans-light {
+  font-family: $open-sans-fonts;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin opensans-bold {
+  font-family: $open-sans-fonts;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin opensans-semi-bold {
+  font-family: $open-sans-fonts;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@mixin rubik {
+  font-family: $rubik-fonts;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin currency-font {
+  font-family: 'Currency Font', Helvetica, sans;
+  font-weight: normal;
+}

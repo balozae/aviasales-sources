@@ -1,0 +1,60 @@
+// It's legacy file from www
+@import 'utils/legacy-breakpoints.scss';
+
+.header__wrap {
+  // @include for-tablet {
+  //   padding: 0 45px;
+  // }
+  //
+  // @include for-mobile-landscape {
+  //   padding: 0;
+  // }
+}
+
+.header__forms-set {
+  width: 1026px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+
+  @include for-mobile-landscape {
+    transform: none;
+    position: relative;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 45px 10px 0;
+    width: auto;
+  }
+
+  .page--multiway & {
+    transform: none;
+    position: static;
+    margin-top: 0;
+    height: auto;
+  }
+
+  // Min-height for prevent "form jump" when switching
+  .page--avia &,
+  .page--hotel & {
+    min-height: 360px;
+
+    @include for-tablet {
+      min-height: auto;
+    }
+  }
+
+  .--main-page-form & {
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 50%;
+    // margin-top: -230px;
+
+    .page--multiway & {
+      transform: none;
+      position: static;
+      margin-top: 0;
+      height: auto;
+    }
+  }
+}

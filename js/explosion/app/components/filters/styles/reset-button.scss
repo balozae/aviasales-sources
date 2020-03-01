@@ -1,0 +1,14 @@
+.reset-button {
+  display: inline-block;
+  border-radius: 50%;
+  background: #a0b0b9 url('../../../common/images/filters/reset.svg') 50% 50% no-repeat;
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  :hover > &.--on-parent-hover,
+  &:hover {
+    background-color: #ff6663;
+  }
+}

@@ -1,0 +1,50 @@
+.ticket-icon {
+  display: inline-block;
+  line-height: 0;
+
+  svg {
+    max-width: 100%;
+  }
+
+  &.--size {
+    &-l {
+      svg {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &-m {
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &.--color {
+    &-white {
+      svg {
+        fill: #ffffff;
+      }
+    }
+
+    &-grey {
+      svg {
+        fill: #a0b0b9;
+      }
+    }
+
+    &-blue {
+      svg {
+        fill: #2196f3;
+      }
+    }
+
+    &-red {
+      svg {
+        fill: #f44336;
+      }
+    }
+  }
+}

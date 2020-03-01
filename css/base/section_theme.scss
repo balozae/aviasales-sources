@@ -1,0 +1,69 @@
+.section-theme {
+  $assets-location: '../assets/images/sections/';
+
+  &.--with-clouds {
+    background: linear-gradient(#e0f5ff, #fff);
+    position: relative;
+    padding-top: 66px;
+
+    @include for-medium-and-more {
+      margin-bottom: 47px;
+    }
+
+    @include for-large-and-more {
+      margin-bottom: 6px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      background: url($assets-location+'illustration_clouds.svg') top left no-repeat;
+      position: absolute;
+      width: 391px;
+      height: 163px;
+      top: 116px;
+    }
+
+    &::before {
+      right: 65%;
+    }
+
+    &::after {
+      content: '';
+      left: 65%;
+      transform: scaleX(-1);
+    }
+  }
+
+  &.--with-dark-triangles {
+    background: #0d334a;
+    position: relative;
+
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+
+      width: 33%;
+      height: 65%;
+      max-width: 50vw;
+      background-image: url($assets-location+'illustration_corner.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &::before {
+      left: 0;
+      bottom: 0;
+      background-position: left bottom;
+    }
+
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotate(180deg);
+      background-position: bottom left;
+    }
+  }
+}

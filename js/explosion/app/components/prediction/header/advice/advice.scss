@@ -1,0 +1,46 @@
+@import 'utils/mixins';
+
+.prediction-advice {
+  display: flex;
+  font-size: 14px;
+  line-height: 22px;
+  @include variable(background-color, --general-menu-background, #fff);
+  @include variable(
+    background-image,
+    --prediction-left-fader,
+    linear-gradient(to right, rgba(255, 255, 255, 1) 240px, rgba(255, 255, 255, 0))
+  );
+  align-items: center;
+  position: relative;
+
+  &__icon {
+    margin-right: 16px;
+    margin-top: 5px;
+    width: 26px;
+    height: 27px;
+    background-image: url('./img/calendar.svg');
+  }
+
+  &__title {
+    font-weight: 600;
+    @include variable(color, --general-text-color, #4a4a4a);
+    position: relative;
+    top: 5px;
+  }
+
+  &__desc {
+    color: #a4b0b9;
+    position: relative;
+    top: 2px;
+  }
+
+  &__link {
+    cursor: pointer;
+    font-weight: 600;
+
+    &.--selected {
+      color: #2196f3;
+      font-weight: 400;
+    }
+  }
+}

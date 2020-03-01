@@ -1,0 +1,159 @@
+@import 'utils/mixins';
+
+.informer {
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  padding: 16px 20px;
+  @include variable(background-color, --general-block-color, #fff);
+  border: var(--general-block-border, none);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+
+  &.--mb20 {
+    margin-bottom: 20px;
+  }
+
+  &.--action-link {
+    .informer {
+      &__action {
+        &-btn {
+          border: 1px solid #2196f3;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+    }
+
+    @include for-small-and-more {
+      .informer {
+        &__action {
+          align-self: stretch;
+
+          &-btn {
+            border: none;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.--small {
+    padding: 13px 20px;
+    align-items: center;
+
+    .informer {
+      &__heading {
+        margin-bottom: 0;
+      }
+
+      &__action-btn {
+        min-height: auto;
+      }
+    }
+  }
+
+  $icon-size: 24px;
+
+  &__icon {
+    display: block;
+    align-self: flex-start;
+    flex-shrink: 0;
+    width: $icon-size;
+    height: $icon-size;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    width: calc(100% - #{$icon-size});
+    min-height: $icon-size;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 10px;
+    flex-grow: 1;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 400;
+    @include variable(color, --general-text-color, #4a4a4a);
+  }
+
+  &__heading {
+    width: 100%;
+  }
+
+  &__title {
+    display: inline-block;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__text-wrapper {
+    margin-top: 5px;
+  }
+
+  &__action {
+    width: 100%;
+    margin-top: 20px;
+
+    &-btn {
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      width: 100%;
+    }
+  }
+
+  &__tooltip {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+    cursor: pointer;
+
+    &-icon {
+      display: block;
+      width: 18px;
+      height: 18px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        path {
+          fill: #2196f3;
+        }
+      }
+    }
+  }
+
+  @include for-small-and-more {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+
+    &__content {
+      width: auto;
+      font-size: 12px;
+    }
+
+    &__action {
+      width: auto;
+      flex-shrink: 0;
+      align-self: center;
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@import 'utils/mixins';
+
+.ticket-sharing-mobile {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 10px;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &-item {
+      min-width: 80px;
+      text-align: center;
+      margin: 15px 10px;
+    }
+  }
+
+  &__share-button {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    text-align: center;
+    padding: 0;
+
+    &-icon {
+      display: inline-block;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0px 2px 6px rgba(63, 99, 128, 0.15);
+      background-color: #23425b;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+    }
+
+    &-label {
+      @include variable(color, --general-text-color, #4a4a4a);
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    &.--share-link {
+      .ticket-sharing-mobile__share-button-icon {
+        background-color: #f57c00;
+        background-image: url('./images/share_link.svg');
+      }
+
+      &.--copied {
+        .ticket-sharing-mobile__share-button-icon {
+          background-color: #a0b0b9;
+        }
+      }
+    }
+
+    &.--vk {
+      .ticket-sharing-mobile__share-button-icon {
+        background-image: url('./images/share_vk.svg');
+        background-color: rgb(81, 114, 164);
+      }
+    }
+
+    &.--facebook {
+      .ticket-sharing-mobile__share-button-icon {
+        background-image: url('images/share_facebook.svg');
+        background-color: rgb(63, 85, 162);
+      }
+    }
+
+    &.--twitter {
+      .ticket-sharing-mobile__share-button-icon {
+        background-image: url('images/share_twitter.svg');
+        background-color: rgb(97, 170, 244);
+      }
+    }
+
+    &.--telegram {
+      .ticket-sharing-mobile__share-button-icon {
+        background-image: url('images/share_telegram.svg');
+        background-color: rgb(59, 188, 232);
+      }
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 134px;
+    outline: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0px 1px 3px rgba(91, 137, 164, 0.15);
+    border: 1px solid #dfe5ec;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    @include variable(background, --ticket-sharing-input-background, #fff);
+    border-radius: 3px;
+    border: 1px solid #2196f3;
+    @include variable(color, --general-text-color, #4a4a4a);
+
+    &.is-hidden {
+      display: none;
+    }
+
+    .--night & {
+      box-shadow: none;
+    }
+  }
+}

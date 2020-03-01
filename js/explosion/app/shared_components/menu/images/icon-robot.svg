@@ -1,0 +1,16 @@
+var React = require('react')
+var createReactClass = require('create-react-class')
+
+module.exports = createReactClass({
+  displayName: 'svg-icon',
+  render: function() {
+    var baseProps = {
+      className: '{% className %}',
+      dangerouslySetInnerHTML: {
+        __html: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="17" viewBox="0 0 20 17"><rect width="11" height="6" x="4" fill="#2196F3" rx="1.25"/><rect width="3" height="6" y="4" fill="#2196F3" rx=".625"/><rect width="3" height="6" x="17" y="4" fill="#2196F3" rx=".625"/><path fill="#64B5F6" fill-rule="evenodd" d="M1 2.875C1 1.839 1.84 1 2.875 1h14.25C18.16 1 19 1.84 19 2.875v12.25C19 16.16 18.16 17 17.125 17H2.875A1.875 1.875 0 011 15.125V2.875z" clip-rule="evenodd"/><rect width="14" height="3" x="3" y="12" fill="#1565C0" rx="1.25"/><path fill="#fff" d="M5 13h10v1H5z"/><path fill="#1565C0" fill-rule="evenodd" d="M3 3.625C3 3.28 3.28 3 3.625 3h12.75c.345 0 .625.28.625.625v5.75c0 .345-.28.625-.625.625H3.625A.625.625 0 013 9.375v-5.75z" clip-rule="evenodd"/><path fill="#fff" fill-rule="evenodd" d="M6.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd"/></svg>',
+      },
+    }
+    var props = Object.assign({}, baseProps, this.props)
+    return React.createElement('span', props)
+  },
+})

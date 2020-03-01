@@ -1,0 +1,65 @@
+#subscribe {
+  display: none;
+  padding: 9px 9px 0;
+  background: #fff;
+  position: relative;
+
+  .--serp & {
+    display: none;
+  }
+
+  .inner {
+    max-width: 1116px;
+    margin: 25px auto;
+    padding: 0 9px;
+  }
+
+  h2,
+  .h2 {
+    margin-top: 0;
+  }
+
+  @include for-large-and-more {
+    display: block;
+  }
+
+  @include after {
+    $image-path: '../assets/images/subscribe-stripes.png';
+    background: #fff repeat-x url($image-path) 50% 0;
+    height: 9px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+.subscription-footer {
+  position: relative;
+
+  &__legal-notice {
+    width: 360px;
+  }
+
+  &__explanation {
+    width: 360px;
+    padding: 0;
+  }
+
+  &__social-links {
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: -5px;
+  }
+
+  &__form {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+  }
+
+  &__extra {
+    float: right;
+    padding-top: 5px;
+  }
+}

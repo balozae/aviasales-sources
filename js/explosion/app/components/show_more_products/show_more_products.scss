@@ -1,0 +1,13 @@
+@import 'utils/mixins';
+
+.show-more-products {
+  &__button {
+    height: 55px;
+  }
+
+  @include for-medium-and-less {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

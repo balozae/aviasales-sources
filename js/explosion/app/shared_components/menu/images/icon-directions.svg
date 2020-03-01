@@ -1,0 +1,16 @@
+var React = require('react')
+var createReactClass = require('create-react-class')
+
+module.exports = createReactClass({
+  displayName: 'svg-icon',
+  render: function() {
+    var baseProps = {
+      className: '{% className %}',
+      dangerouslySetInnerHTML: {
+        __html: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18"><path fill="#2196F3" fill-rule="evenodd" d="M15.379 5.664a.418.418 0 00-.246-.033.393.393 0 00-.244.147.424.424 0 00-.068.33l.267 1.48-.405.177c-3.732.9-6.343 4.18-6.35 7.977v1.887c0 .097.04.19.11.258a.393.393 0 00.273.113h1.667a.395.395 0 00.274-.112.36.36 0 00.109-.259v-1.888c.004-2.59 1.763-4.89 4.276-5.599l.578-.162v.603l.186.984c.02.142.099.253.211.316a.444.444 0 00.464-.081l3.41-3.453a.374.374 0 00.103-.331.39.39 0 00-.218-.282L15.38 5.664z" clip-rule="evenodd"/><path fill="#1565C0" fill-rule="evenodd" d="M6.515 4.623H8.18v3.445c.447.28.874.592 1.275.932.39-.33.804-.635 1.236-.91V4.624h1.672c.159 0 .3-.08.37-.208a.36.36 0 00-.03-.393L9.78.153c-.154-.204-.518-.204-.673 0L6.186 4.022a.36.36 0 00-.032.389.41.41 0 00.36.212z" clip-rule="evenodd"/><path fill="#64B5F6" fill-rule="evenodd" d="M4.9 7.627l.271-1.55a.383.383 0 00-.378-.452c-.059 0-.12.014-.174.038L.224 7.703a.386.386 0 00-.218.276c-.021.118.017.24.104.327l3.398 3.388a.422.422 0 00.406.103.385.385 0 00.276-.295l.192-1.05V9.86l.57.211a5.927 5.927 0 012.728 1.643 10.27 10.27 0 011.209-2.15 8.39 8.39 0 00-3.573-1.837L4.9 7.627z" clip-rule="evenodd"/></svg>',
+      },
+    }
+    var props = Object.assign({}, baseProps, this.props)
+    return React.createElement('span', props)
+  },
+})

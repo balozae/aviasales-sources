@@ -1,0 +1,53 @@
+@import 'utils/mixins';
+
+.checkbox {
+  display: inline-block;
+  margin-right: 5px;
+
+  &__field {
+    display: none;
+  }
+
+  &__face {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border: 1px solid #d2d5d6;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -5px;
+    transition: all 0.2s ease;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 4px;
+      z-index: 1;
+      width: 9px;
+      height: 7px;
+      @include variable(
+        background,
+        --checkbox-check-mark,
+        url('~assets/images/checkbox/check-mark.svg') no-repeat
+      );
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .checkbox__field:checked + & {
+      border-color: $brand-blue-color;
+      background: #f2fcff;
+      @include variable(background-color, --checkbox-face-background, #f2fcff);
+
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

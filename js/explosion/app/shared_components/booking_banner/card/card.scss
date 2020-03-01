@@ -1,0 +1,131 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+@import '../styles/styles.scss';
+
+.booking-banner-card {
+  @include variable(background-color, --general-menu-background, #fff);
+  @include variable(border, --general-border, 1px solid #dfe5ec);
+  border-radius: 5px;
+  font-family: $open-sans;
+  max-width: $screen-xsmall;
+  overflow: hidden;
+  padding-bottom: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none !important;
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: calc(122 / 233 * 100%);
+  }
+
+  &__title {
+    color: $blue;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: -9px;
+    flex: 1 0;
+    justify-content: center;
+    padding: 10px;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__button {
+    @include booking-button();
+    margin: 10px 20px 0;
+  }
+
+  // Stars block
+  &-stars {
+    margin-top: 7px;
+
+    &__star {
+      margin: 0 2px;
+    }
+  }
+
+  // Rating block
+  &-rating {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    color: $color-font;
+    font-size: 12px;
+    padding: 4px 5px 4px 10px;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &__rating {
+      background: $bookingBlue;
+      border-radius: 3px 3px 3px 0;
+      color: white;
+      display: inline-block;
+      font-size: 12px;
+      line-height: 18px;
+      margin-left: 2px;
+      padding: 1px 5px;
+    }
+  }
+
+  &:hover {
+    .booking-banner-card__button {
+      background: $bookingBlue;
+    }
+  }
+
+  .--night & {
+    &:hover .booking-banner-card__button {
+      background: lighten($blue, 15%);
+    }
+
+    .booking-banner-card__title {
+      color: white;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &.--minimal {
+    padding-bottom: 15px;
+
+    .booking-banner-card__image {
+      padding-top: calc(150 / 233 * 100%);
+    }
+
+    .booking-banner-card__title {
+      font-size: 14px;
+    }
+
+    .booking-banner-card-rating {
+      background: none;
+      top: 5px;
+      right: 3px;
+    }
+
+    .booking-banner-card__title,
+    .booking-banner-card__button {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .booking-banner-card__button {
+      margin-top: 0;
+      font-size: 14px;
+    }
+  }
+}

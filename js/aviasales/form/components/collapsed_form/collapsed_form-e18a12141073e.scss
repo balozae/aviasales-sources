@@ -1,0 +1,105 @@
+@import 'utils/legacy-breakpoints';
+@import 'utils/mixins';
+
+$collapsed-segment-width: 110;
+
+:export {
+  segmentWidth: $collapsed-segment-width;
+}
+
+.collapsed-form {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+
+  &__segments-wrap {
+    @include variable(background-color, --general-block-color, #fff);
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+
+    &.--with-hidden-items {
+      padding-right: 80px;
+    }
+
+    @include for-small-and-less {
+      padding-right: 31px;
+    }
+  }
+
+  &__icons-wrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
+  }
+
+  &__hidden-items-count {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2196f3;
+    margin-right: 20px;
+  }
+
+  &__edit-icon {
+    display: none;
+    width: 19px;
+    height: 100%;
+    padding-top: 20px;
+    cursor: pointer;
+
+    &:hover svg path {
+      fill: #f57c00;
+    }
+
+    @include for-small-and-less {
+      display: block;
+    }
+  }
+
+  &__segment {
+    border-right: 1px solid #c4c4c4;
+    @include variable(border-right-color, --gray-border-black, #c4c4c4);
+    @include variable(color, --general-text-color, #4a4a4a);
+    padding: 2px 15px;
+    width: #{$collapsed-segment-width}px;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &-date {
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    &-route {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__button-wrap {
+    margin-left: 10px;
+
+    @include for-small-and-less {
+      display: none;
+    }
+  }
+
+  & &__edit-button {
+    height: 100%;
+    padding: 0 37px;
+  }
+}

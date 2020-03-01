@@ -1,0 +1,31 @@
+@import '../../mixins.scss';
+
+.amenities-card {
+  border: 1px solid;
+  border-radius: 5px;
+  @include variable(border-color, --amenities-card-border-color, #dfe5ec);
+
+  &__inner {
+    position: relative;
+    max-width: 134px;
+    margin: 0 auto;
+    padding: 15px 10px 0 10px;
+  }
+
+  &__header {
+    margin-bottom: 15px;
+  }
+
+  &__body {
+    min-height: 132px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4em;
+    min-height: 2.6em;
+    margin: 0;
+  }
+}

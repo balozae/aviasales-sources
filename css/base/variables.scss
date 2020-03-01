@@ -1,0 +1,354 @@
+:root {
+  // Helpers
+  --white-none: #fff;
+  --blue-white: #49aaf6;
+  --invert: unset;
+
+  --menu-text-color: #fff;
+
+  --general-text-color: #4a4a4a;
+  --general-background-color: #eff1f4;
+  --general-background-color-2: #fff;
+  --general-border: 1px solid #e4e7e8;
+  --general-caption-color: #262626;
+  --general-menu-background: #fff;
+  --general-control-hover: #e5f9ff;
+  --general-control-border-color: #2196f3;
+  --general-control-hover-color: #2196f3;
+  --gray-border-black: #c4c4c4;
+
+  // Preroll
+
+  // Header
+  --dropdown-border-color: #dce2e4;
+  --page-header-color: #2196f3;
+  --menu-hover-background: #ebfcff;
+  --menu-mobile-app-icons: #343e41 no-repeat center;
+
+  // Tabs
+  --tab-color: #2196f3;
+
+  // Form
+  --form-iata-background: #fff;
+  --autocomplete-droprown-border: none;
+  --autocomplete-dropdown-title-background: #f1f4f7;
+  --autocomplete-suggestion-border: 1px solid #dfe5ec;
+  --autocomplete-suggestion-hover: #f1fcff;
+  --passenger-control-disabled-background: #dce2e4;
+  --highlighted-input-background: #ffebd2;
+  --swap-places-background-color: #fff;
+  --swap-places-arrow-fill: #2196f3;
+
+  // Datepicker
+  --datepicker-in-range: #e1faff;
+  --datepicker-border-edges: #e1faff;
+  --datepicker-title-color: #4b4b4b;
+  --datepicker-tabs-background: #fafcfd;
+  --datepicker-tabs-color: #535353;
+  --datepicker-tabs-border: 1px solid #e4e8e9;
+  --datepicker-disabled-color: #e1e1e1;
+  --datepicker-fader-background: linear-gradient(to right, rgba(255, 255, 255, 0), white 40%);
+
+  // Block
+  --general-block-color: #fff;
+  --general-block-border: none;
+  --error-field-block-color: #fff5f7;
+
+  // Prediction
+  --prediction-left-fader: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --prediction-right-fader: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --prediction-expand-button-background: #fff;
+  --prediction-canvas-border-bottom: #e4e7e8;
+  --prediction-border-bottom: 1px solid #e4e7e8;
+  --prediction-prices-background: #e5f9ff;
+  --prediction-advice-background: #fcfdff;
+  --prediction-advice-good-background: #f6ffec;
+  --prediction-col-fill: #d1e4ff;
+  --prediction-col-empty: #f1f5f7;
+  --prediction-col-background-fill: #fff;
+  --prediction-handle: rgba(255, 255, 255, 0.7);
+  --prediction-handle-border: 1px solid #c3cdd2;
+
+  // Calendar Matrix
+  --calendar-matrix-background: #f8fafb;
+  --calendar-matrix-cheap-background: #f7fdf0;
+  --calendar-matrix-prices-wrap: #fff;
+  --minimized-calendar-splitter-color: #e4e7e8;
+  --minimized-calendar-item-hover-background: #f4fdff;
+
+  // Subscription
+  --subscription-border: 1px solid #c9ebf2;
+  --light-red-button-shadow: 0px 1px 0px 0px #c84543, 0px 2px 1px 0px #d9d9d9;
+  --subscription-input-focus: #fff;
+  --subscription-border: 1px solid #c0e7ff;
+
+  // Filters
+  --filter-left-fader: linear-gradient(to right, rgba(#fff, 0), rgba(#fff, 1) 15px);
+  --filter-right-shadow: -5px 0 10px #fff;
+  --filter-header-border: 1px solid #eff1f4;
+  --filter-header-hover: #f1fcff;
+  --filter-header-fader: linear-gradient(to right, rgba(#f1fcff, 0), rgba(#f1fcff, 1) 15px);
+  --filter-extra-color: #f1fcff;
+  --filter-extra-shadow: -5px 0 10px #f1fcff;
+  --filter-header-before-background: #f1fcff;
+  --filter-saved-button-border-color: #eff1f4;
+  --checkbox-face-background: #f2fcff;
+  --checkbox-check-mark: url('~assets/images/checkbox/check-mark.svg') no-repeat;
+  // Loader
+  --loader-bar-background: #eff1f4;
+
+  // Ticket
+  --ticket-background-color: #ffffff;
+  --ticket-opener-color: #edf5f7;
+  --ticket-opener-hover-color: #ecf9fb;
+  --ticket-opener-border-left: 1px solid #edf5f7;
+  --ticket-iata-dot-shadow: 0 0 0 2px #fff;
+  --ticket-iata-dot-color: #fff;
+  --ticket-route-connector-border-color: #fff;
+  --ticket-pin-icon-background-color: #fff;
+  --ticket-tariff-background: #f8fbfb;
+  --ticket-tariff-border: 1px solid #e4e7e8;
+  --ticket-tariff-selected-background: #fff;
+  --ticket-flight-stop-background: #f6f9fa;
+  --ticket-bag-description-border: 1px solid #e4e7e8;
+  --ticket-bag-description-splitter: #e4e7e8;
+  --ticket-warnings-border: 1px dashed #e4e7e8;
+  --ticket-segment-dashed: 1px dashed #e4e7e8;
+  --brand-ticket-mobile-visa-background: #f0fafe;
+
+  // Ad hotels
+
+  --ad-hotel-rating-background: rgba(255, 255, 255, 0.8);
+
+  // Feedback popup
+  --feedback-rating-background: #f3f7fa;
+  --feedback-rating-color: #9ba9bc;
+  --feedback-button-color: #2196f3;
+  --feedback-checkbox-hover-background: #f2fcff;
+
+  // Sorting Tab
+  --sorting-tab-border: 1px solid #dce2e4;
+
+  // Direct Flight
+  --direct-flight-hover: #f2fdff;
+  --direct-flight-plane: url('~assets/images/route-plane.svg') no-repeat;
+
+  // Go to top button
+  --go-to-top-background: #fff;
+  --go-to-top-image: url('~assets/images/go_to_top/button.svg');
+
+  // Footer
+  --footer-border-top: 1px solid #dce2e4;
+  --footer-font-color: #5a5a5a;
+  --footer-link-color: #2196f3;
+  --footer-inner-border: 1px solid #e0e6e8;
+
+  // iddqd
+  --debugger-active-tab-background: #fff;
+  --debugger-tab-background: #eee;
+  --degbugger-th-border: 1px solid #999;
+  --debugger-active-tab-border-bottom: 1px solid #fff;
+
+  // informer collapse
+  --informer-collapse-content-background: #dfe5ec;
+
+  // custom radio
+  --radio-element-background: #fff;
+  --radio-element-checked-background: #fff;
+  --radio-element-mark-checked-background: #2196f3;
+  --radio-element-hover-background: transparent;
+  --radio-element-hover-border: #a0b0b9;
+
+  // additional-fields
+  --additional-fields-fader-background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    white 40%
+  );
+
+  // user-account
+  --user-account-page-background-color: #fff;
+}
+
+.--night {
+  // Helpers
+  --white-none: none;
+  --invert: invert(100%);
+  --blue-white: #fff;
+
+  --menu-text-color: #fff;
+
+  --general-text-color: #ffffff;
+  --general-background-color: #05263f; // #141d26;
+  --general-background-color-2: #1e3c53;
+  --general-border: 1px solid #031828;
+  --general-caption-color: #fff;
+  --general-menu-background: #1e3c52;
+  --general-control-hover: rgba(0, 0, 0, 0.3);
+  --general-control-border-color: #000;
+  --general-control-hover-color: #fff;
+  --gray-border-black: #000;
+
+  // Preroll
+
+  // Header
+  --dropdown-border-color: #000;
+  --page-header-color: #05263f;
+  --menu-hover-background: rgba(255, 255, 255, 0.1);
+  --menu-mobile-app-icons: #2196f3 no-repeat center;
+
+  // Tabs
+  --tab-color: #05263f;
+
+  // Form
+  --form-iata-background: none;
+  --autocomplete-droprown-border: 1px solid #000;
+  --autocomplete-dropdown-title-background: #05263f;
+  --autocomplete-suggestion-border: 1px solid #000;
+  --autocomplete-suggestion-hover: rgba(255, 255, 255, 0.1);
+  --passenger-control-disabled-background: rgba(220, 226, 228, 0.3);
+  --highlighted-input-background: rgba(255, 255, 255, 0.3);
+  --swap-places-background-color: #355064;
+  --swap-places-arrow-fill: #fff;
+
+  // Datepicker
+  --datepicker-in-range: rgba(255, 255, 255, 0.1);
+  --datepicker-border-edges: none;
+  --datepicker-title-color: #fff;
+  --datepicker-tabs-background: #13324a;
+  --datepicker-tabs-color: #fff;
+  --datepicker-tabs-border: 1px solid #000;
+  --datepicker-disabled-color: rgba(153, 153, 153, 0.5);
+  --datepicker-fader-background: linear-gradient(to right, rgba(30, 60, 82, 0), #1e3c52 40%);
+
+  --general-block-color: #1e3c53;
+  --error-field-block-color: #1e3c53;
+  --general-block-border: 1px solid #031828;
+
+  // Prediction
+  --prediction-left-fader: linear-gradient(
+    to right,
+    rgba(30, 60, 82, 1) 0%,
+    rgba(30, 60, 82, 0) 100%
+  );
+  --prediction-right-fader: linear-gradient(
+    to left,
+    rgba(30, 60, 82, 1) 0%,
+    rgba(30, 60, 82, 0) 100%
+  );
+  --prediction-expand-button-background: none;
+  --prediction-canvas-border-bottom: #000;
+  --prediction-border-bottom: 1px solid #000;
+  --prediction-prices-background: #1e3c52;
+  --prediction-advice-background: none;
+  --prediction-advice-good-background: none;
+  --prediction-col-fill: #3c6282;
+  --prediction-col-empty: #05263f;
+  --prediction-col-background-fill: #1e3c52;
+  --prediction-handle: rgba(0, 0, 0, 0.35);
+  --prediction-handle-border: 1px solid #000;
+
+  // Calendar Matrix
+  --calendar-matrix-background: rgba(255, 255, 255, 0.1);
+  --calendar-matrix-cheap-background: rgba(145, 255, 92, 0.15);
+  --calendar-matrix-prices-wrap: #fff;
+  --minimized-calendar-splitter-color: #000;
+  --minimized-calendar-item-hover-background: rgba(255, 255, 255, 0.1);
+
+  // Subscription
+  --subscription-border: 1px solid #000;
+  --light-red-button-shadow: 0 1px 0 0 #c84543, 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+  --subscription-input-focus: rgba(0, 0, 0, 0.2);
+  --subscription-border: 1px solid #000;
+
+  // Filters
+  --filter-left-fader: none;
+  --filter-right-shadow: -5px 0 10px #1e3c52;
+  --filter-header-border: 1px solid #000;
+  --filter-header-hover: rgba(255, 255, 255, 0.1);
+  --filter-header-fader: none;
+  --filter-extra-color: #344f65;
+  --filter-extra-shadow: -5px 0 10px #344f65;
+  --filter-header-before-background: #365064;
+  --filter-saved-button-border-color: #000;
+  --checkbox-face-background: #2196f3;
+  --checkbox-check-mark: url('~assets/images/checkbox/check-mark-white.svg') no-repeat;
+
+  // Loader
+  --loader-bar-background: #05263f;
+
+  // Ticket
+  --ticket-background-color: rgba(0, 0, 0, 0.1);
+  --ticket-opener-color: rgb(49, 76, 96);
+  --ticket-opener-hover-color: rgb(49, 76, 96);
+  --ticket-opener-border-left: none;
+  --ticket-iata-dot-shadow: none;
+  --ticket-iata-dot-color: rgb(31, 60, 83);
+  --ticket-route-connector-border-color: #1e3c52;
+  --ticket-pin-icon-background-color: #1e3c52;
+  --ticket-tariff-background: rgba(255, 255, 255, 0.1);
+  --ticket-tariff-border: 1px solid #000;
+  --ticket-tariff-selected-background: transparent;
+  --ticket-flight-stop-background: rgba(255, 255, 255, 0.1);
+  --ticket-bag-description-border: 1px solid #000;
+  --ticket-bag-description-splitter: #000;
+  --ticket-warnings-border: 1px dashed #000;
+  --ticket-segment-dashed: 1px dashed #8c9497;
+  --brand-ticket-mobile-visa-background: #314c60;
+
+  // Ad hotels
+
+  --ad-hotel-rating-background: rgba(0, 0, 0, 0.7);
+
+  // Feedback popup
+  --feedback-rating-background: #05263f;
+  --feedback-rating-color: #fff;
+  --feedback-button-color: #fff;
+  --feedback-checkbox-hover-background: rgb(49, 76, 96);
+
+  // Sorting Tab
+  --sorting-tab-border: 1px solid #000;
+
+  // Direct Flight
+  --direct-flight-hover: rgba(255, 255, 255, 0.1);
+  --direct-flight-plane: url('~assets/images/route-plane-white.svg') no-repeat;
+
+  // Go to top button
+  --go-to-top-background: #1e3c52;
+  --go-to-top-image: url('~assets/images/go_to_top/button-white.svg');
+
+  // Footer
+  --footer-border-top: 1px solid #000;
+  --footer-font-color: #fff;
+  --footer-link-color: #2196f3;
+  --footer-inner-border: 1px solid #3c6382;
+
+  // iddqd
+  --debugger-active-tab-background: #05263f;
+  --debugger-tab-background: rgb(49, 76, 96);
+  --degbugger-th-border: 1px solid #05263f;
+  --debugger-active-tab-border-bottom: 1px solid #000;
+
+  // informer collapse
+  --informer-collapse-content-background: #294154;
+
+  // custom radio
+  --radio-element-background: transparent;
+  --radio-element-checked-background: #2196f3;
+  --radio-element-mark-checked-background: #fff;
+  --radio-element-hover-border: #2196f3;
+
+  // additional-fields
+  --additional-fields-fader-background: linear-gradient(to right, rgba(30, 60, 82, 0), #1e3c52 40%);
+
+  // user-account
+  --user-account-page-background-color: #05263f;
+}

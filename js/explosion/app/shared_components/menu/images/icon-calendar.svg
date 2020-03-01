@@ -1,0 +1,16 @@
+var React = require('react')
+var createReactClass = require('create-react-class')
+
+module.exports = createReactClass({
+  displayName: 'svg-icon',
+  render: function() {
+    var baseProps = {
+      className: '{% className %}',
+      dangerouslySetInnerHTML: {
+        __html: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="17" height="18" viewBox="0 0 17 18"><path fill="#64B5F6" fill-rule="evenodd" d="M0 2a2 2 0 012-2h13a2 2 0 012 2v14a2 2 0 01-2 2H2a2 2 0 01-2-2V2z" clip-rule="evenodd"/><rect width="2" height="2" x="3" y="7" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="6" y="7" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="9" y="7" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="12" y="7" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="6" y="10" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="3" y="10" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="9" y="10" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="12" y="10" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="3" y="13" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="6" y="13" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="9" y="13" fill="#E1F5FE" rx=".5"/><rect width="2" height="2" x="12" y="13" fill="#D9EEFF" rx=".5"/><path fill="#1565C0" d="M0 2a2 2 0 012-2h13a2 2 0 012 2v2H0V2z"/></svg>',
+      },
+    }
+    var props = Object.assign({}, baseProps, this.props)
+    return React.createElement('span', props)
+  },
+})

@@ -1,0 +1,27 @@
+strong {
+  font-weight: 600;
+}
+
+.label-block {
+  display: block;
+
+  & + .label-block {
+    margin-top: 10px;
+  }
+}
+
+.secondary-text {
+  color: $gray;
+}
+
+.orange-text {
+  color: $orange;
+}
+
+.blue-dark-text {
+  color: $blue-dark;
+}
+
+.disabled-hover {
+  pointer-events: none;
+}

@@ -1,0 +1,43 @@
+.popup-subscribe-iframe {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 213;
+  border: 0;
+}
+
+#popup-subscribe {
+  .popup__content {
+    padding-left: 325px;
+    background: #f4f4f4 url('../assets/images/subscribe/popup-subscribe.png') 35px 27px no-repeat;
+
+    p {
+      padding: 0;
+      margin-top: 23px;
+    }
+  }
+}
+
+.subscription {
+  &.--popup {
+    display: block;
+    padding: 10px 0 56px;
+
+    .subscription__input {
+      width: 300px;
+      margin-right: 3px;
+    }
+  }
+}
+
+.subscribe-form {
+  display: none;
+
+  .is-popped & {
+    display: block;
+  }
+}

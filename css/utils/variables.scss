@@ -1,0 +1,47 @@
+// Colors
+$brand-blue-color: #2196f3;
+$color-font: #4a4a4a;
+$color-secondary-text: #919297;
+$color-table-tr: #f3f6f9;
+$color-table-border: #dde1e4;
+$color-blockquote: #909297;
+$color-brand-vk: #4274a2;
+$color-brand-tw: #41abe1;
+$color-brand-fb: #3765a3;
+$color-brand-ok: #f98d20;
+$color-brand-gp: #d14e41;
+$color-brand-youtube: #db2b1c;
+$color-brand-inst: #587fa9;
+$color-error: #ef5d5d;
+
+$color-link: $brand-blue-color;
+$color-link-hover: #ff9d1b;
+$color-link-active: #ff761c;
+$color-placeholder: #bbbbbb;
+$color-validation-error: #ff5c5a;
+
+// Fonts
+$open-sans: 'Open Sans', Tahoma, sans-serif;
+$rubik: 'Rubik', sans-serif;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: 10px;
+
+$grid-layout-4: 4 (45px 20px) fluid;
+$grid-layout-8: 8 (45px 20px) fluid;
+$grid-layout-12: $grid-columns (45px 20px) fluid;
+
+// Breakpoint (until that width)
+$screen-min: 320px;
+$screen-xsmall: 568px;
+$screen-small: 768px;
+$screen-medium: 1024px;
+$screen-max: 1280px;
+
+// Modules
+$navbar-height: 50px;
+
+// Animationns
+$accordion-easing: cubic-bezier(0.47, 0, 0.745, 0.715);
+$accordion-duration: 0.3s;

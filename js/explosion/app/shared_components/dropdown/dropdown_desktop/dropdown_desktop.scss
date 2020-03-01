@@ -1,0 +1,288 @@
+@import 'utils/utils';
+
+.dropdown-desktop {
+  $dropdown-desktop-animation-path: 50px;
+  $dropdown-desktop-opacity: 1;
+  position: absolute;
+  z-index: 1;
+
+  &__content {
+    width: 300px;
+    background-color: var(--general-menu-background, #fff);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.08);
+  }
+
+  &__arrow-wrapper {
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &__arrow {
+    position: relative;
+    @include variable(background-color, --general-menu-background, #fff);
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  &.--left {
+    top: 50%;
+    right: calc(100% + 11px);
+    transform: translateY(-50%);
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        left: 100%;
+        top: 0;
+        bottom: 0;
+        align-items: center;
+      }
+
+      &__arrow {
+        left: -6px;
+      }
+    }
+  }
+
+  &.--right {
+    top: 50%;
+    left: calc(100% + 11px);
+    transform: translateY(-50%);
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        align-items: center;
+      }
+
+      &__arrow {
+        right: -6px;
+      }
+    }
+  }
+
+  &.--top {
+    bottom: calc(100% + 11px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        left: 0;
+        right: 0;
+        top: 100%;
+        justify-content: center;
+      }
+
+      &__arrow {
+        top: -6px;
+      }
+    }
+  }
+
+  &.--bottom {
+    top: calc(100% + 11px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        justify-content: center;
+      }
+
+      &__arrow {
+        bottom: -6px;
+      }
+    }
+  }
+
+  &.--bottom-left {
+    top: calc(100% + 11px);
+    right: 0;
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        bottom: 100%;
+        right: 10px;
+      }
+
+      &__arrow {
+        bottom: -6px;
+      }
+    }
+  }
+
+  &.--bottom-right {
+    top: calc(100% + 11px);
+    left: 0;
+
+    .dropdown-desktop {
+      &__arrow-wrapper {
+        bottom: 100%;
+        left: 10px;
+      }
+
+      &__arrow {
+        bottom: -6px;
+      }
+    }
+  }
+
+  &.--enter {
+    opacity: 0;
+
+    &.--left {
+      transform: translate($dropdown-desktop-animation-path, -50%);
+    }
+
+    &.--right {
+      transform: translate(-$dropdown-desktop-animation-path, -50%);
+    }
+
+    &.--top {
+      transform: translate(-50%, $dropdown-desktop-animation-path);
+    }
+
+    &.--bottom {
+      transform: translate(-50%, -$dropdown-desktop-animation-path);
+    }
+
+    &.--bottom-left {
+      transform: translate(0, -$dropdown-desktop-animation-path);
+    }
+
+    &.--bottom-right {
+      transform: translate(0, -$dropdown-desktop-animation-path);
+    }
+  }
+
+  &.--enter.--enter-active {
+    pointer-events: none;
+    opacity: $dropdown-desktop-opacity;
+    transition: transform 300ms cubic-bezier(0, 0.83, 0, 1.17), opacity 250ms linear;
+
+    &.--left {
+      transform: translateY(-50%);
+    }
+
+    &.--right {
+      transform: translateY(-50%);
+    }
+
+    &.--top {
+      transform: translateX(-50%);
+    }
+
+    &.--bottom {
+      transform: translateX(-50%);
+    }
+
+    &.--bottom-left {
+      transform: translate(0);
+    }
+
+    &.--bottom-right {
+      transform: translate(0);
+    }
+  }
+
+  &.--exit {
+    opacity: $dropdown-desktop-opacity;
+    pointer-events: none;
+
+    &.--left {
+      transform: translateY(-50%);
+    }
+
+    &.--right {
+      transform: translateY(-50%);
+    }
+
+    &.--top {
+      transform: translateX(-50%);
+    }
+
+    &.--bottom {
+      transform: translateX(-50%);
+    }
+
+    &.--bottom-left {
+      transform: translate(0, 0);
+    }
+
+    &.--bottom-right {
+      transform: translate(0, 0);
+    }
+  }
+
+  &.--exit.--exit-active {
+    opacity: 0;
+    transition: transform 300ms ease-out, opacity 150ms linear;
+
+    &.--left {
+      transform: translate($dropdown-desktop-animation-path, -50%);
+    }
+
+    &.--right {
+      transform: translate(-$dropdown-desktop-animation-path, -50%);
+    }
+
+    &.--top {
+      transform: translate(-50%, $dropdown-desktop-animation-path);
+    }
+
+    &.--bottom {
+      transform: translate(-50%, -$dropdown-desktop-animation-path);
+    }
+
+    &.--bottom-left {
+      transform: translate(0, -$dropdown-desktop-animation-path);
+    }
+
+    &.--bottom-right {
+      transform: translate(0, -$dropdown-desktop-animation-path);
+    }
+  }
+
+  &.--hide-arrow {
+    .dropdown-desktop {
+      &__arrow {
+        display: none;
+      }
+    }
+
+    &.--left {
+      right: 100%;
+    }
+
+    &.--right {
+      left: 100%;
+    }
+
+    &.--top {
+      bottom: 100%;
+    }
+
+    &.--bottom {
+      top: 100%;
+    }
+
+    &.--bottom-left {
+      top: 100%;
+    }
+
+    &.--bottom-right {
+      top: 100%;
+    }
+  }
+}

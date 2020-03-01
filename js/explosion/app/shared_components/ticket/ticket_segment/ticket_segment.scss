@@ -1,0 +1,18 @@
+.ticket-segment {
+  &__stop,
+  &__flight {
+    margin: 20px 0;
+  }
+
+  &__stop {
+    padding: 0 12px;
+  }
+
+  &.--compact-view {
+    .ticket-segment__item:first-child {
+      .ticket-segment__flight:first-child {
+        margin-top: 15px;
+      }
+    }
+  }
+}

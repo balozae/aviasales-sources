@@ -1,0 +1,10 @@
+.of_clicktripz {
+  color: #fff;
+  float: right;
+  display: none;
+  // line-height: 16px;
+
+  @include for-medium-and-more {
+    display: block;
+  }
+}

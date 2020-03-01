@@ -1,0 +1,243 @@
+@import 'utils/utils';
+
+.header {
+  position: relative;
+  z-index: 2;
+
+  &.--blue {
+    background: #fff;
+    color: #000;
+  }
+
+  &__wrap {
+    @include grid-container;
+    padding-bottom: $navbar-height;
+    padding-top: $navbar-height;
+    overflow: hidden;
+    color: #000;
+    background: #fff;
+    text-align: center;
+
+    .page.--user & {
+      display: none;
+    }
+
+    .page.--emails-notification & {
+      display: none;
+    }
+
+    .--with-bg & {
+      height: 400px;
+      padding-top: 200px;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 60px;
+      max-width: 100%; // IE11 flexbox fix
+
+      @include for-medium-and-more {
+        padding-top: 310px;
+        height: 540px;
+      }
+    }
+
+    .--with-image & {
+      padding-top: 80px;
+    }
+
+    .--blue & {
+      padding: 64px 0 40px 0;
+
+      @include for-small-and-more {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      @include for-medium-and-more {
+        padding-top: 80px;
+      }
+    }
+  }
+
+  &__content {
+    @include grid-span-full;
+    will-change: transform;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    @include for-small-and-more {
+      width: auto;
+      @include grid-squish(1);
+    }
+
+    @include for-large-and-more {
+      @include grid-squish(2);
+    }
+
+    .--with-bg & {
+      flex: 1 100%;
+    }
+
+    .--with-title-separator & {
+      @include after {
+        position: absolute;
+        padding-top: 15px;
+        background: url('../assets/images/header-separator.svg') no-repeat;
+        background-position: bottom;
+        left: 50%;
+        width: 92px;
+        height: 22px;
+        margin: 0 auto;
+        margin-left: -46px;
+      }
+    }
+  }
+
+  &__bg-wrap {
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+  }
+
+  &__bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    will-change: transform;
+    transform-origin: bottom;
+
+    &::after {
+      content: '';
+      background: rgba(#000, 0.4);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  &__icon {
+    margin: 70px 0 42px;
+
+    .--with-form & {
+      margin: 0;
+    }
+
+    text-align: center;
+    min-height: 150px;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  &__image {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include for-medium-and-more {
+      margin-bottom: 30px;
+    }
+
+    img {
+      max-width: 500px;
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  &__author,
+  &__created {
+    .--how-to-index & {
+      display: none;
+    }
+
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.55px;
+    line-height: 15px;
+    color: $color-secondary-text;
+
+    &:before {
+      position: relative;
+      top: 0;
+      display: inline-block;
+      margin-right: 7px;
+      width: 14px;
+      height: 17px;
+      content: '';
+      vertical-align: top;
+    }
+
+    .--blue &,
+    .--with-bg & {
+      color: #fff;
+      height: 16px;
+    }
+  }
+
+  &__created {
+    &:before {
+      top: 1px;
+      background: url('../assets/images/calendar/calendar_icon.svg') no-repeat;
+    }
+
+    .--blue &,
+    .--with-bg & {
+      &:before {
+        background: url('../assets/images/calendar/calendar_icon_white.svg') no-repeat;
+      }
+    }
+  }
+
+  &__author {
+    margin-right: 20px;
+
+    &:before {
+      background: url('../assets/images/author/author_icon.svg') no-repeat;
+    }
+
+    .--blue &,
+    .--with-bg & {
+      &:before {
+        background: url('../assets/images/author/author_icon_white.svg') no-repeat;
+      }
+    }
+  }
+
+  &__h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    // FIXME: its extend from typography, but we dont have access
+    // to typography in module
+    font-size: 36px;
+    font-weight: 600;
+
+    @include for-small-and-less {
+      font-size: 22px;
+    }
+  }
+
+  &__h2 {
+    display: none;
+
+    @include for-medium-and-more {
+      display: block;
+    }
+  }
+}

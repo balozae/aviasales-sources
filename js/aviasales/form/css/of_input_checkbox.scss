@@ -1,0 +1,133 @@
+.of_input_checkbox {
+  @include no-user-select;
+  position: relative;
+
+  &__input {
+    display: none;
+    position: absolute;
+    left: -9999px;
+  }
+
+  &__label {
+    padding-left: 30px;
+    cursor: pointer;
+    color: #fff;
+    line-height: 29px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+    }
+
+    &::after {
+      left: 1px;
+      top: 5px;
+      background: transparent no-repeat 50% 50%;
+    }
+
+    &::before {
+      display: inline-block;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      background: transparent;
+      // box-shadow: 0 0 0 1px;
+      transition: all 0.2s;
+      // .input_checkbox__input:focus {
+      //   box-shadow: 0 0 0 1px $of-color-form-orange;
+      //   border-color: $of-color-form-orange;
+      // }
+    }
+  }
+
+  // Checked
+  .of_input_checkbox__input:checked + .of_input_checkbox__label::after {
+    background-image: url('./images/checkbox_checked.svg');
+  }
+
+  .of_input_checkbox__input:checked + .of_input_checkbox__label::before {
+    background: #fff;
+    border-color: #fff;
+  }
+
+  &--dark {
+    color: #4a4a4a;
+
+    .of_input_checkbox__label {
+      color: #4a4a4a;
+
+      &::before {
+        background: #fff;
+        border-color: #1b91b6;
+      }
+    }
+
+    .of_input_checkbox__input:checked + .of_input_checkbox__label::before {
+      background: #1b91b6;
+      border-color: #1b91b6;
+    }
+  }
+
+  &--light-blue {
+    color: #4a4a4a;
+
+    .of_input_checkbox__label {
+      color: #4a4a4a;
+
+      &::before {
+        background: #fff;
+        border-color: #00addf;
+      }
+    }
+
+    .of_input_checkbox__input:checked + .of_input_checkbox__label::before {
+      background: #ebfcff;
+      border-color: #00addf;
+    }
+
+    .of_input_checkbox__input:checked + .of_input_checkbox__label::after {
+      background-image: url('./images/checkbox_checked_blue.svg');
+    }
+  }
+
+  &--disabled {
+    cursor: default;
+
+    .of_input_checkbox__label {
+      cursor: default;
+
+      &::before {
+        background: #fff;
+        border-color: #e1e1e1;
+      }
+    }
+  }
+
+  &__disabled_warning {
+    background-color: #000;
+    background-color: rgba(#000, 0.8);
+    bottom: 110%;
+    color: #e3e3e3;
+    font-size: 11px;
+    line-height: 14px;
+    left: -18px;
+    padding: 10px 7px;
+    pointer-events: none;
+    position: absolute;
+    width: 217px;
+    z-index: 100;
+
+    @include after {
+      @include triangle('bottom', 5px, rgba(#000, 0.8));
+      bottom: -10px;
+      left: 22px;
+
+      pointer-events: none;
+      position: absolute;
+    }
+  }
+}

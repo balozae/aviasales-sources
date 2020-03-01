@@ -1,0 +1,33 @@
+var map = {
+	"./favorites_en@2x.jp2": 1389,
+	"./favorites_ru@2x.jp2": 1390,
+	"./hotels_en@2x.jp2": 1391,
+	"./hotels_ru@2x.jp2": 1392,
+	"./profile_en@2x.jp2": 1393,
+	"./profile_ru@2x.jp2": 1394,
+	"./search_en@2x.jp2": 1395,
+	"./search_ru@2x.jp2": 1396,
+	"./travel_en@2x.jp2": 1397,
+	"./travel_ru@2x.jp2": 1398
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 2094;

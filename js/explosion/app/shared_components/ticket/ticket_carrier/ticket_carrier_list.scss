@@ -1,0 +1,46 @@
+@import 'utils/mixins';
+
+.ticket-carrier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: inline-block;
+    line-height: 0;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+
+  &__more {
+    cursor: default;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include variable(color, --general-text-color, #4a4a4a);
+    font-size: 14px;
+
+    .--night & {
+      @include variable(color, --ticket-segment-connector-background, #a0b0b9);
+    }
+
+    .ticket__carriers-link & {
+      cursor: pointer;
+    }
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    text-align: center;
+    min-width: 130px;
+    padding: 11px 16px;
+    text-align: center;
+    white-space: nowrap;
+  }
+}

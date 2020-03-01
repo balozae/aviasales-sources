@@ -1,0 +1,14 @@
+.tooltip-debug-proposal {
+  padding: 10px;
+  max-width: 350px;
+
+  &__item {
+    display: inline-block;
+    border: 1px solid #1e5fbc;
+    border-radius: 3px;
+    background: rgba(#fff, 0.1);
+    padding: 3px;
+    margin: 2px 0;
+    width: 100%;
+  }
+}

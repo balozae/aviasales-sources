@@ -1,0 +1,24 @@
+.heading {
+  font-weight: 600;
+  line-height: 1.33;
+
+  &.--h1 {
+    @extend h1;
+  }
+
+  &.--h2 {
+    @extend h2;
+  }
+
+  &.--h3 {
+    @extend h3;
+  }
+
+  &.--h4 {
+    @extend h4;
+  }
+
+  &.--h5 {
+    @extend h5;
+  }
+}

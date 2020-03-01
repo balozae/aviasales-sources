@@ -1,0 +1,29 @@
+@import 'utils/mixins';
+
+.countdown {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &__timer {
+    font-size: 30px;
+    color: #a0b0b9;
+    margin-right: 19px;
+    width: 34px;
+  }
+
+  &__title {
+    font-weight: 600;
+    display: block;
+    @include variable(color, --general-text-color, #4a4a4a);
+    line-height: 22px;
+  }
+
+  &__gate {
+    line-height: 25px;
+    font-size: 14px;
+    color: #a4b0b9;
+    font-weight: normal;
+  }
+}

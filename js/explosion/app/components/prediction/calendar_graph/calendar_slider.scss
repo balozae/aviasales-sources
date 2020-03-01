@@ -1,0 +1,116 @@
+@import 'utils/utils';
+
+.calendar-slider {
+  position: relative;
+  user-select: none;
+  margin: 0 auto;
+  padding: 30px 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 729px;
+
+  @media (min-width: $screen-medium + 1) {
+    width: 820px;
+  }
+
+  .is-prediction-expanded & {
+    opacity: 1;
+  }
+
+  &__wrap {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  &__graph {
+    polyline {
+      fill: transparent;
+      stroke: #2196f3;
+      stroke-width: 1px;
+    }
+  }
+
+  &__months {
+    position: relative;
+    white-space: nowrap;
+  }
+
+  &__month-name {
+    opacity: 0.63;
+    font-size: 9px;
+    @include variable(color, --general-text-color, #4a4a4a);
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  .slider.noUi-target {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+
+  .slider .noUi-base {
+    height: 70px;
+  }
+
+  html:not([dir='rtl']) & {
+    .slider.noUi-horizontal .noUi-handle {
+      width: 191px;
+      right: -87px;
+
+      height: 50px;
+      top: 14px;
+      // background: rgba(255,255,255,.7);
+      // border: 1px solid #C3CDD2;
+
+      @include variable(background-color, --prediction-handle, rgba(255, 255, 255, 0.7));
+      @include variable(border, --prediction-handle-border, 1px solid #c3cdd2);
+      border-radius: 5px;
+
+      &:hover,
+      &:focus {
+        border-color: #c3cdd2;
+        transform: scale(1);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      }
+
+      &.noUi-active {
+        border-color: #c3cdd2;
+        transform: scale(1);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      }
+
+      &::before,
+      &::after {
+        opacity: 1;
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        border: 5px solid transparent;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: none;
+      }
+
+      &::before {
+        border-right-color: #a0b0b9;
+        left: -15px;
+      }
+
+      &::after {
+        border-left-color: #a0b0b9;
+        left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import 'variables';
+@import 'mixins';
+
+.ticket-confirm {
+  padding: 50px;
+  width: 480px;
+
+  &__icon {
+    background: #f44336;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  &__title {
+    font-family: $rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    margin-top: 27px;
+    margin-bottom: 7px;
+    white-space: pre-line;
+    letter-spacing: 0.7px;
+  }
+  &__text {
+    font-family: $open-sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+  }
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    &__button {
+      width: calc(50% - 10px);
+    }
+  }
+
+  @include for-xsmall-only {
+    width: 100%;
+
+    .ticket-confirm-buttons {
+      display: block;
+
+      &__button {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__header-text {
+    display: none;
+    box-shadow: 0 1px 0 #dfe5ec;
+    font-family: $open-sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  &__header-close {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+
+    &.--desktop {
+      right: 15px;
+      top: 15px;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+      background: #ff6663 url('~common/images/filters/reset.svg') 50% 50% no-repeat;
+      background-size: 10px 10px;
+      cursor: pointer;
+    }
+
+    &.--mobile {
+      display: none;
+    }
+  }
+
+  @include for-xsmall-only {
+    &__header-text {
+      display: block;
+    }
+
+    &__header-close.--desktop {
+      display: none;
+    }
+
+    &__header-close.--mobile {
+      right: 10px;
+      top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        fill: #2196f3;
+        width: 14px;
+        height: 14px;
+
+        &:active {
+          fill: #f57c00;
+        }
+      }
+    }
+  }
+}

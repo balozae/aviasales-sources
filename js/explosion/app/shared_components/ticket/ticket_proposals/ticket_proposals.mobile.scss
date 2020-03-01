@@ -1,0 +1,84 @@
+.ticket-proposals-mobile {
+  $brand-blue-color: #2196f3;
+  $orange: #f57c00;
+  $red: #ff6663;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px 0 0;
+
+  &__item {
+    padding: 0;
+    margin-bottom: 1px;
+    position: relative;
+
+    &.--airline,
+    &.--assisted {
+      color: $orange;
+
+      a {
+        color: $orange;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 10px 20px;
+
+      &:hover,
+      &:focus {
+        color: $brand-blue-color;
+      }
+
+      &:active {
+        color: $orange;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-top: 1px solid #dfe5ec;
+      top: 100%;
+      right: 0;
+      left: 20px;
+
+      .--night & {
+        border-color: #031828;
+      }
+    }
+  }
+
+  &__name {
+    flex: auto;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__assisted-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+
+    svg {
+      fill: $orange;
+    }
+  }
+
+  &__price {
+    text-align: center;
+    min-width: 85px;
+    white-space: nowrap;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    padding: 3px 11px;
+    margin-left: 20px;
+    transition: border-color 0.3s;
+  }
+}

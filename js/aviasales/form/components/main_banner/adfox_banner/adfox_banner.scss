@@ -1,0 +1,17 @@
+@import 'utils/utils';
+
+.adfox-banner {
+  margin: 0 auto;
+
+  @include for-large-and-more {
+    width: 970px;
+  }
+
+  @include for-medium-only {
+    width: 728px;
+  }
+
+  @include for-small-and-less {
+    width: 320px;
+  }
+}

@@ -1,0 +1,63 @@
+@import 'utils/utils';
+
+:root {
+  --styled-input-bg-color: #fff;
+  --styled-input-border-color: #dfe5ec;
+  --styled-input-focus-bg-color: #f2fcfe;
+  --styled-input-invalid-bg-color: #fff5f7;
+  --styled-input-box-shadow: 0px 1px 3px rgba(91, 137, 164, 0.15);
+  --styled-input-invalid-box-shadow: 0px 1px 3px rgba(91, 137, 164, 0.15), inset 0 0 0 1px #ff6663;
+  --styled-input-focus-box-shadow: 0px 1px 3px rgba(91, 137, 164, 0.15), inset 0 0 0 1px #2196f3;
+}
+
+.--night {
+  --styled-input-bg: #1e3c53;
+  --styled-input-border-color: #031828;
+  --styled-input-focus-bg-color: rgb(49, 76, 96);
+  --styled-input-invalid-bg-color: rgb(49, 76, 96);
+  --styled-input-box-shadow: none;
+  --styled-input-invalid-box-shadow: inset 0 0 0 1px #ff6663;
+  --styled-input-focus-box-shadow: inset 0 0 0 1px #2196f3;
+}
+
+.styled-input {
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px 10px;
+  border-width: 1px;
+  border-style: solid;
+  transition: border-color 0.25s linear, background-color 0.25s linear, box-shadow 0.25s linear;
+  @include opensans;
+  @include variable(color, --general-text-color, $color-font);
+  @include variable(background-color, --styled-input-bg, #fff);
+  @include variable(border-color, --styled-input-border-color, #dfe5ec);
+  @include variable(box-shadow, --styled-input-box-shadow, 0px 1px 3px rgba(91, 137, 164, 0.15));
+
+  &::placeholder {
+    color: #a0b0b9;
+  }
+
+  &:hover {
+    @include variable(background-color, --styled-input-focus-bg-color, #f2fcfe);
+  }
+
+  &:focus {
+    border-color: #2196f3;
+    @include variable(background-color, --styled-input-focus-bg-color, #f2fcfe);
+    @include variable(
+      box-shadow,
+      --styled-input-focus-box-shadow,
+      (0px 1px 3px rgba(91, 137, 164, 0.15), 0 0 0 1px #2196f3)
+    );
+  }
+
+  &.--invalid {
+    border-color: #ff6663;
+    @include variable(background-color, --styled-input-invalid-bg-color, #fff5f7);
+    @include variable(
+      box-shadow,
+      --styled-input-invalid-box-shadow,
+      (0px 1px 3px rgba(91, 137, 164, 0.15), 0 0 0 1px #ff6663)
+    );
+  }
+}

@@ -1,0 +1,39 @@
+.adsense-banners,
+.adfox-banners {
+  &.--main-block {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  &.--content {
+    display: none;
+    margin-top: 20px;
+
+    @include for-medium-and-more {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &.--right-column {
+    padding: 0;
+    background: transparent;
+  }
+
+  &.--float {
+    float: left;
+    margin: 10px 20px 0 0;
+    min-width: 100%;
+  }
+}
+
+.adfox-banners {
+  &.--main-block {
+    @include for-medium-and-less {
+      display: none;
+    }
+  }
+}

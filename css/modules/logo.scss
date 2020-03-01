@@ -1,0 +1,52 @@
+.logo {
+  display: block;
+  text-align: left;
+  text-decoration: none;
+  line-height: 25px;
+  color: #fff;
+  height: 29px;
+  padding-left: 40px;
+  position: relative;
+  font-weight: 300;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 29px;
+    background: url('../assets/images/logo.svg') no-repeat;
+  }
+
+  &__text {
+    display: none;
+    font-size: 21px;
+    position: absolute;
+    left: 40px;
+    top: 0;
+
+    @include for-medium-and-more {
+      display: inline;
+    }
+  }
+
+  &.--without-logo {
+    .logo__text {
+      display: none;
+    }
+  }
+
+  &.--mobile-link {
+  }
+
+  &.--content {
+  }
+}

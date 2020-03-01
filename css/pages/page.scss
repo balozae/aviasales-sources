@@ -1,0 +1,129 @@
+.page {
+  @include variable(background-color, --page-header-color, #2196f3);
+
+  &.--map {
+    padding-top: 0;
+  }
+
+  &__body {
+    min-width: $screen-min;
+
+    &.has-overlay,
+    &.has-opened-top-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__part.--prices-table {
+    @include for-small-and-less {
+      display: none;
+    }
+  }
+
+  &__container {
+    max-width: 1116px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 9px;
+    margin-top: 50px;
+    color: #4a4a4a;
+    position: relative;
+    z-index: 1;
+
+    .--serp & {
+      display: none;
+    }
+
+    &.--no-top-margin {
+      margin-top: 0;
+    }
+
+    &.--user-account {
+      min-height: 400px;
+      margin-top: 0;
+      max-width: none;
+      padding: 0;
+      @include variable(background-color, --user-account-page-background-color, #fff);
+
+      // NOTE: temporary fixes
+      html[data-host='UA'] & {
+        min-height: calc(100vh - 322px); // 322px = header height(161px) + footer height(171px)
+      }
+
+      html[data-host='EN'] & {
+        min-height: calc(100vh - 242px); // 322px = header height(161px) + footer height(81px)
+      }
+    }
+  }
+
+  &__content {
+    padding-bottom: 18px;
+    width: auto;
+    overflow-x: hidden;
+
+    @include for-small-and-more {
+      margin-left: 4.03226%;
+      margin-right: 4.03226%;
+    }
+
+    @media (min-width: $screen-medium + 1) {
+      width: 59.67742%;
+      float: left;
+    }
+
+    &.--wide {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__extra {
+    width: 27.41935%;
+    float: right;
+    margin-right: 4.03226%;
+    display: none;
+
+    @media (min-width: $screen-medium + 1) {
+      display: block;
+    }
+  }
+
+  &.--home & {
+    &__content {
+      overflow: hidden;
+    }
+  }
+
+  &.--home &,
+  &.--gate & {
+    &__container {
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+
+    &__content {
+      width: auto;
+      float: none;
+      padding-bottom: 0;
+      margin: 0;
+    }
+  }
+
+  &.is-fixed-body {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  // Provide page_type like mod
+  &.--content-page {
+    .page__wrapper {
+      @include for-max {
+        background: #f3f5f7;
+        padding-top: 40px;
+        padding-bottom: 50px;
+      }
+    }
+  }
+}

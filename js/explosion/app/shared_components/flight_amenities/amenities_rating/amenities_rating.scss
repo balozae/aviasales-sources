@@ -1,0 +1,35 @@
+@import '../../mixins';
+
+.amenities-rating {
+  $amenities_rating_types: awful, bad, normal, good, excellent;
+
+  &__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 7px;
+    background: no-repeat center;
+
+    @each $type in $amenities_rating_types {
+      &.--#{$type} {
+        background-image: url(./images/#{$type}.svg);
+      }
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+
+  &__label {
+    padding-right: 5px;
+  }
+
+  &__value {
+    font-weight: 600;
+  }
+}

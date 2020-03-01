@@ -1,0 +1,208 @@
+// Breakpoints (for that and more)
+@mixin for-xsmall-only {
+  @include with-layout($grid-layout-4) {
+    @media (max-width: $screen-xsmall - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin variable($property, $variable, $fallback) {
+  #{$property}: $fallback;
+  #{$property}: var($variable, $fallback);
+}
+
+@mixin dark-scrollbar() {
+  &::-webkit-scrollbar {
+    background-color: #2a465b;
+  }
+  &::-webkit-scrollbar-button {
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #2a465b;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: #2a465b;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2196f3;
+    border-radius: 20px;
+    border: 3px solid #2a465b;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: #2a465b;
+  }
+  &::-webkit-resizer {
+    background-color: #fff;
+  }
+}
+
+@mixin for-small-and-more {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-xsmall) {
+      @content;
+    }
+  }
+}
+
+@mixin for-medium-and-more {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-small) {
+      @content;
+    }
+  }
+}
+
+@mixin for-large-and-more {
+  @include with-layout($grid-layout-12) {
+    @media (min-width: $screen-medium) {
+      @content;
+    }
+  }
+}
+
+@mixin for-max {
+  @include with-layout($grid-layout-12) {
+    @media (min-width: $screen-max) {
+      @content;
+    }
+  }
+}
+
+@mixin for-max {
+  @include with-layout($grid-layout-12) {
+    @media (min-width: $screen-max) {
+      @content;
+    }
+  }
+}
+
+@mixin for-medium-and-less {
+  @media (max-width: $screen-medium - 1px) {
+    @content;
+  }
+}
+
+@mixin for-large-and-less {
+  @media (max-width: $screen-medium - 1px) {
+    @content;
+  }
+}
+
+@mixin for-max-less {
+  @media (max-width: $screen-max - 1px) {
+    @content;
+  }
+}
+
+//
+// @mixin for-min-only {
+//   @include with-layout($grid-layout-8) {
+//     @media (min-width: $screen-min) and (max-width: $screen-medium - 1) {
+//       @content;
+//     }
+//   }
+// }
+
+@mixin for-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+// grid (+ susy mixins, wrapped in grid namespace)
+@mixin grid-container {
+  @include container($screen-max);
+}
+
+@mixin grid-span($columns) {
+  @include span($columns);
+}
+
+@mixin grid-push($columns) {
+  @include push($columns);
+}
+
+@mixin grid-post($columns) {
+  @include post($columns);
+}
+
+@mixin grid-squish($pre, $post: false) {
+  @if $post {
+    @include squish($pre, $post);
+  } @else {
+    @include squish($pre);
+  }
+}
+
+@mixin grid-centered {
+  float: none;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin grid-contatiner-nested {
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+}
+
+@mixin grid-span-full {
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  width: 100%;
+  float: none;
+}
+
+@mixin grid-span-inline($columns) {
+  @include span($columns);
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@mixin grid-span-full-inline {
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@mixin grid-adaptive {
+  @include grid-container;
+  padding: 0 10px;
+  width: $screen-small - 20px;
+
+  @include for-large-and-more {
+    width: $screen-medium - 20px;
+  }
+
+  @include for-max {
+    width: $screen-max - 20px;
+  }
+}
+
+%clearfix {
+  zoom: 1;
+}
+
+%clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+@mixin clearfix {
+  @extend %clearfix;
+}

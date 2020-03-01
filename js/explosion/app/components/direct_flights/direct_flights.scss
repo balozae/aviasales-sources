@@ -1,0 +1,245 @@
+@import '~susy/sass/susy';
+@import '../../common/css/base/variables';
+@import '../../common/css/base/mixins';
+@import '../../common/css/trumps/helper_classes';
+
+.direct-flights {
+  @include variable(background-color, --general-block-color, #fff);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+
+  @include for-medium-and-less {
+    display: none;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  &__segments {
+    @extend .cf;
+    margin: 0 -20px;
+  }
+
+  &__note {
+    margin-bottom: 0;
+  }
+
+  &__segment {
+    margin-top: 13px;
+
+    @include for-max {
+      .--roundtrip &:first-child {
+        width: 50%;
+        float: left;
+        border-right: 1px solid;
+        @include variable(border-color, --general-background-color, #eff1f4);
+      }
+
+      .--roundtrip &:last-child {
+        width: 50%;
+        float: right;
+      }
+    }
+  }
+
+  &__segment-title {
+    padding-left: 40px;
+    width: 100%;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    position: relative;
+    margin: 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 12px;
+
+    &::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      display: block;
+      @include variable(
+        background,
+        --direct-flight-plane,
+        url('../../common/images/route-plane.svg') no-repeat
+      );
+      position: absolute;
+      left: 20px;
+      top: 2px;
+    }
+
+    .--roundtrip & {
+      padding-right: 18px;
+    }
+  }
+
+  &__flights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__flight {
+    line-height: 26px;
+    height: 26px;
+    position: relative;
+    z-index: 0;
+    padding-left: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    color: #8b9497;
+
+    &:hover:not(.--no-direct) {
+      @include variable(background-color, --direct-flight-hover, #f2fdff);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #2196f3;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .--roundtrip .direct-flights__segment:last-child & {
+        @include for-max {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
+    &.is-selected {
+      // background: #F2FDFF;
+      @include variable(background-color, --direct-flight-hover, #f2fdff);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &.is-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+
+      > * {
+        color: #8b9497 !important;
+      }
+    }
+
+    &.--no-direct {
+      cursor: default;
+    }
+
+    .--roundtrip .direct-flights__segment:last-child & {
+      @include for-max {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  &__date {
+    display: inline-block;
+    width: 60px;
+    color: #2196f3;
+    transition: color 0.3s ease;
+
+    .--no-direct & {
+      color: #8b9497;
+    }
+
+    .--roundtrip & {
+      @include for-max {
+        width: 48px;
+      }
+    }
+  }
+
+  &__price {
+    .--no-price:not(.--no-direct) & {
+      color: #2196f3;
+    }
+
+    .--cheapest & {
+      color: #78b92e;
+    }
+  }
+
+  &__search {
+    margin-top: 19px;
+
+    &.is-enter {
+      opacity: 0;
+      transform: translateY(-80px);
+      transition: transform 0.3s ease-out, opacity 0.15s 0.15s ease-out;
+      will-change: opacity;
+
+      &.is-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &.is-leave {
+      opacity: 1;
+      transform: translateY(0px);
+      transition: transform 0.2s ease-in, opacity 0.1s ease-in;
+      will-change: opacity;
+
+      &.is-leave-active {
+        opacity: 0;
+        transform: translateY(-80px);
+      }
+    }
+  }
+
+  // TODO: extract all buttons to one file, cuz we have 19231283 variants
+  .explosion &__search-button {
+    display: block;
+    background: #ff6d00;
+    box-shadow: 0 1px 0 0 #d64d08, 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: transparent;
+      background-color: $orange-light;
+      transition: all 0.3s;
+    }
+  }
+
+  &__search-summary {
+    color: #8b9497;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__error {
+    min-height: 35px;
+    background: url('../../common/images/errors/sad-browser-small.svg') no-repeat 1px 6px;
+    padding-left: 40px;
+    color: #8b9497;
+    margin-bottom: 0;
+  }
+}

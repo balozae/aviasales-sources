@@ -1,0 +1,42 @@
+// Colors
+// color-(light | lighter | dark | darker)
+$black: #262626;
+$gray: #999;
+$gray-light: #dde1e4;
+$gray-lighter: #f7f7f7;
+$blue-dark: #158cad;
+$blue: #1ba6d2;
+$blue-light: #4abbdf;
+$blue-middle-light: #d9f0f8;
+$blue-lighter: #e6faff;
+$brand-blue-color: #2196f3;
+$orange-dark: #ed7a18;
+$orange: #f57c00;
+$orange-light: #ffa353;
+$orange-lighter: #fff2e7;
+$red: #d5374a;
+$green: #6eb34d;
+$shadow: #dbdbdb;
+$text-gray: #aeaeae;
+$prediction-loader-time: 45s;
+$prediction-height: 60px;
+$prediction-graph-expanded-height: 380px;
+$prediction-graph-expanded-height-oneway: 330px;
+$prediction-matrix-expanded-height: 510px;
+$prediction-matrix-expanded-height-oneway: 230px;
+// Sizes
+$grid-gutter: 15px;
+$ticket-width: 729px;
+// Grid
+$grid-columns: 12;
+$grid-gutter: 20px;
+$grid-layout-4: 4 (45px 20px) fluid;
+$grid-layout-8: 8 (45px 20px) fluid;
+$grid-layout-12: $grid-columns (45px 20px) fluid;
+$scroll-width: 15px;
+// Breakpoint (until that width)
+$screen-min: 320px;
+$screen-xsmall: 568px;
+$screen-small: 768px;
+$screen-medium: 1024px;
+$screen-max: 1280px;

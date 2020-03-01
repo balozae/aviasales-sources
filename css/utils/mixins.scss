@@ -1,0 +1,396 @@
+@import './susy';
+@import './fonts-mixins';
+
+@mixin clearfix {
+  @extend %clearfix;
+}
+
+@mixin clearlist {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+@mixin clearlink {
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+    color: inherit;
+  }
+}
+
+@mixin after {
+  &::after {
+    content: '';
+    display: block;
+    @content;
+  }
+}
+
+@mixin before {
+  &::before {
+    content: '';
+    display: block;
+    @content;
+  }
+}
+
+@mixin variable($property, $variable, $fallback) {
+  #{$property}: $fallback;
+  #{$property}: var($variable, $fallback);
+}
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: #fbfbfb;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c7c7c7;
+    border-radius: 20px;
+    border: 3px solid #fbfbfb;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #fbfbfb;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: #fbfbfb;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: #fbfbfb;
+  }
+  &::-webkit-resizer {
+    background-color: #fff;
+  }
+}
+
+@mixin dark-scrollbar() {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: #2a465b;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2196f3;
+    border-radius: 20px;
+    border: 3px solid #2a465b;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #2a465b;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: #2a465b;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: #2a465b;
+  }
+  &::-webkit-resizer {
+    background-color: #fff;
+  }
+}
+
+@mixin square($width) {
+  width: $width;
+  height: $width;
+}
+
+@mixin appearance {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+
+@mixin antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Text
+@mixin no-user-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin text-overflow {
+  //word-wrap: break-word;      /* for IE, Firefox since 3.5 and Opera since 10.5 */
+  overflow: hidden; /* required for text-overflow */
+  text-overflow: ellipsis; /* for IE and WebKit (Safari, Chrome) */
+}
+
+@mixin word-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+// Images
+@mixin triangle($dir, $size, $color) {
+  line-height: 0;
+  height: 0;
+  border: $size transparent solid;
+
+  @if ($dir == 'top' or $dir == 'up') {
+    border-bottom-color: $color;
+  } @else if ($dir == 'right' or $dir == 'after') {
+    border-left-color: $color;
+  } @else if ($dir == 'bottom' or $dir == 'down') {
+    border-top-color: $color;
+  } @else if ($dir == 'left' or $dir == 'before') {
+    border-right-color: $color;
+  }
+}
+
+// Breakpoints (for that and more)
+@mixin for-xsmall-only {
+  @include with-layout($grid-layout-4) {
+    @media (max-width: $screen-xsmall - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin for-small-and-more {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-xsmall) {
+      @content;
+    }
+  }
+}
+
+@mixin for-medium-and-more {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-small) {
+      @content;
+    }
+  }
+}
+
+@mixin for-large-and-more {
+  @include with-layout($grid-layout-12) {
+    @media (min-width: $screen-medium) {
+      @content;
+    }
+  }
+}
+
+@mixin for-max {
+  @include with-layout($grid-layout-12) {
+    @media (min-width: $screen-max) {
+      @content;
+    }
+  }
+}
+
+@mixin for-min {
+  @include with-layout($grid-layout-4) {
+    @media (max-width: $screen-min) {
+      @content;
+    }
+  }
+}
+
+@mixin for-small-and-less {
+  @media (max-width: $screen-small - 1px) {
+    @content;
+  }
+}
+
+@mixin for-small-only {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-xsmall) and (max-width: $screen-small - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin for-small-and-medium {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-xsmall) and (max-width: $screen-medium - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin for-medium-only {
+  @include with-layout($grid-layout-8) {
+    @media (min-width: $screen-small) and (max-width: $screen-medium - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin for-medium-and-less {
+  @media (max-width: $screen-medium - 1px) {
+    @content;
+  }
+}
+
+@mixin for-large-and-less {
+  @media (max-width: $screen-max - 1px) {
+    @content;
+  }
+}
+
+@mixin for-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+// grid (+ susy mixins, wrapped in grid namespace)
+@mixin grid-container {
+  @include container($screen-max);
+}
+
+@mixin grid-span($columns) {
+  @include span($columns);
+}
+
+@mixin grid-push($columns) {
+  @include push($columns);
+}
+
+@mixin grid-post($columns) {
+  @include post($columns);
+}
+
+@mixin grid-squish($pre, $post: false) {
+  @if $post {
+    @include squish($pre, $post);
+  } @else {
+    @include squish($pre);
+  }
+}
+
+@mixin grid-centered {
+  float: none;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin grid-contatiner-nested {
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+}
+
+@mixin grid-span-full {
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  width: 100%;
+  float: none;
+}
+
+@mixin grid-span-inline($columns) {
+  @include span($columns);
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@mixin grid-span-full-inline {
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+// NOTE: fix bug with wrong vh behaviour on iOS7
+// https://gist.github.com/pburtchaell/e702f441ba9b3f76f587
+@mixin ios7-vh-fix($percent) {
+  // ipad
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    & {
+      height: 1024px / 100 * $percent;
+      @content;
+    }
+  }
+
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    & {
+      height: 768px / 100 * $percent;
+      @content;
+    }
+  }
+
+  // iphone 4
+  @media all and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    & {
+      height: 480px / 100 * $percent;
+      @content;
+    }
+  }
+
+  @media all and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    & {
+      height: 480px / 100 * $percent;
+      @content;
+    }
+  }
+
+  // iphone 5
+  @media all and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    & {
+      height: 568px / 100 * $percent;
+      @content;
+    }
+  }
+
+  @media all and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    & {
+      height: 320px / 100 * $percent;
+      @content;
+    }
+  }
+}
+
+@mixin aircraft-types-color() {
+  background-color: #2d6592;
+
+  &.--first {
+    background-color: #2cd083;
+  }
+
+  &.--second {
+    background-color: #bb63ec;
+  }
+
+  &.--third {
+    background-color: #fc6a83;
+  }
+
+  &.--fourth {
+    background-color: #2196f3;
+  }
+
+  &.--fifth {
+    background-color: #ff6d00;
+  }
+}

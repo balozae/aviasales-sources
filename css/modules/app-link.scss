@@ -1,0 +1,71 @@
+.app-link {
+  padding-left: 30px;
+  color: #fff;
+  position: relative;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    transition: opacity 0.3s;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &.--ios {
+    &::after {
+      width: 18px;
+      height: 23px;
+      background: url('../assets/images/app_link/ios.svg') no-repeat;
+    }
+
+    &.--black {
+      &::after {
+        background: url('../assets/images/app_link/ios--black.svg') no-repeat;
+      }
+    }
+  }
+
+  &.--android {
+    &::after {
+      width: 18px;
+      height: 23px;
+      background: url('../assets/images/app_link/android.svg') no-repeat;
+    }
+
+    &.--black {
+      &::after {
+        background: url('../assets/images/app_link/android--black.svg') no-repeat;
+      }
+    }
+  }
+
+  &.--winphone {
+    &::after {
+      top: 3px;
+      width: 18px;
+      height: 17px;
+      background: url('../assets/images/app_link/wp.svg') no-repeat;
+    }
+
+    &.--black {
+      &::after {
+        background: url('../assets/images/app_link/wp--black.svg') no-repeat;
+      }
+    }
+  }
+
+  &.--mobile {
+    &::after {
+      width: 15px;
+      height: 24px;
+      background: url('../assets/images/app_link/mobile.svg') no-repeat;
+    }
+  }
+}

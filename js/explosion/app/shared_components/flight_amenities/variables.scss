@@ -1,0 +1,22 @@
+@mixin variable($property, $variable, $fallback) {
+  #{$property}: $fallback;
+  #{$property}: var($variable, $fallback);
+}
+
+:root {
+  --flight-amenities-color-text: #4a4a4a;
+  --seats-width-info-splitter-background-color: #a0b0b9;
+  --schema-arrow-fill: #a0b0b9;
+  --value-range-point-fill: #a0b0b9;
+  --seats-layout-airplane: #dfe5ec;
+  --amenities-card-border-color: #dfe5ec;
+}
+
+.--night {
+  --flight-amenities-color-text: #fff;
+  --seats-width-info-splitter-background-color: #255a86;
+  --schema-arrow-fill: #fff;
+  --value-range-point-fill: #fff;
+  --seats-layout-airplane: #a0b0b9;
+  --amenities-card-border-color: #a0b0b9;
+}

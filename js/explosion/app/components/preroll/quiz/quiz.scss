@@ -1,0 +1,122 @@
+@import 'utils/mixins';
+@import '../../../common/css/base/variables';
+@import '~susy/sass/susy';
+
+.preroll-quiz {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  &__thanks-image {
+    width: 120px;
+    height: 120px;
+    background: #e5ecee url('./images/thanks-quiz-icon.svg') no-repeat center;
+    border-radius: 100%;
+    margin: auto;
+  }
+
+  &__thanks-text {
+    font-size: 36px;
+    @include variable(color, --general-text-color, #4a4a4a);
+    font-weight: 700;
+    margin-top: initial;
+    margin-bottom: initial;
+  }
+
+  &__question-title {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    margin: 25px 0 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include variable(color, --general-text-color, #4a4a4a);
+  }
+
+  &__question {
+    @include rubik;
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 1.4;
+    margin: 0;
+    @include variable(color, --general-text-color, #4a4a4a);
+  }
+
+  &__answers {
+    margin: 40px -10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  &__answer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    width: calc(50% - 20px);
+    max-width: 315px;
+    padding: 10px 20px;
+    text-align: center;
+    background: $brand-blue-color;
+    margin: 10px;
+    box-shadow: 0px 1px 0px #2179dd;
+    border-radius: 5px;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:active {
+      background: #64b5f5;
+      box-shadow: inset 0px 1px 0px #2179dd;
+      color: #fff;
+    }
+
+    &:hover,
+    &:focus {
+      background: #64b5f5;
+      color: #fff;
+    }
+  }
+
+  @include for-small-and-less {
+    width: 100%;
+
+    &__thanks-text {
+      font-size: 24px;
+    }
+
+    &__answer {
+      font-size: 18px;
+    }
+
+    &__question {
+      font-size: 20px;
+    }
+
+    &__question-title {
+      font-size: 10px;
+      margin: 10px 0 10px;
+    }
+  }
+
+  @include for-xsmall-only {
+    &__answers {
+      display: block;
+      margin: 0;
+    }
+
+    &__answer {
+      min-height: 40px;
+      width: 100%;
+      max-width: 320px;
+      margin: 10px auto;
+      font-size: 14px;
+    }
+  }
+}

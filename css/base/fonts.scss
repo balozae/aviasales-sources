@@ -1,0 +1,42 @@
+@import 'utils/fonts-mixins';
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: local('Rubik');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Currency Font';
+  src: url('~assets/fonts/currency-font/currency-regular-v1.woff2') format('woff2'),
+    url('~assets/fonts/currency-font/currency-regular-v1.woff') format('woff'),
+    url('~assets/fonts/currency-font/currency-regular-v1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Currency Font';
+  src: url('~assets/fonts/currency-font/currency-semibold-v1.woff2') format('woff2'),
+    url('~assets/fonts/currency-font/currency-semibold-v1.woff') format('woff'),
+    url('~assets/fonts/currency-font/currency-semibold-v1.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.currency-font {
+  @include currency-font;
+
+  &.--uzs::before {
+    content: '\2007';
+    display: inline;
+  }
+}

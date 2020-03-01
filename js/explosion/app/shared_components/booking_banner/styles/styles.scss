@@ -1,0 +1,33 @@
+$blue: #0077cc;
+$bookingBlue: #003580;
+$cards-step: 15px;
+
+@mixin backgroundLogo($size: 'md') {
+  background: url('../styles/images/booking_logo.svg') no-repeat;
+  background-size: contain;
+  @if ($size == 'sm') {
+    height: 15px;
+    width: 93px;
+  } @else {
+    height: 18px;
+    width: 108px;
+  }
+
+  .--night & {
+    background: url('../styles/images/booking_logo_white.svg') no-repeat;
+    background-size: contain;
+  }
+}
+
+@mixin booking-button($size: 'md') {
+  background: $blue;
+  border-radius: 5px;
+  color: white !important;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  transition: background-color 0.25s ease;
+  vertical-align: middle;
+}

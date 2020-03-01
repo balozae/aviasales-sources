@@ -1,0 +1,263 @@
+@import 'mixins';
+
+.segment-route {
+  width: 100%;
+
+  &__header {
+    display: none;
+    margin-bottom: 15px;
+
+    .--is-opened & {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    @include variable(color, --general-text-color, #4a4a4a);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    display: flex;
+    font-family: $open-sans;
+    flex-wrap: nowrap;
+    font-size: 12px;
+    align-items: flex-end;
+  }
+
+  &__endpoint {
+    flex: 0 0 105px;
+    max-width: 105px;
+
+    &.origin {
+      text-align: left;
+    }
+
+    &.destination {
+      text-align: right;
+    }
+  }
+
+  &__time {
+    font-size: 28px;
+    @include variable(color, --general-text-color, #4a4a4a);
+    line-height: 1em;
+    margin-bottom: 5px;
+  }
+
+  &__pin {
+    margin-top: 5px;
+    margin-right: 5px;
+    float: left;
+  }
+
+  &__city,
+  &__date {
+    color: #a0b0b9;
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  &__city {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__route_wrap {
+    flex: 1 0 auto;
+    margin: 0 7px;
+    position: relative;
+  }
+
+  &__duration {
+    color: #a0b0b9;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 3px;
+  }
+
+  &__path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1px;
+  }
+
+  &__stop {
+    flex: 1 0 11px;
+    min-width: 20px;
+    box-sizing: content-box;
+    background-color: #a0b0b9;
+    background-clip: content-box;
+    padding: 5px 1px;
+    height: 1px;
+    z-index: 0;
+    position: relative;
+    color: $brand-blue-color;
+
+    &:hover {
+      color: $color-orange;
+      background-color: $color-orange;
+    }
+
+    &::after {
+      content: attr(data-iatas);
+      position: absolute;
+      top: 23px;
+      left: 50%;
+      font-size: 10px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 600;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    &.--change-airport {
+      min-width: 48px;
+
+      &::after {
+        color: #f44336;
+      }
+    }
+  }
+
+  &__connector {
+    position: relative;
+    $connector-height: 5px;
+
+    height: $connector-height;
+    border-radius: $connector-height/2;
+    flex: 1 0 20px;
+    border: 1px solid transparent;
+    @include variable(background-color, --ticket-segment-connector-background, #dfe5ec);
+    text-align: center;
+    min-width: 20px;
+
+    &.--pinable {
+      cursor: pointer;
+
+      &:hover {
+        border-color: $color-orange;
+        background-color: transparent;
+      }
+    }
+
+    &.--is-pinned {
+      border-color: $brand-blue-color;
+      background-color: transparent;
+    }
+
+    // need this to make click area bigger
+    &::before {
+      content: '';
+      width: 100%;
+      height: 11px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 11px 16px;
+    width: 200px;
+    text-align: center;
+  }
+
+  &__path-endpoint {
+    width: 0;
+    height: 65px;
+    position: relative;
+    color: #a0b0b9;
+
+    &:hover {
+      color: $color-orange;
+
+      .segment-route__path-endpoint-iata {
+        color: $color-orange;
+      }
+    }
+
+    &.--arrival {
+      .segment-route__path-endpoint-icon {
+        right: -4px;
+        left: auto;
+      }
+
+      .segment-route__path-endpoint-iata {
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &.--airplane.--departure {
+      .segment-route__path-endpoint-icon {
+        transform: rotate(-25deg);
+      }
+    }
+
+    &.--airplane.--arrival {
+      .segment-route__path-endpoint-icon {
+        transform: rotate(25deg);
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left: -4px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+
+    &-iata {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      font-size: 10px;
+      line-height: 1.5;
+      font-weight: 600;
+      white-space: nowrap;
+      color: $brand-blue-color;
+      cursor: default;
+    }
+  }
+
+  &.--compact-view {
+    .segment-route {
+      &__header {
+        margin-bottom: 3px;
+      }
+
+      &__body {
+        display: block;
+      }
+
+      &__duration {
+        position: static;
+        text-align: left;
+        padding: 0;
+        line-height: 1.5;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
